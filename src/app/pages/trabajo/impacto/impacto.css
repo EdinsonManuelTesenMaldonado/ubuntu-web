@@ -1,5 +1,5 @@
 .page-header {
-  background: #D60000;
+  background: #e30613;
   color: white;
   padding: 90px 40px;
   text-align: center;
@@ -56,7 +56,7 @@
 }
 
 .etiqueta {
-  color: #D60000;
+  color: #e30613;
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   font-weight: 700;
@@ -93,7 +93,7 @@
 }
 
 .numbers-header span {
-  color: #D60000;
+  color: #e30613;
 }
 
 .numbers-header h2 {
@@ -114,12 +114,12 @@
   background: white;
   padding: 45px 30px;
   text-align: center;
-  border-top: 5px solid #D60000;
+  border-top: 5px solid #e30613;
 }
 
 .number-card strong {
   display: block;
-  color: #D60000;
+  color: #e30613;
   font-family: 'Montserrat', sans-serif;
   font-size: 45px;
   font-weight: 800;
@@ -161,12 +161,12 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  border-left: 5px solid #D60000;
+  border-left: 5px solid #e30613;
   padding-left: 20px;
 }
 
 .territorio-dato strong {
-  color: #D60000;
+  color: #e30613;
   font-family: 'Montserrat', sans-serif;
   font-size: 42px;
 }
@@ -180,7 +180,7 @@
 /* PASOS */
 
 .impacto-visual {
-  background: #D60000;
+  background: #e30613;
   color: white;
   padding: 100px 40px;
 }
@@ -248,7 +248,7 @@
 
 .cierre a {
   display: inline-block;
-  background: #D60000;
+  background: #e30613;
   color: white;
   padding: 15px 28px;
   text-decoration: none;

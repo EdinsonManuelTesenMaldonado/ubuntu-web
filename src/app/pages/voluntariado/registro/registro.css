@@ -10,7 +10,7 @@
 
 .register-hero {
   min-height: 360px;
-  background: #D60000;
+  background: #e30613;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,7 +70,7 @@
 }
 
 .section-label {
-  color: #D60000;
+  color: #e30613;
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 13px;
   font-weight: 800;
@@ -138,7 +138,7 @@
 }
 
 .form-group label span {
-  color: #D60000;
+  color: #e30613;
 }
 
 .form-group input,
@@ -168,7 +168,7 @@
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: #D60000;
+  border-color: #e30613;
 }
 
 
@@ -198,7 +198,7 @@
   width: 18px;
   height: 18px;
   margin-top: 2px;
-  accent-color: #D60000;
+  accent-color: #e30613;
   flex-shrink: 0;
 }
 
@@ -222,7 +222,7 @@
 
 .form-message.error {
   background: #fdecec;
-  border-left: 4px solid #D60000;
+  border-left: 4px solid #e30613;
   color: #a00000;
 }
 
@@ -238,7 +238,7 @@
 .btn-submit {
   width: 100%;
   border: none;
-  background: #D60000;
+  background: #e30613;
   color: white;
   padding: 17px 25px;
   font-family: 'Montserrat', Arial, sans-serif;
@@ -263,7 +263,7 @@
 ========================= */
 
 .register-question {
-  background: #D60000;
+  background: #e30613;
   color: white;
   text-align: center;
   padding: 90px 30px;
@@ -298,7 +298,7 @@
 .btn-white {
   display: inline-block;
   background: white;
-  color: #D60000;
+  color: #e30613;
   padding: 14px 28px;
   text-decoration: none;
   font-family: 'Montserrat', Arial, sans-serif;

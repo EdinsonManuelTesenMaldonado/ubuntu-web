@@ -5,7 +5,7 @@
 .page-header {
   background: linear-gradient(
     135deg,
-    #d71920,
+    #e30613
     #a80008
   );
 
@@ -55,7 +55,7 @@
 }
 
 .intro-content .section-label {
-  color: #d71920;
+  color: #e30613;
 }
 
 .intro-content h2 {
@@ -131,7 +131,7 @@
 /* NÚMERO */
 
 .line-number {
-  color: #d71920;
+  color: #e30613;
 
   font-size: 14px;
 
@@ -213,7 +213,7 @@
 
   background-color: white;
 
-  color: #d71920;
+  color: #e30613;
 
   padding: 15px 30px;
 

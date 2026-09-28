@@ -1,5 +1,5 @@
 .page-header {
-  background: #D60000;
+  background: #e30613;
   color: white;
   padding: 90px 40px;
   text-align: center;
@@ -58,7 +58,7 @@
 
 .etiqueta,
 .destacada-text > span {
-  color: #D60000;
+  color: #e30613;
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   font-weight: 700;
@@ -95,7 +95,7 @@
 }
 
 .actividades-header span {
-  color: #D60000;
+  color: #e30613;
 }
 
 .actividades-header h2 {
@@ -133,7 +133,7 @@
 }
 
 .actividad-content span {
-  color: #D60000;
+  color: #e30613;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 700;
@@ -172,7 +172,7 @@
 .destacada-text a {
   display: inline-block;
   margin-top: 15px;
-  color: #D60000;
+  color: #e30613;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
@@ -182,7 +182,7 @@
 /* CIERRE */
 
 .cierre {
-  background: #D60000;
+  background: #e30613;
   color: white;
   text-align: center;
   padding: 90px 40px;
@@ -203,7 +203,7 @@
 .cierre a {
   display: inline-block;
   background: white;
-  color: #D60000;
+  color: #e30613;
   padding: 15px 28px;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;

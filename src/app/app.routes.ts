@@ -54,7 +54,7 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/nosotros/equipo/equipo').then(m => m.Equipo)
   },
-
+{ path: 'nosotros/sedes-equipos', loadComponent: () => import('./pages/nosotros/sedes-equipos/sedes-equipos').then(m => m.SedesEquipos) },
   // NUESTRO TRABAJO
   {
     path: 'trabajo',

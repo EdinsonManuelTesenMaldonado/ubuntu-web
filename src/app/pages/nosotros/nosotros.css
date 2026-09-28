@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 520px;
-  background: #d60000;
+  background: #e30613;
 }
 
 .hero-text {
@@ -68,7 +68,7 @@
 }
 
 .etiqueta {
-  color: #d60000;
+  color: #e30613;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
@@ -108,7 +108,7 @@
 /* DATOS */
 
 .datos {
-  background: #d60000;
+  background: #e30613;
   color: white;
   padding: 90px 40px;
   text-align: center;

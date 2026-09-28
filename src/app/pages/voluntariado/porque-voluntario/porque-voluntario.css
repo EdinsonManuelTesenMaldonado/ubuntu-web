@@ -1,5 +1,5 @@
 .page-header {
-  background: #D60000;
+  background: #e30613;
   color: white;
   padding: 90px 40px;
   text-align: center;
@@ -57,7 +57,7 @@
 }
 
 .etiqueta {
-  color: #D60000;
+  color: #e30613;
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
   font-weight: 700;
@@ -94,7 +94,7 @@
 }
 
 .razones-header span {
-  color: #D60000;
+  color: #e30613;
 }
 
 .razones-grid {
@@ -127,7 +127,7 @@
 }
 
 .razon-content > span {
-  color: #D60000;
+  color: #e30613;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
@@ -162,7 +162,7 @@
 }
 
 .experiencia-text > span {
-  color: #D60000;
+  color: #e30613;
 }
 
 .experiencia-text blockquote {
@@ -187,7 +187,7 @@
 /* CIERRE */
 
 .cierre {
-  background: #D60000;
+  background: #e30613;
   color: white;
   text-align: center;
   padding: 90px 40px;
@@ -208,7 +208,7 @@
 .cierre a {
   display: inline-block;
   background: white;
-  color: #D60000;
+  color: #e30613;
   padding: 15px 28px;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;

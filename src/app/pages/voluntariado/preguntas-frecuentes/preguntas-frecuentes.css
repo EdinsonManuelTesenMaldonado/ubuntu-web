@@ -10,7 +10,7 @@
 
 .page-header {
   min-height: 360px;
-  background: #D60000;
+  background: #e30613;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +76,7 @@
 }
 
 .section-label {
-  color: #D60000;
+  color: #e30613;
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 13px;
   font-weight: 800;
@@ -104,7 +104,7 @@
   display: inline-block;
   margin-top: 15px;
   padding: 15px 28px;
-  background: #D60000;
+  background: #e30613;
   color: white;
   text-decoration: none;
   font-family: 'Montserrat', Arial, sans-serif;
@@ -134,7 +134,7 @@
 .faq-item {
   background: white;
   margin-bottom: 14px;
-  border-left: 4px solid #D60000;
+  border-left: 4px solid #e30613;
 }
 
 .faq-question {
@@ -150,7 +150,7 @@
 }
 
 .faq-icon {
-  color: #D60000;
+  color: #e30613;
   font-size: 28px;
   font-weight: 400;
   flex-shrink: 0;
@@ -173,7 +173,7 @@
 ========================= */
 
 .faq-highlight {
-  background: #D60000;
+  background: #e30613;
   color: white;
   padding: 90px 30px;
   text-align: center;
@@ -240,7 +240,7 @@
 .btn-white {
   display: inline-block;
   background: white;
-  color: #D60000;
+  color: #e30613;
   padding: 15px 30px;
   text-decoration: none;
   font-family: 'Montserrat', Arial, sans-serif;
@@ -249,7 +249,7 @@
 }
 
 .btn-white:hover {
-  background: #D60000;
+  background: #e30613;
   color: white;
 }
 

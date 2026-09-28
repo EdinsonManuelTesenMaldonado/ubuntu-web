@@ -1,0 +1,483 @@
+/* =========================
+   HERO
+========================= */
+
+.sedes-hero {
+  min-height: 430px;
+  background: #e30613;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 70px 25px;
+}
+
+.sedes-hero-content {
+  max-width: 900px;
+  color: white;
+}
+
+.sedes-hero-content p {
+  margin: 0 0 18px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.sedes-hero-content h1 {
+  margin: 0 0 20px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 58px;
+  font-weight: 800;
+}
+
+.sedes-hero-content span {
+  display: block;
+  max-width: 720px;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   ESTILOS GENERALES
+========================= */
+
+.section-heading {
+  max-width: 850px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.section-label {
+  margin: 0 0 12px;
+  color: #e30613;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  margin: 0 0 20px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.section-heading > p:last-child {
+  max-width: 760px;
+  margin: auto;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================
+   MAPA
+========================= */
+
+.mapa-section {
+  padding: 90px 7%;
+  background: #f5f5f5;
+}
+
+.mapa-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.mapa-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+
+/* =========================
+   SEDES
+========================= */
+
+.sedes-section {
+  padding: 90px 6%;
+  background: white;
+}
+
+.sedes-grid {
+  max-width: 1250px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.sede-card {
+  background: white;
+  border: 1px solid #e5e5e5;
+  overflow: hidden;
+  transition: 0.3s ease;
+}
+
+.sede-card:hover {
+  transform: translateY(-6px);
+  border-color: #e30613;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
+}
+
+.sede-image {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.sede-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.sede-card:hover .sede-image img {
+  transform: scale(1.05);
+}
+
+.sede-content {
+  padding: 24px;
+}
+
+.sede-content > span {
+  color: #e30613;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.sede-content h3 {
+  margin: 8px 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.sede-content p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   REDES SOCIALES
+========================= */
+
+.sede-sociales {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.sede-sociales a {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e30613;
+  border-radius: 50%;
+  color: #e30613;
+  text-decoration: none;
+  font-size: 17px;
+  transition: 0.25s ease;
+}
+
+.sede-sociales a:hover {
+  background: #e30613;
+  color: white;
+  transform: translateY(-3px);
+}
+
+
+/* =========================
+   LIMA
+========================= */
+
+.lima-section {
+  padding: 90px 7%;
+  background: #f5f5f5;
+}
+
+.lima-content {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.lima-content h2 {
+  margin: 0 0 20px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+}
+
+.lima-text > p:not(.section-label) {
+  color: #555;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.lima-number {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lima-number strong {
+  color: #e30613;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 70px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.lima-number span {
+  max-width: 220px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.lima-image {
+  height: 450px;
+  overflow: hidden;
+}
+
+.lima-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* =========================
+   GRUPOS JUVENILES
+========================= */
+
+.groups-section {
+  padding: 90px 7%;
+  background: white;
+}
+
+.groups-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.group-card {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  min-height: 190px;
+  border: 1px solid #e5e5e5;
+  overflow: hidden;
+  background: white;
+  transition: 0.3s ease;
+}
+
+.group-card:hover {
+  transform: translateY(-5px);
+  border-color: #e30613;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.group-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 190px;
+  object-fit: cover;
+}
+
+.group-content {
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.group-content span {
+  color: #e30613;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.group-content h3 {
+  margin: 10px 0 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+
+/* =========================
+   CIERRE
+========================= */
+
+.community-section {
+  min-height: 420px;
+  padding: 90px 7%;
+  background: #e30613;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.community-content {
+  max-width: 850px;
+  color: white;
+}
+
+.community-content .section-label {
+  color: white;
+}
+
+.community-content h2 {
+  margin: 0 0 20px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.community-content p:not(.section-label) {
+  max-width: 700px;
+  margin: 0 auto 30px;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 15px 30px;
+  background: white;
+  color: #e30613;
+  text-decoration: none;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: #181818;
+  color: white;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+  .sedes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lima-content {
+    grid-template-columns: 1fr;
+  }
+
+  .groups-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  .sedes-hero {
+    min-height: 360px;
+    padding: 60px 20px;
+  }
+
+  .sedes-hero-content h1 {
+    font-size: 40px;
+  }
+
+  .sedes-hero-content span {
+    font-size: 16px;
+  }
+
+  .mapa-section,
+  .sedes-section,
+  .groups-section,
+  .lima-section {
+    padding: 65px 5%;
+  }
+
+  .section-heading h2,
+  .lima-content h2,
+  .community-content h2 {
+    font-size: 30px;
+  }
+
+  .sedes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sede-image {
+    height: 240px;
+  }
+
+  .lima-image {
+    height: 320px;
+  }
+
+  .group-card {
+    grid-template-columns: 130px 1fr;
+  }
+
+  .group-card img {
+    min-height: 160px;
+  }
+}
+
+
+@media (max-width: 450px) {
+
+  .group-card {
+    grid-template-columns: 1fr;
+  }
+
+  .group-card img {
+    height: 220px;
+    min-height: 0;
+  }
+
+  .sede-sociales a {
+    width: 36px;
+    height: 36px;
+  }
+}
