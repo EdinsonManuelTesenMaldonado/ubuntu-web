@@ -1,116 +1,400 @@
-:host {
-  display: block;
-  font-family: 'Open Sans', Arial, sans-serif;
-  color: #181818;
-}
+/* =========================================
+   HERO
+========================================= */
 
-/* =========================
-   HEADER
-========================= */
+.professional-hero {
+  min-height: 450px;
 
-.page-header {
-  min-height: 360px;
-  background: #e30613;
+  background: #D60000;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   text-align: center;
-  padding: 70px 30px;
+
+  padding: 70px 25px;
 }
 
-.page-header-content {
+.professional-hero-content {
   max-width: 900px;
   color: white;
 }
 
-.page-header p {
+.professional-hero-content p {
+  margin: 0 0 18px;
+
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 14px;
   font-weight: 700;
+
   letter-spacing: 2px;
-  margin: 0 0 18px;
 }
 
-.page-header h1 {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(40px, 6vw, 68px);
-  line-height: 1.05;
+.professional-hero-content h1 {
   margin: 0 0 22px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 56px;
+  line-height: 1.15;
   font-weight: 800;
 }
 
-.page-header span {
-  font-size: 19px;
-  line-height: 1.6;
-}
-
-
-/* =========================
-   INTRO
-========================= */
-
-.professional-intro {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 100px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.professional-image {
-  height: 560px;
-  overflow: hidden;
-}
-
-.professional-image img {
-  width: 100%;
-  height: 100%;
+.professional-hero-content span {
   display: block;
-  object-fit: cover;
+
+  max-width: 750px;
+  margin: auto;
+
+  font-size: 18px;
+  line-height: 1.7;
 }
 
-.professional-text {
-  max-width: 580px;
-}
+
+/* =========================================
+   ELEMENTOS GENERALES
+========================================= */
 
 .section-label {
-  color: #e30613;
+  margin: 0 0 12px;
+
+  color: #D60000;
+
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 13px;
   font-weight: 800;
+
   letter-spacing: 2px;
-  margin: 0 0 15px;
 }
 
-.professional-text h2,
-.section-heading h2,
-.experience-text h2 {
+.section-heading {
+  max-width: 850px;
+
+  margin: 0 auto 55px;
+
+  text-align: center;
+}
+
+.section-heading h2 {
+  margin: 0 0 20px;
+
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.15;
-  margin: 0 0 25px;
+  font-size: 40px;
+  line-height: 1.2;
   font-weight: 800;
 }
 
-.professional-text p {
-  font-size: 17px;
-  line-height: 1.8;
+.section-heading > p:last-child {
+  max-width: 760px;
+
+  margin: auto;
+
   color: #555;
-  margin-bottom: 20px;
+
+  font-size: 16px;
+  line-height: 1.8;
 }
+
+
+/* =========================================
+   INTRODUCCIÓN
+========================================= */
+
+.professional-intro {
+  padding: 90px 7%;
+  background: white;
+}
+
+.professional-intro-content {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 60px;
+
+  align-items: center;
+}
+
+.intro-text h2 {
+  margin: 0 0 20px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+}
+
+.intro-text p:not(.section-label) {
+  margin: 0 0 18px;
+
+  color: #555;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.intro-image {
+  height: 430px;
+
+  overflow: hidden;
+}
+
+.intro-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================
+   APORTES
+========================================= */
+
+.professional-contributions {
+  padding: 90px 7%;
+
+  background: #f5f5f5;
+}
+
+.contributions-grid {
+  max-width: 1150px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 22px;
+}
+
+.contribution-card {
+  background: white;
+
+  padding: 30px;
+
+  border: 1px solid #e5e5e5;
+
+  transition: 0.3s ease;
+}
+
+.contribution-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #D60000;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.contribution-number {
+  margin-bottom: 25px;
+
+  color: #D60000;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.contribution-card h3 {
+  margin: 0 0 12px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.contribution-card p {
+  margin: 0;
+
+  color: #555;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   LÍNEAS DE ACCIÓN
+========================================= */
+
+.professional-lines {
+  padding: 90px 6%;
+
+  background: white;
+}
+
+.lines-grid {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 25px;
+}
+
+.line-card {
+  background: white;
+
+  border: 1px solid #e5e5e5;
+
+  overflow: hidden;
+
+  transition: 0.3s ease;
+}
+
+.line-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #D60000;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.09);
+}
+
+.line-image {
+  width: 100%;
+  height: 230px;
+
+  overflow: hidden;
+}
+
+.line-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.line-card:hover .line-image img {
+  transform: scale(1.05);
+}
+
+.line-content {
+  padding: 25px;
+}
+
+.line-content span {
+  color: #D60000;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.line-content h3 {
+  margin: 8px 0 10px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.line-content p {
+  margin: 0;
+
+  color: #555;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+/* =========================================
+   EXPERIENCIA
+========================================= */
+
+.professional-experience {
+  padding: 90px 7%;
+
+  background: #f5f5f5;
+}
+
+.experience-content {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 60px;
+
+  align-items: center;
+}
+
+.experience-image {
+  height: 450px;
+
+  overflow: hidden;
+}
+
+.experience-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.experience-text h2 {
+  margin: 0 0 20px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 40px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.experience-text p:not(.section-label) {
+  margin: 0 0 18px;
+
+  color: #555;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   BOTÓN PRINCIPAL
+========================================= */
 
 .btn-primary {
   display: inline-block;
+
   margin-top: 15px;
-  padding: 15px 28px;
-  background: #e30613;
+
+  padding: 15px 30px;
+
+  background: #D60000;
   color: white;
+
   text-decoration: none;
+
   font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: 700;
-  transition: 0.2s ease;
+  font-size: 13px;
+  font-weight: 800;
+
+  transition: 0.25s ease;
 }
 
 .btn-primary:hover {
@@ -118,214 +402,325 @@
 }
 
 
-/* =========================
-   CARDS
-========================= */
+/* =========================================
+   CERTIFICACIÓN
+========================================= */
 
-.professional-cards {
-  background: #f5f5f5;
-  padding: 100px 40px;
-}
+.certificacion-section {
+  padding: 90px 7%;
 
-.section-heading {
-  max-width: 850px;
-  margin: 0 auto 55px;
-  text-align: center;
-}
-
-.section-heading > p:last-child {
-  font-size: 17px;
-  line-height: 1.7;
-  color: #666;
-}
-
-.cards-grid {
-  max-width: 1300px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-}
-
-.professional-card {
   background: white;
-  overflow: hidden;
 }
 
-.card-image {
-  height: 330px;
-  overflow: hidden;
+.certificacion-grid {
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 25px;
 }
 
-.card-image img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
+.certificacion-card {
+  background: white;
 
-.professional-card:hover .card-image img {
-  transform: scale(1.04);
-}
+  border: 1px solid #e5e5e5;
 
-.card-content {
   padding: 30px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 22px;
+
+  transition: 0.3s ease;
 }
 
-.number {
-  color: #e30613;
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 800;
+.certificacion-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #D60000;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-.card-content h3 {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 24px;
-  margin: 12px 0;
-}
+.certificacion-icon {
+  min-width: 55px;
 
-.card-content p {
-  color: #666;
-  line-height: 1.7;
-  margin: 0;
-}
+  width: 55px;
+  height: 55px;
 
-
-/* =========================
-   LÍNEAS DE ACCIÓN
-========================= */
-
-.professional-lines {
-  background: #e30613;
-  padding: 100px 40px;
-  text-align: center;
+  background: #D60000;
   color: white;
-}
 
-.lines-content {
-  max-width: 950px;
-  margin: auto;
-}
+  display: flex;
 
-.section-label.light {
-  color: white;
-}
-
-.professional-lines h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.15;
-  margin: 0 0 25px;
-  font-weight: 800;
-}
-
-.professional-lines p:not(.section-label) {
-  max-width: 750px;
-  margin: 0 auto 40px;
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.lines-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-}
-
-.lines-list span {
-  border: 2px solid white;
-  padding: 20px 15px;
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: 700;
-}
-
-
-/* =========================
-   EXPERIENCIA
-========================= */
-
-.professional-experience {
-  max-width: 1300px;
-  margin: auto;
-  padding: 100px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
   align-items: center;
+  justify-content: center;
+
+  font-size: 23px;
 }
 
-.experience-text {
-  max-width: 580px;
+.certificacion-info {
+  flex: 1;
 }
 
-.experience-text p:not(.section-label) {
-  color: #555;
-  font-size: 17px;
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-
-.experience-image {
-  height: 500px;
-  overflow: hidden;
-}
-
-.experience-image img {
-  width: 100%;
-  height: 100%;
+.certificacion-numero {
   display: block;
-  object-fit: cover;
+
+  margin-bottom: 7px;
+
+  color: #D60000;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.certificacion-card h3 {
+  margin: 0 0 10px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.certificacion-card p {
+  margin: 0 0 20px;
+
+  color: #555;
+
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 
-/* =========================
-   CTA
-========================= */
+/* =========================================
+   BOTÓN CERTIFICADO
+========================================= */
+
+.btn-certificado {
+  padding: 11px 20px;
+
+  border: 2px solid #D60000;
+
+  background: white;
+  color: #D60000;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.btn-certificado:hover {
+  background: #D60000;
+  color: white;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.certificado-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 10000;
+
+  background: rgba(0, 0, 0, 0.88);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  animation: aparecerModal 0.25s ease;
+}
+
+.certificado-modal-contenido {
+  position: relative;
+
+  max-width: 900px;
+  max-height: 95vh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.certificado-modal-contenido img {
+  display: block;
+
+  max-width: 100%;
+  max-height: 90vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  background: white;
+
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   CERRAR MODAL
+========================================= */
+
+.cerrar-certificado {
+  position: absolute;
+
+  top: -18px;
+  right: -18px;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #D60000;
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 19px;
+
+  cursor: pointer;
+
+  z-index: 2;
+
+  transition: 0.25s ease;
+}
+
+.cerrar-certificado:hover {
+  background: #181818;
+
+  transform: scale(1.08);
+}
+
+
+/* =========================================
+   ANIMACIÓN MODAL
+========================================= */
+
+@keyframes aparecerModal {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================
+   CIERRE
+========================================= */
 
 .professional-cta {
-  background: #e30613;
-  color: white;
+  min-height: 430px;
+
+  padding: 90px 7%;
+
+  background: #D60000;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
   text-align: center;
-  padding: 100px 30px;
 }
 
-.professional-cta > div {
+.professional-cta-content {
   max-width: 850px;
-  margin: auto;
+
+  color: white;
 }
 
-.professional-cta p {
+.professional-cta-content > p {
+  margin: 0 0 15px;
+
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 13px;
   font-weight: 800;
+
   letter-spacing: 2px;
-  margin: 0 0 15px;
 }
 
-.professional-cta h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(32px, 4vw, 50px);
-  line-height: 1.15;
+.professional-cta-content h2 {
   margin: 0 0 20px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 42px;
+  line-height: 1.2;
   font-weight: 800;
 }
 
-.professional-cta span {
-  font-size: 17px;
-  line-height: 1.7;
+.professional-cta-content > span {
+  display: block;
+
+  max-width: 700px;
+
+  margin: 0 auto 30px;
+
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.cta-buttons {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+.btn-white,
+.btn-outline-white {
+  display: inline-block;
+
+  padding: 14px 28px;
+
+  text-decoration: none;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+
+  transition: 0.25s ease;
 }
 
 .btn-white {
-  display: inline-block;
   background: white;
-  color: #e30613;
-  padding: 15px 30px;
-  text-decoration: none;
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: 800;
-  transition: 0.2s ease;
+  color: #D60000;
 }
 
 .btn-white:hover {
@@ -333,74 +728,117 @@
   color: white;
 }
 
+.btn-outline-white {
+  border: 2px solid white;
 
-/* =========================
-   RESPONSIVE
-========================= */
+  color: white;
 
-@media (max-width: 900px) {
-
-  .professional-intro,
-  .professional-experience {
-    grid-template-columns: 1fr;
-    gap: 45px;
-  }
-
-  .professional-image {
-    height: 450px;
-  }
-
-  .experience-image {
-    height: 420px;
-  }
-
-  .cards-grid {
-    grid-template-columns: 1fr;
-    max-width: 600px;
-  }
-
-  .lines-list {
-    grid-template-columns: 1fr 1fr;
-  }
+  background: transparent;
 }
 
-@media (max-width: 600px) {
+.btn-outline-white:hover {
+  background: white;
+  color: #D60000;
+}
 
-  .page-header {
-    min-height: 300px;
-    padding: 55px 20px;
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1050px) {
+
+  .contributions-grid,
+  .lines-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+@media (max-width: 800px) {
+
+  .professional-intro-content,
+  .experience-content {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-image,
+  .experience-image {
+    height: 350px;
+  }
+
+  .certificacion-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 650px) {
+
+  .professional-hero {
+    min-height: 380px;
+
+    padding: 60px 20px;
+  }
+
+  .professional-hero-content h1 {
+    font-size: 40px;
+  }
+
+  .professional-hero-content span {
+    font-size: 16px;
   }
 
   .professional-intro,
-  .professional-experience {
-    padding: 70px 20px;
+  .professional-contributions,
+  .professional-lines,
+  .professional-experience,
+  .certificacion-section {
+    padding: 65px 5%;
   }
 
-  .professional-cards {
-    padding: 70px 20px;
+  .section-heading h2,
+  .intro-text h2,
+  .experience-text h2 {
+    font-size: 30px;
   }
 
-  .professional-lines {
-    padding: 70px 20px;
+  .contributions-grid,
+  .lines-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .certificacion-card {
+    padding: 25px;
+  }
+
+  .certificado-modal {
+    padding: 15px;
+  }
+
+  .certificado-modal-contenido {
+    max-width: 100%;
+    max-height: 90vh;
+  }
+
+  .certificado-modal-contenido img {
+    max-width: 100%;
+    max-height: 85vh;
+  }
+
+  .cerrar-certificado {
+    top: -12px;
+    right: -5px;
   }
 
   .professional-cta {
-    padding: 70px 20px;
+    padding: 70px 5%;
   }
 
-  .professional-image {
-    height: 350px;
+  .professional-cta-content h2 {
+    font-size: 30px;
   }
 
-  .experience-image {
-    height: 350px;
-  }
-
-  .lines-list {
-    grid-template-columns: 1fr;
-  }
-
-  .card-image {
-    height: 280px;
-  }
 }
