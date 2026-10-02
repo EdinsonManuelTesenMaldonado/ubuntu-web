@@ -1,136 +1,120 @@
-<section class="register-hero">
-  <div class="register-hero-content">
-    <p>UBUNTU JÓVENES VOLUNTARIOS PERÚ</p>
-    <h1>Únete como voluntario</h1>
+<section class="registro-hero">
+
+  <div class="registro-hero-content">
+
+    <p>VOLUNTARIADO UBUNTU</p>
+
+    <h1>
+      Únete a Ubuntu
+    </h1>
+
     <span>
-      Queremos conocerte y saber cómo puedes formar parte de nuestras iniciativas.
+      Completa tus datos y cuéntanos cómo te gustaría
+      formar parte de nuestras iniciativas.
     </span>
+
   </div>
+
 </section>
 
 
-<section class="register-section">
+<section class="registro-section">
 
-  <div class="register-intro">
-    <p class="section-label">REGISTRO DE VOLUNTARIADO</p>
-
-    <h2>Queremos conocerte</h2>
-
-    <p>
-      Completa el siguiente formulario con tus datos. Cuéntanos sobre ti,
-      tus intereses y la forma en la que te gustaría participar en Ubuntu.
-    </p>
-
-    <p>
-      La información proporcionada será utilizada para gestionar tu interés
-      en participar en las actividades de voluntariado.
-    </p>
-  </div>
+  <div class="registro-container">
 
 
-  <form class="register-form" (ngSubmit)="enviarRegistro()">
+    <!-- =========================
+         ENCABEZADO
+    ========================== -->
 
-    <!-- DATOS PERSONALES -->
+    <div class="registro-heading">
 
-    <div class="form-block">
+      <p class="section-label">
+        REGISTRO DE VOLUNTARIADO
+      </p>
 
-      <h3>Datos personales</h3>
+      <h2>
+        Queremos conocerte
+      </h2>
 
-      <div class="form-grid">
+      <p>
+        Completa el formulario en unos sencillos pasos.
+      </p>
 
-        <div class="form-group">
-          <label for="nombres">
-            Nombres <span>*</span>
-          </label>
+    </div>
 
-          <input
-            type="text"
-            id="nombres"
-            name="nombres"
-            [(ngModel)]="voluntario.nombres"
-            placeholder="Ingresa tus nombres"
-            required
-          >
+
+    <!-- =========================
+         PASOS
+    ========================== -->
+
+    <div class="steps">
+
+      <div
+        class="step"
+        [class.active]="pasoActual === 1"
+        [class.completed]="pasoActual > 1"
+        (click)="irAPaso(1)"
+      >
+
+        <div class="step-number">
+          <span *ngIf="pasoActual <= 1">1</span>
+          <i
+            *ngIf="pasoActual > 1"
+            class="fas fa-check">
+          </i>
         </div>
 
-
-        <div class="form-group">
-          <label for="apellidos">
-            Apellidos <span>*</span>
-          </label>
-
-          <input
-            type="text"
-            id="apellidos"
-            name="apellidos"
-            [(ngModel)]="voluntario.apellidos"
-            placeholder="Ingresa tus apellidos"
-            required
-          >
+        <div class="step-text">
+          <strong>Datos personales</strong>
+          <span>Información básica</span>
         </div>
 
+      </div>
 
-        <div class="form-group">
-          <label for="correo">
-            Correo electrónico <span>*</span>
-          </label>
 
-          <input
-            type="email"
-            id="correo"
-            name="correo"
-            [(ngModel)]="voluntario.correo"
-            placeholder="ejemplo@correo.com"
-            required
-          >
+      <div class="step-line"></div>
+
+
+      <div
+        class="step"
+        [class.active]="pasoActual === 2"
+        [class.completed]="pasoActual > 2"
+        (click)="irAPaso(2)"
+      >
+
+        <div class="step-number">
+          <span *ngIf="pasoActual <= 2">2</span>
+          <i
+            *ngIf="pasoActual > 2"
+            class="fas fa-check">
+          </i>
         </div>
 
-
-        <div class="form-group">
-          <label for="telefono">
-            Teléfono / WhatsApp <span>*</span>
-          </label>
-
-          <input
-            type="tel"
-            id="telefono"
-            name="telefono"
-            [(ngModel)]="voluntario.telefono"
-            placeholder="Ingresa tu número"
-            required
-          >
+        <div class="step-text">
+          <strong>Perfil</strong>
+          <span>Tus intereses</span>
         </div>
 
+      </div>
 
-        <div class="form-group">
-          <label for="edad">
-            Edad
-          </label>
 
-          <input
-            type="number"
-            id="edad"
-            name="edad"
-            [(ngModel)]="voluntario.edad"
-            placeholder="Ej. 21"
-            min="1"
-            max="100"
-          >
+      <div class="step-line"></div>
+
+
+      <div
+        class="step"
+        [class.active]="pasoActual === 3"
+        (click)="irAPaso(3)"
+      >
+
+        <div class="step-number">
+          3
         </div>
 
-
-        <div class="form-group">
-          <label for="ciudad">
-            Ciudad
-          </label>
-
-          <input
-            type="text"
-            id="ciudad"
-            name="ciudad"
-            [(ngModel)]="voluntario.ciudad"
-            placeholder="¿Dónde vives?"
-          >
+        <div class="step-text">
+          <strong>Confirmación</strong>
+          <span>Revisar y enviar</span>
         </div>
 
       </div>
@@ -138,26 +122,220 @@
     </div>
 
 
-    <!-- PERFIL -->
+    <!-- =========================
+         MENSAJE DE ERROR
+    ========================== -->
 
-    <div class="form-block">
+    <div
+      *ngIf="error"
+      class="mensaje-error">
 
-      <h3>Sobre ti</h3>
+      <i class="fas fa-circle-exclamation"></i>
+
+      {{ error }}
+
+    </div>
+
+
+    <!-- =========================
+         MENSAJE DE ÉXITO
+    ========================== -->
+
+    <div
+      *ngIf="mensaje"
+      class="mensaje-exito">
+
+      <i class="fas fa-circle-check"></i>
+
+      {{ mensaje }}
+
+    </div>
+
+
+    <!-- =========================
+         PASO 1
+    ========================== -->
+
+    <div
+      *ngIf="pasoActual === 1"
+      class="form-step">
+
+      <div class="step-heading">
+
+        <span class="step-label">
+          PASO 01
+        </span>
+
+        <h3>
+          Cuéntanos sobre ti
+        </h3>
+
+        <p>
+          Necesitamos algunos datos básicos para conocerte.
+        </p>
+
+      </div>
+
 
       <div class="form-grid">
 
         <div class="form-group">
 
+          <label for="nombres">
+            Nombres <span>*</span>
+          </label>
+
+          <input
+            id="nombres"
+            type="text"
+            [(ngModel)]="voluntario.nombres"
+            placeholder="Ingresa tus nombres"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="apellidos">
+            Apellidos <span>*</span>
+          </label>
+
+          <input
+            id="apellidos"
+            type="text"
+            [(ngModel)]="voluntario.apellidos"
+            placeholder="Ingresa tus apellidos"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="correo">
+            Correo electrónico <span>*</span>
+          </label>
+
+          <input
+            id="correo"
+            type="email"
+            [(ngModel)]="voluntario.correo"
+            placeholder="ejemplo@correo.com"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="telefono">
+            Teléfono <span>*</span>
+          </label>
+
+          <input
+            id="telefono"
+            type="tel"
+            [(ngModel)]="voluntario.telefono"
+            placeholder="999 999 999"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="edad">
+            Edad
+          </label>
+
+          <input
+            id="edad"
+            type="number"
+            min="1"
+            max="100"
+            [(ngModel)]="voluntario.edad"
+            placeholder="Ej. 21"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="ciudad">
+            Ciudad
+          </label>
+
+          <input
+            id="ciudad"
+            type="text"
+            [(ngModel)]="voluntario.ciudad"
+            placeholder="Ej. Lima"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="form-actions">
+
+        <button
+          type="button"
+          class="btn-next"
+          (click)="siguientePaso()"
+        >
+
+          Continuar
+
+          <i class="fas fa-arrow-right"></i>
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- =========================
+         PASO 2
+    ========================== -->
+
+    <div
+      *ngIf="pasoActual === 2"
+      class="form-step">
+
+      <div class="step-heading">
+
+        <span class="step-label">
+          PASO 02
+        </span>
+
+        <h3>
+          Cuéntanos cómo quieres participar
+        </h3>
+
+        <p>
+          Esta información nos ayuda a conocer tus intereses.
+        </p>
+
+      </div>
+
+
+      <div class="form-grid">
+
+
+        <div class="form-group">
+
           <label for="perfil">
-            ¿Cuál es tu perfil? <span>*</span>
+            Perfil de participación <span>*</span>
           </label>
 
           <select
             id="perfil"
-            name="perfil"
-            [(ngModel)]="voluntario.perfil"
-            required
-          >
+            [(ngModel)]="voluntario.perfil">
+
             <option value="">
               Selecciona una opción
             </option>
@@ -170,13 +348,18 @@
               Estudiante
             </option>
 
+            <option value="Interno">
+              Interno
+            </option>
+
+            <option value="Pasante">
+              Pasante
+            </option>
+
             <option value="Profesional">
               Profesional
             </option>
 
-            <option value="Interno o pasante">
-              Interno o pasante
-            </option>
           </select>
 
         </div>
@@ -185,42 +368,78 @@
         <div class="form-group">
 
           <label for="interes">
-            ¿En qué te gustaría participar? <span>*</span>
+            Área de interés <span>*</span>
           </label>
 
           <select
             id="interes"
-            name="interes"
-            [(ngModel)]="voluntario.interes"
-            required
-          >
+            [(ngModel)]="voluntario.interes">
 
             <option value="">
               Selecciona una opción
             </option>
 
             <option value="Social">
-              Acción social
+              Social
             </option>
 
             <option value="Ambiental">
-              Acción ambiental
+              Ambiental
             </option>
 
             <option value="Animalista">
-              Acción animalista
+              Animalista
             </option>
 
             <option value="Cultural">
-              Actividades culturales
+              Cultural
             </option>
 
-            <option value="Educación">
-              Educación
+          </select>
+
+        </div>
+
+
+        <div class="form-group form-full">
+
+          <label for="experiencia">
+            Experiencia o conocimientos
+          </label>
+
+          <textarea
+            id="experiencia"
+            rows="5"
+            [(ngModel)]="voluntario.experiencia"
+            placeholder="Cuéntanos brevemente sobre tus conocimientos, habilidades o experiencia..."
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-group form-full">
+
+          <label for="disponibilidad">
+            Disponibilidad
+          </label>
+
+          <select
+            id="disponibilidad"
+            [(ngModel)]="voluntario.disponibilidad">
+
+            <option value="">
+              Selecciona una opción
             </option>
 
-            <option value="Comunidad">
-              Trabajo comunitario
+            <option value="Entre semana">
+              Entre semana
+            </option>
+
+            <option value="Fines de semana">
+              Fines de semana
+            </option>
+
+            <option value="Ambos">
+              Entre semana y fines de semana
             </option>
 
           </select>
@@ -230,134 +449,246 @@
       </div>
 
 
-      <div class="form-group full">
+      <div class="form-actions">
 
-        <label for="experiencia">
-          Cuéntanos sobre tu experiencia
-        </label>
+        <button
+          type="button"
+          class="btn-back"
+          (click)="pasoAnterior()">
 
-        <textarea
-          id="experiencia"
-          name="experiencia"
-          [(ngModel)]="voluntario.experiencia"
-          rows="5"
-          placeholder="Puedes contarnos si has participado anteriormente en voluntariados, proyectos, actividades sociales, ambientales, culturales, etc."
-        ></textarea>
+          <i class="fas fa-arrow-left"></i>
 
-      </div>
+          Atrás
+
+        </button>
 
 
-      <div class="form-group full">
+        <button
+          type="button"
+          class="btn-next"
+          (click)="siguientePaso()">
 
-        <label for="disponibilidad">
-          ¿Cuál es tu disponibilidad?
-        </label>
+          Continuar
 
-        <textarea
-          id="disponibilidad"
-          name="disponibilidad"
-          [(ngModel)]="voluntario.disponibilidad"
-          rows="4"
-          placeholder="Indica qué días u horarios tienes disponibles."
-        ></textarea>
+          <i class="fas fa-arrow-right"></i>
+
+        </button>
 
       </div>
 
     </div>
 
 
-    <!-- CONSENTIMIENTO -->
+    <!-- =========================
+         PASO 3
+    ========================== -->
 
-    <div class="form-consent">
+    <div
+      *ngIf="pasoActual === 3"
+      class="form-step">
 
-      <label class="checkbox-label">
+      <div class="step-heading">
+
+        <span class="step-label">
+          PASO 03
+        </span>
+
+        <h3>
+          Revisa tu información
+        </h3>
+
+        <p>
+          Verifica que tus datos sean correctos antes de enviar.
+        </p>
+
+      </div>
+
+
+      <div class="resumen">
+
+
+        <div class="resumen-section">
+
+          <h4>
+            <i class="fas fa-user"></i>
+            Datos personales
+          </h4>
+
+
+          <div class="resumen-grid">
+
+            <div>
+              <span>Nombres</span>
+              <strong>{{ voluntario.nombres }}</strong>
+            </div>
+
+            <div>
+              <span>Apellidos</span>
+              <strong>{{ voluntario.apellidos }}</strong>
+            </div>
+
+            <div>
+              <span>Correo</span>
+              <strong>{{ voluntario.correo }}</strong>
+            </div>
+
+            <div>
+              <span>Teléfono</span>
+              <strong>{{ voluntario.telefono }}</strong>
+            </div>
+
+            <div>
+              <span>Edad</span>
+              <strong>
+                {{ voluntario.edad || 'No indicado' }}
+              </strong>
+            </div>
+
+            <div>
+              <span>Ciudad</span>
+              <strong>
+                {{ voluntario.ciudad || 'No indicada' }}
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="resumen-section">
+
+          <h4>
+            <i class="fas fa-hand-holding-heart"></i>
+            Perfil de voluntariado
+          </h4>
+
+
+          <div class="resumen-grid">
+
+            <div>
+              <span>Perfil</span>
+              <strong>{{ voluntario.perfil }}</strong>
+            </div>
+
+            <div>
+              <span>Área de interés</span>
+              <strong>{{ voluntario.interes }}</strong>
+            </div>
+
+            <div>
+              <span>Disponibilidad</span>
+              <strong>
+                {{ voluntario.disponibilidad || 'No indicada' }}
+              </strong>
+            </div>
+
+          </div>
+
+
+          <div
+            class="experiencia-resumen"
+            *ngIf="voluntario.experiencia">
+
+            <span>
+              Experiencia o conocimientos
+            </span>
+
+            <p>
+              {{ voluntario.experiencia }}
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <label class="consentimiento">
 
         <input
           type="checkbox"
-          id="consentimiento"
-          name="consentimiento"
           [(ngModel)]="voluntario.consentimiento"
-          required
         >
 
         <span>
-          Declaro que la información proporcionada es verdadera y acepto
-          que mis datos sean utilizados para gestionar mi interés en
-          participar en las actividades de Ubuntu.
+          Confirmo que los datos proporcionados son correctos
+          y acepto que sean utilizados para gestionar mi
+          registro como voluntario.
         </span>
 
       </label>
 
-    </div>
+
+      <div class="form-actions">
+
+        <button
+          type="button"
+          class="btn-back"
+          (click)="pasoAnterior()">
+
+          <i class="fas fa-arrow-left"></i>
+
+          Atrás
+
+        </button>
 
 
-    <!-- MENSAJES -->
+        <button
+          type="button"
+          class="btn-submit"
+          [disabled]="enviando"
+          (click)="enviarRegistro()">
 
-    <div
-      class="form-message success"
-      *ngIf="mensaje"
-    >
-      {{ mensaje }}
-    </div>
+          <i
+            *ngIf="!enviando"
+            class="fas fa-paper-plane">
+          </i>
 
+          <i
+            *ngIf="enviando"
+            class="fas fa-spinner fa-spin">
+          </i>
 
-    <div
-      class="form-message error"
-      *ngIf="error"
-    >
-      {{ error }}
-    </div>
+          {{ enviando ? 'Enviando...' : 'Enviar registro' }}
 
+        </button>
 
-    <!-- BOTÓN -->
-
-    <div class="form-actions">
-
-      <button
-        type="submit"
-        class="btn-submit"
-        [disabled]="enviando"
-      >
-
-        <span *ngIf="!enviando">
-          Enviar registro
-        </span>
-
-        <span *ngIf="enviando">
-          Enviando...
-        </span>
-
-      </button>
+      </div>
 
     </div>
 
-  </form>
+  </div>
 
 </section>
 
 
-<section class="register-question">
+<section class="registro-cta">
 
-  <div class="question-content">
+  <div class="registro-cta-content">
 
-    <p>UBUNTU JÓVENES VOLUNTARIOS PERÚ</p>
+    <p>
+      ¿TIENES ALGUNA DUDA?
+    </p>
 
     <h2>
-      Tu tiempo y tus conocimientos también pueden aportar.
+      Estamos aquí para ayudarte
     </h2>
 
     <span>
-      Si tienes alguna consulta antes de registrarte,
+      Si necesitas más información sobre el voluntariado,
       puedes comunicarte con nosotros.
     </span>
 
-    <br><br>
+    <br>
 
     <a
-      href="mailto:administracion.sistemas@ubuntujvperu.org"
-      class="btn-white"
-    >
-      Contactarnos
+      routerLink="/contacto"
+      class="btn-white">
+
+      Contáctanos
+
     </a>
 
   </div>

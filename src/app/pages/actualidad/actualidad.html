@@ -1,3 +1,7 @@
+<!-- =========================================
+     HERO
+========================================= -->
+
 <section class="page-header">
 
   <div>
@@ -14,100 +18,251 @@
   </div>
 
 </section>
+
+
+<!-- =========================================
+     CONTENIDO
+========================================= -->
+
 <section class="content-section">
 
   <div class="intro">
-    <p class="section-label">ACTUALIDAD UBUNTU</p>
 
-    <h2>Lo que está pasando en nuestra comunidad</h2>
+    <p class="section-label">
+      ACTUALIDAD UBUNTU
+    </p>
+
+    <h2>
+      Lo que está pasando en nuestra comunidad
+    </h2>
 
     <p>
       En este espacio compartiremos las principales novedades,
       actividades, campañas y acontecimientos relacionados con Ubuntu.
     </p>
 
-    <p class="placeholder">
-      Las publicaciones serán actualizadas con información oficial
-      proporcionada por Ubuntu.
-    </p>
   </div>
+
+
+  <!-- =========================================
+       FILTROS
+  ========================================= -->
+
+  <div class="news-filters">
+
+    <button
+      type="button"
+      [class.active]="filtroActual === 'TODAS'"
+      (click)="cambiarFiltro('TODAS')">
+
+      Todas
+
+    </button>
+
+
+    <button
+      type="button"
+      [class.active]="filtroActual === 'ACTIVIDADES'"
+      (click)="cambiarFiltro('ACTIVIDADES')">
+
+      Actividades
+
+    </button>
+
+
+    <button
+      type="button"
+      [class.active]="filtroActual === 'EVENTOS'"
+      (click)="cambiarFiltro('EVENTOS')">
+
+      Eventos
+
+    </button>
+
+
+    <button
+      type="button"
+      [class.active]="filtroActual === 'COMUNIDAD'"
+      (click)="cambiarFiltro('COMUNIDAD')">
+
+      Comunidad
+
+    </button>
+
+  </div>
+
+
+  <!-- =========================================
+       TARJETAS
+  ========================================= -->
 
   <div class="news-grid">
 
-    <article class="news-card">
-      <div class="news-image">
-        <span>IMAGEN</span>
-      </div>
+    @for (noticia of noticiasFiltradas; track noticia.id) {
 
-      <div class="news-content">
-        <span class="news-category">ACTIVIDADES</span>
-
-        <h3>Actividades de Ubuntu</h3>
-
-        <p>
-          Conoce las actividades y acciones que realizamos junto
-          a nuestra comunidad.
-        </p>
-
-        <a href="#">Leer más →</a>
-      </div>
-    </article>
+      <article class="news-card">
 
 
-    <article class="news-card">
-      <div class="news-image">
-        <span>IMAGEN</span>
-      </div>
+        <div class="news-image">
 
-      <div class="news-content">
-        <span class="news-category">EVENTOS</span>
+          <img
+            [src]="noticia.imagen"
+            [alt]="noticia.titulo">
 
-        <h3>Próximos eventos</h3>
+          <span>
+            {{ noticia.categoria }}
+          </span>
 
-        <p>
-          Entérate de los próximos eventos y espacios de participación
-          organizados por Ubuntu.
-        </p>
-
-        <a href="#">Leer más →</a>
-      </div>
-    </article>
+        </div>
 
 
-    <article class="news-card">
-      <div class="news-image">
-        <span>IMAGEN</span>
-      </div>
+        <div class="news-content">
 
-      <div class="news-content">
-        <span class="news-category">COMUNIDAD</span>
+          <span class="news-category">
+            {{ noticia.categoria }}
+          </span>
 
-        <h3>Historias de nuestra comunidad</h3>
+          <h3>
+            {{ noticia.titulo }}
+          </h3>
 
-        <p>
-          Conoce experiencias y momentos que forman parte del trabajo
-          de Ubuntu.
-        </p>
+          <p>
+            {{ noticia.descripcion }}
+          </p>
 
-        <a href="#">Leer más →</a>
-      </div>
-    </article>
+
+          <div class="news-footer">
+
+            <span class="news-date">
+              {{ noticia.fecha }}
+            </span>
+
+            <button
+              type="button"
+              class="read-more"
+              (click)="abrirNoticia(noticia)">
+
+              Leer más
+              <i class="fas fa-arrow-right"></i>
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    }
+
+  </div>
+
+
+  <!-- =========================================
+       AVISO
+  ========================================= -->
+
+  <div class="placeholder">
+
+    <strong>Próximamente</strong>
+
+    <span>
+      .
+    </span>
 
   </div>
 
 </section>
 
 
+<!-- =========================================
+     MODAL DE NOTICIA
+========================================= -->
+
+@if (noticiaSeleccionada) {
+
+  <div
+    class="news-modal"
+    (click)="cerrarNoticia()">
+
+
+    <div
+      class="news-modal-content"
+      (click)="$event.stopPropagation()">
+
+
+      <button
+        type="button"
+        class="close-modal"
+        (click)="cerrarNoticia()"
+        aria-label="Cerrar noticia">
+
+        <i class="fas fa-xmark"></i>
+
+      </button>
+
+
+      <div class="modal-image">
+
+        <img
+          [src]="noticiaSeleccionada.imagen"
+          [alt]="noticiaSeleccionada.titulo">
+
+      </div>
+
+
+      <div class="modal-body">
+
+        <span class="modal-category">
+          {{ noticiaSeleccionada.categoria }}
+        </span>
+
+        <h2>
+          {{ noticiaSeleccionada.titulo }}
+        </h2>
+
+        <span class="modal-date">
+          {{ noticiaSeleccionada.fecha }}
+        </span>
+
+        <p>
+          {{ noticiaSeleccionada.contenido }}
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+}
+
+
+<!-- =========================================
+     CTA
+========================================= -->
+
 <section class="news-cta">
 
   <div>
-    <p>¿Quieres ser parte de Ubuntu?</p>
 
-    <h2>Participa como voluntario</h2>
+    <p>
+      ¿QUIERES SER PARTE DE UBUNTU?
+    </p>
+
+    <h2>
+      Participa como voluntario
+    </h2>
+
   </div>
 
-  <a routerLink="/voluntariado/registro" class="btn-white">
+
+  <a
+    routerLink="/voluntariado/registro"
+    class="btn-white">
+
     Quiero ser voluntario
+
   </a>
 
 </section>

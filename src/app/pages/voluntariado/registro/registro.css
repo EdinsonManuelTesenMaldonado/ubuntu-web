@@ -1,205 +1,143 @@
-:host {
-  display: block;
-  font-family: 'Open Sans', Arial, sans-serif;
-  color: #181818;
-}
+.registro-hero {
+  min-height: 430px;
+  background: #D60000;
+  color: white;
 
-/* =========================
-   HERO
-========================= */
-
-.register-hero {
-  min-height: 360px;
-  background: #e30613;
   display: flex;
   align-items: center;
   justify-content: center;
+
   text-align: center;
-  padding: 70px 30px;
+  padding: 80px 30px;
 }
 
-.register-hero-content {
-  max-width: 900px;
-  color: white;
+.registro-hero-content {
+  max-width: 850px;
 }
 
-.register-hero p {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin: 0 0 18px;
-}
-
-.register-hero h1 {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(40px, 6vw, 68px);
-  line-height: 1.05;
-  margin: 0 0 22px;
-  font-weight: 800;
-}
-
-.register-hero span {
-  display: block;
-  font-size: 19px;
-  line-height: 1.6;
-}
-
-
-/* =========================
-   REGISTER SECTION
-========================= */
-
-.register-section {
-  max-width: 1350px;
-  margin: auto;
-  padding: 100px 40px;
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: 80px;
-  align-items: start;
-}
-
-
-/* =========================
-   INTRODUCCIÓN
-========================= */
-
-.register-intro {
-  padding-top: 20px;
-}
-
-.section-label {
-  color: #e30613;
+.registro-hero p {
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 13px;
   font-weight: 800;
-  letter-spacing: 2px;
-  margin: 0 0 15px;
-}
-
-.register-intro h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.15;
-  font-weight: 800;
-  margin: 0 0 25px;
-}
-
-.register-intro p:not(.section-label) {
-  color: #555;
-  font-size: 17px;
-  line-height: 1.8;
+  letter-spacing: 3px;
   margin-bottom: 20px;
 }
 
-
-/* =========================
-   FORMULARIO
-========================= */
-
-.register-form {
-  width: 100%;
-  background: #f5f5f5;
-  padding: 45px;
-}
-
-.form-block {
-  margin-bottom: 40px;
-}
-
-.form-block h3 {
+.registro-hero h1 {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 26px;
+  font-size: clamp(45px, 7vw, 78px);
   font-weight: 800;
   margin: 0 0 25px;
 }
 
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-}
-
-.form-group {
-  margin-bottom: 22px;
-}
-
-.form-group.full {
-  width: 100%;
-}
-
-.form-group label {
-  display: block;
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.form-group label span {
-  color: #e30613;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  border: 1px solid #d5d5d5;
-  background: white;
-  padding: 14px 15px;
-  font-family: 'Open Sans', Arial, sans-serif;
-  font-size: 15px;
-  color: #181818;
-  outline: none;
-  transition: border-color 0.2s ease;
-}
-
-.form-group input,
-.form-group select {
-  height: 50px;
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 130px;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-color: #e30613;
+.registro-hero span {
+  font-size: 18px;
+  line-height: 1.7;
 }
 
 
 /* =========================
-   CONSENTIMIENTO
+   SECCIÓN
 ========================= */
 
-.form-consent {
-  background: white;
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin-top: 5px;
-  margin-bottom: 25px;
+.registro-section {
+  background: #f7f7f7;
+  padding: 85px 25px;
 }
 
-.checkbox-label {
+.registro-container {
+  max-width: 1050px;
+  margin: auto;
+}
+
+.registro-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-label,
+.step-label {
+  color: #D60000;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.registro-heading h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 42px;
+  margin: 12px 0;
+}
+
+.registro-heading p:last-child {
+  color: #666;
+}
+
+
+/* =========================
+   PASOS
+========================= */
+
+.steps {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
   gap: 12px;
   cursor: pointer;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #555;
 }
 
-.checkbox-label input {
-  width: 18px;
-  height: 18px;
-  margin-top: 2px;
-  accent-color: #e30613;
-  flex-shrink: 0;
+.step-number {
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ddd;
+  color: #777;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 800;
+
+  transition: 0.25s ease;
+}
+
+.step.active .step-number,
+.step.completed .step-number {
+  background: #D60000;
+  color: white;
+}
+
+.step-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-text strong {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+}
+
+.step-text span {
+  font-size: 12px;
+  color: #777;
+}
+
+.step-line {
+  width: 70px;
+  height: 2px;
+  background: #ddd;
+  margin: 0 20px;
 }
 
 
@@ -207,109 +145,301 @@
    MENSAJES
 ========================= */
 
-.form-message {
-  padding: 15px 18px;
-  margin-bottom: 20px;
-  font-size: 14px;
-  line-height: 1.5;
+.mensaje-error,
+.mensaje-exito {
+  max-width: 800px;
+  margin: 0 auto 25px;
+  padding: 15px 20px;
+  border-radius: 4px;
+  font-weight: 600;
 }
 
-.form-message.success {
-  background: #eaf7ed;
-  border-left: 4px solid #2e7d32;
-  color: #246b29;
-}
-
-.form-message.error {
-  background: #fdecec;
-  border-left: 4px solid #e30613;
+.mensaje-error {
+  background: #ffe5e5;
   color: #a00000;
 }
 
-
-/* =========================
-   BOTÓN
-========================= */
-
-.form-actions {
-  margin-top: 10px;
+.mensaje-exito {
+  background: #e5f8ec;
+  color: #16753b;
 }
 
-.btn-submit {
-  width: 100%;
-  border: none;
-  background: #e30613;
-  color: white;
-  padding: 17px 25px;
+.mensaje-error i,
+.mensaje-exito i {
+  margin-right: 8px;
+}
+
+
+/* =========================
+   FORMULARIO
+========================= */
+
+.form-step {
+  background: white;
+  padding: 45px;
+  border: 1px solid #e5e5e5;
+}
+
+.step-heading {
+  margin-bottom: 35px;
+}
+
+.step-heading h3 {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 15px;
-  font-weight: 800;
-  cursor: pointer;
+  font-size: 28px;
+  margin: 10px 0;
+}
+
+.step-heading p {
+  color: #666;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.form-full {
+  grid-column: 1 / -1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 9px;
+}
+
+.form-group label span {
+  color: #D60000;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 15px;
+
+  border: 1px solid #d6d6d6;
+  border-radius: 3px;
+
+  background: white;
+
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 14px;
+
+  outline: none;
+
   transition: 0.2s ease;
 }
 
-.btn-submit:hover {
-  background: #181818;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #D60000;
 }
 
-.btn-submit:disabled {
-  background: #999;
-  cursor: not-allowed;
+.form-group textarea {
+  resize: vertical;
 }
 
 
 /* =========================
-   SECCIÓN FINAL
+   BOTONES
 ========================= */
 
-.register-question {
-  background: #e30613;
-  color: white;
-  text-align: center;
-  padding: 90px 30px;
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 40px;
 }
 
-.question-content {
-  max-width: 850px;
+.btn-next,
+.btn-submit,
+.btn-back {
+  border: none;
+  padding: 14px 25px;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.btn-next,
+.btn-submit {
+  background: #D60000;
+  color: white;
+}
+
+.btn-next:hover,
+.btn-submit:hover {
+  transform: translateY(-2px);
+}
+
+.btn-back {
+  background: #eeeeee;
+  color: #333;
+}
+
+.btn-back:hover {
+  background: #ddd;
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-next i,
+.btn-submit i,
+.btn-back i {
+  margin: 0 5px;
+}
+
+
+/* =========================
+   RESUMEN
+========================= */
+
+.resumen {
+  border: 1px solid #e4e4e4;
+}
+
+.resumen-section {
+  padding: 25px;
+}
+
+.resumen-section + .resumen-section {
+  border-top: 1px solid #e4e4e4;
+}
+
+.resumen-section h4 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0 0 20px;
+  font-size: 17px;
+}
+
+.resumen-section h4 i {
+  color: #D60000;
+  margin-right: 8px;
+}
+
+.resumen-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.resumen-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.resumen-grid span,
+.experiencia-resumen span {
+  font-size: 11px;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.resumen-grid strong {
+  font-size: 14px;
+}
+
+.experiencia-resumen {
+  margin-top: 20px;
+}
+
+.experiencia-resumen p {
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   CONSENTIMIENTO
+========================= */
+
+.consentimiento {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+
+  margin-top: 30px;
+
+  font-size: 13px;
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.consentimiento input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #D60000;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.registro-cta {
+  background: #D60000;
+  color: white;
+  text-align: center;
+  padding: 80px 30px;
+}
+
+.registro-cta-content {
+  max-width: 800px;
   margin: auto;
 }
 
-.question-content p {
+.registro-cta p {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 800;
   letter-spacing: 2px;
-  margin: 0 0 15px;
 }
 
-.question-content h2 {
+.registro-cta h2 {
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: clamp(32px, 4vw, 50px);
-  line-height: 1.15;
-  margin: 0 0 20px;
-  font-weight: 800;
+  font-size: 42px;
+  margin: 15px 0;
 }
 
-.question-content span {
-  font-size: 17px;
+.registro-cta span {
+  display: block;
   line-height: 1.7;
+  margin-bottom: 25px;
 }
 
 .btn-white {
   display: inline-block;
   background: white;
-  color: #e30613;
-  padding: 14px 28px;
-  text-decoration: none;
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  transition: 0.2s ease;
-}
+  color: #D60000;
 
-.btn-white:hover {
-  background: #181818;
-  color: white;
+  padding: 14px 28px;
+
+  text-decoration: none;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
 }
 
 
@@ -317,48 +447,70 @@
    RESPONSIVE
 ========================= */
 
-@media (max-width: 950px) {
+@media (max-width: 750px) {
 
-  .register-section {
-    grid-template-columns: 1fr;
-    gap: 50px;
+  .registro-section {
+    padding: 60px 18px;
   }
 
-  .register-intro {
-    padding-top: 0;
-  }
-}
-
-
-@media (max-width: 650px) {
-
-  .register-hero {
-    min-height: 300px;
-    padding: 55px 20px;
-  }
-
-  .register-hero h1 {
-    font-size: 40px;
-  }
-
-  .register-hero span {
-    font-size: 16px;
-  }
-
-  .register-section {
-    padding: 70px 20px;
-  }
-
-  .register-form {
-    padding: 30px 20px;
+  .form-step {
+    padding: 28px 20px;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
-    gap: 0;
   }
 
-  .register-question {
-    padding: 70px 20px;
+  .form-full {
+    grid-column: auto;
   }
+
+  .steps {
+    align-items: flex-start;
+  }
+
+  .step-text {
+    display: none;
+  }
+
+  .step-line {
+    width: 35px;
+    margin: 0 10px;
+  }
+
+  .resumen-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .registro-heading h2,
+  .registro-cta h2 {
+    font-size: 32px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .registro-hero {
+    min-height: 350px;
+    padding: 60px 20px;
+  }
+
+  .registro-hero h1 {
+    font-size: 43px;
+  }
+
+  .registro-hero span {
+    font-size: 15px;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    gap: 12px;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+
 }

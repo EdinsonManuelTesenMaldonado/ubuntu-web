@@ -1,27 +1,14 @@
+/* =========================================
+   GENERAL
+========================================= */
+
 * {
   box-sizing: border-box;
 }
 
-/* =========================================
-   TIPOGRAFÍA GENERAL
-========================================= */
-
-.page-header,
-.content-section,
-.news-cta {
-  font-family: 'Open Sans', Arial, sans-serif;
-}
-
-.page-header h1,
-.content-section h2,
-.news-content h3,
-.news-cta h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
-}
-
 
 /* =========================================
-   HEADER
+   HERO
 ========================================= */
 
 .page-header {
@@ -52,6 +39,7 @@
 
 .page-header span {
   font-family: 'Open Sans', Arial, sans-serif;
+
   font-size: 18px;
   line-height: 1.6;
 }
@@ -67,12 +55,14 @@
   margin: auto;
 
   padding: 80px 8%;
+
+  font-family: 'Open Sans', Arial, sans-serif;
 }
 
 .intro {
   max-width: 780px;
 
-  margin-bottom: 55px;
+  margin-bottom: 40px;
 }
 
 .section-label {
@@ -81,6 +71,7 @@
   color: #D60000;
 
   font-family: 'Montserrat', Arial, sans-serif;
+
   font-size: 13px;
   font-weight: 800;
 
@@ -91,37 +82,71 @@
   margin: 15px 0 20px;
 
   font-family: 'Montserrat', Arial, sans-serif;
+
   font-size: 38px;
+
   line-height: 1.2;
+
   font-weight: 800;
 }
 
-.intro p {
+.intro p:not(.section-label) {
   color: #555;
 
-  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 17px;
+
   line-height: 1.7;
 }
 
 
 /* =========================================
-   AVISO
+   FILTROS
 ========================================= */
 
-.placeholder {
-  background: #f7f7f7;
+.news-filters {
+  display: flex;
 
-  border-left: 4px solid #D60000;
+  flex-wrap: wrap;
 
-  padding: 15px 20px;
+  gap: 10px;
 
-  margin-top: 25px;
+  margin-bottom: 40px;
+
+  border-bottom: 1px solid #e5e5e5;
+
+  padding-bottom: 20px;
+}
+
+.news-filters button {
+  padding: 11px 22px;
+
+  border: 1px solid #D60000;
+
+  background: white;
+
+  color: #D60000;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.news-filters button:hover,
+.news-filters button.active {
+  background: #D60000;
+
+  color: white;
 }
 
 
 /* =========================================
-   NOTICIAS
+   GRID
 ========================================= */
 
 .news-grid {
@@ -131,6 +156,11 @@
 
   gap: 25px;
 }
+
+
+/* =========================================
+   CARD
+========================================= */
 
 .news-card {
   background: white;
@@ -145,10 +175,10 @@
 }
 
 .news-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.08);
+    0 12px 30px rgba(0, 0, 0, 0.09);
 }
 
 
@@ -157,29 +187,54 @@
 ========================================= */
 
 .news-image {
+  position: relative;
+
   height: 230px;
 
   background: #eeeeee;
 
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
 }
 
-.news-image span {
-  color: #888;
+.news-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.news-card:hover .news-image img {
+  transform: scale(1.05);
+}
+
+.news-image > span {
+  position: absolute;
+
+  left: 15px;
+  bottom: 15px;
+
+  padding: 7px 11px;
+
+  background: #D60000;
+
+  color: white;
 
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
 
-  letter-spacing: 2px;
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
 }
 
 
 /* =========================================
-   CONTENIDO TARJETA
+   CONTENIDO CARD
 ========================================= */
 
 .news-content {
@@ -190,7 +245,9 @@
   color: #D60000;
 
   font-family: 'Montserrat', Arial, sans-serif;
+
   font-size: 11px;
+
   font-weight: 800;
 
   letter-spacing: 1.5px;
@@ -200,8 +257,11 @@
   margin: 10px 0;
 
   font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 23px;
+
+  font-size: 22px;
+
   line-height: 1.3;
+
   font-weight: 800;
 }
 
@@ -210,23 +270,262 @@
 
   color: #666;
 
-  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 14px;
+
   line-height: 1.6;
 }
 
-.news-content a {
-  color: #D60000;
 
-  text-decoration: none;
+/* =========================================
+   FOOTER CARD
+========================================= */
 
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-size: 13px;
-  font-weight: 700;
+.news-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid #eeeeee;
 }
 
-.news-content a:hover {
-  text-decoration: underline;
+.news-date {
+  color: #888;
+
+  font-size: 12px;
+}
+
+.read-more {
+  border: none;
+
+  padding: 0;
+
+  background: transparent;
+
+  color: #D60000;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.read-more i {
+  margin-left: 5px;
+
+  transition: transform 0.2s ease;
+}
+
+.read-more:hover i {
+  transform: translateX(4px);
+}
+
+
+/* =========================================
+   AVISO
+========================================= */
+
+.placeholder {
+  margin-top: 45px;
+
+  padding: 18px 20px;
+
+  background: #f7f7f7;
+
+  border-left: 4px solid #D60000;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.placeholder strong {
+  font-family: 'Montserrat', Arial, sans-serif;
+
+  font-size: 14px;
+}
+
+.placeholder span {
+  color: #666;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.news-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 10000;
+
+  padding: 30px;
+
+  background: rgba(0, 0, 0, 0.82);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  animation: aparecerModal 0.25s ease;
+}
+
+.news-modal-content {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 900px;
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: white;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.modal-image {
+  width: 100%;
+
+  height: 350px;
+
+  background: #eeeeee;
+
+  overflow: hidden;
+}
+
+.modal-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+.modal-body {
+  padding: 35px;
+}
+
+.modal-category {
+  color: #D60000;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.modal-body h2 {
+  margin: 10px 0;
+
+  font-family: 'Montserrat', Arial, sans-serif;
+
+  font-size: 32px;
+
+  line-height: 1.2;
+
+  font-weight: 800;
+}
+
+.modal-date {
+  color: #888;
+
+  font-size: 13px;
+}
+
+.modal-body p {
+  margin: 22px 0 0;
+
+  color: #555;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   CERRAR MODAL
+========================================= */
+
+.close-modal {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  z-index: 2;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #D60000;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.close-modal:hover {
+  background: #181818;
+
+  transform: scale(1.08);
+}
+
+
+/* =========================================
+   ANIMACIÓN
+========================================= */
+
+@keyframes aparecerModal {
+
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
 }
 
 
@@ -244,6 +543,7 @@
   display: flex;
 
   justify-content: space-between;
+
   align-items: center;
 
   gap: 30px;
@@ -253,7 +553,9 @@
   margin: 0 0 8px;
 
   font-family: 'Montserrat', Arial, sans-serif;
+
   font-size: 13px;
+
   font-weight: 700;
 
   letter-spacing: 1.5px;
@@ -263,7 +565,9 @@
   margin: 0;
 
   font-family: 'Montserrat', Arial, sans-serif;
+
   font-size: 32px;
+
   font-weight: 800;
 }
 
@@ -271,6 +575,7 @@
   display: inline-block;
 
   background: white;
+
   color: #D60000;
 
   padding: 15px 28px;
@@ -278,7 +583,9 @@
   text-decoration: none;
 
   font-family: 'Montserrat', Arial, sans-serif;
+
   font-size: 13px;
+
   font-weight: 800;
 
   transition: 0.25s ease;
@@ -286,6 +593,7 @@
 
 .btn-white:hover {
   background: #181818;
+
   color: white;
 }
 
@@ -329,12 +637,41 @@
     font-size: 30px;
   }
 
-  .intro p {
+  .intro p:not(.section-label) {
     font-size: 15px;
+  }
+
+  .news-filters {
+    gap: 8px;
+  }
+
+  .news-filters button {
+    padding: 10px 15px;
   }
 
   .news-grid {
     grid-template-columns: 1fr;
+  }
+
+  .news-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .news-modal {
+    padding: 15px;
+  }
+
+  .modal-image {
+    height: 230px;
+  }
+
+  .modal-body {
+    padding: 25px;
+  }
+
+  .modal-body h2 {
+    font-size: 25px;
   }
 
   .news-cta {

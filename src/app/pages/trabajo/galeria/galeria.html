@@ -1,101 +1,232 @@
-<section class="page-header">
-  <div>
-    <span>NUESTRO TRABAJO</span>
+<section class="gallery-hero">
+
+  <div class="gallery-hero-content">
+
+    <p>TRABAJO UBUNTU</p>
+
     <h1>Galería</h1>
-    <p>
-      Momentos, actividades y experiencias compartidas por la comunidad Ubuntu.
+
+    <span>
+      Conoce algunos momentos de nuestras actividades,
+      proyectos y acciones junto a la comunidad.
+    </span>
+
+  </div>
+
+</section>
+
+
+<section class="gallery-section">
+
+  <div class="section-heading">
+
+    <p class="section-label">
+      CONOCE NUESTRO TRABAJO
     </p>
+
+    <h2>
+      Momentos que forman parte de Ubuntu
+    </h2>
+
+    <p>
+      Explora imágenes de nuestras diferentes líneas de acción.
+    </p>
+
   </div>
+
+
+  <!-- FILTROS -->
+
+  <div class="gallery-filters">
+
+    <button
+      type="button"
+      [class.active]="filtroActual === 'TODAS'"
+      (click)="cambiarFiltro('TODAS')">
+
+      Todas
+
+    </button>
+
+
+    <button
+      type="button"
+      [class.active]="filtroActual === 'SOCIAL'"
+      (click)="cambiarFiltro('SOCIAL')">
+
+      Social
+
+    </button>
+
+
+    <button
+      type="button"
+      [class.active]="filtroActual === 'AMBIENTAL'"
+      (click)="cambiarFiltro('AMBIENTAL')">
+
+      Ambiental
+
+    </button>
+
+
+    <button
+      type="button"
+      [class.active]="filtroActual === 'ANIMALISTA'"
+      (click)="cambiarFiltro('ANIMALISTA')">
+
+      Animalista
+
+    </button>
+
+
+    <button
+      type="button"
+      [class.active]="filtroActual === 'CULTURAL'"
+      (click)="cambiarFiltro('CULTURAL')">
+
+      Cultural
+
+    </button>
+
+  </div>
+
+
+  <!-- GALERÍA -->
+
+  <div class="gallery-grid">
+
+    @for (foto of fotosFiltradas; track foto.id) {
+
+      <article
+        class="gallery-card"
+        (click)="abrirFoto(foto)">
+
+        <img
+          [src]="foto.imagen"
+          [alt]="foto.titulo">
+
+        <div class="gallery-overlay">
+
+          <span>
+            {{ foto.categoria }}
+          </span>
+
+          <h3>
+            {{ foto.titulo }}
+          </h3>
+
+          <div class="view-icon">
+
+            <i class="fas fa-expand"></i>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    }
+
+  </div>
+
 </section>
 
 
-<section class="galeria-intro">
-  <span>UBUNTU EN ACCIÓN</span>
-  <h2>Personas que hacen posible cada experiencia</h2>
-  <p>
-    Una mirada a las actividades y momentos que forman parte de nuestro
-    trabajo junto a voluntarios y comunidades.
-  </p>
-</section>
+<!-- VISOR DE IMAGEN -->
+
+@if (fotoSeleccionada) {
+
+  <div
+    class="gallery-modal"
+    (click)="cerrarFoto()">
+
+    <button
+      type="button"
+      class="modal-close"
+      aria-label="Cerrar"
+      (click)="cerrarFoto()">
+
+      <i class="fas fa-times"></i>
+
+    </button>
 
 
-<section class="galeria">
+    <button
+      type="button"
+      class="modal-arrow modal-prev"
+      aria-label="Imagen anterior"
+      (click)="$event.stopPropagation(); fotoAnterior()">
 
-  <div class="foto foto-grande">
-    <img src="/imagenes/AQUI-GALERIA-1.jpg" alt="Actividad Ubuntu">
-    <div class="foto-text">
-      <span>VOLUNTARIADO</span>
+      <i class="fas fa-chevron-left"></i>
+
+    </button>
+
+
+    <div
+      class="modal-content"
+      (click)="$event.stopPropagation()">
+
+      <img
+        [src]="fotoSeleccionada.imagen"
+        [alt]="fotoSeleccionada.titulo">
+
+      <div class="modal-info">
+
+        <span>
+          {{ fotoSeleccionada.categoria }}
+        </span>
+
+        <h3>
+          {{ fotoSeleccionada.titulo }}
+        </h3>
+
+      </div>
+
     </div>
+
+
+    <button
+      type="button"
+      class="modal-arrow modal-next"
+      aria-label="Imagen siguiente"
+      (click)="$event.stopPropagation(); fotoSiguiente()">
+
+      <i class="fas fa-chevron-right"></i>
+
+    </button>
+
   </div>
 
-  <div class="foto">
-    <img src="/imagenes/AQUI-GALERIA-2.jpg" alt="Voluntarios Ubuntu">
-    <div class="foto-text">
-      <span>COMUNIDAD</span>
-    </div>
+}
+
+
+<section class="gallery-cta">
+
+  <div class="gallery-cta-content">
+
+    <p>
+      FORMA PARTE DE UBUNTU
+    </p>
+
+    <h2>
+      Tú también puedes ser parte de estas experiencias
+    </h2>
+
+    <span>
+      Conoce nuestro programa de voluntariado y participa
+      en nuestras iniciativas.
+    </span>
+
+    <br>
+
+    <a
+      routerLink="/voluntariado/registro"
+      class="btn-white">
+
+      Quiero ser voluntario
+
+    </a>
+
   </div>
 
-  <div class="foto">
-    <img src="/imagenes/AQUI-GALERIA-3.jpg" alt="Actividad Ubuntu">
-    <div class="foto-text">
-      <span>ACCIÓN</span>
-    </div>
-  </div>
-
-  <div class="foto">
-    <img src="/imagenes/AQUI-GALERIA-4.jpg" alt="Actividad Ubuntu">
-    <div class="foto-text">
-      <span>EDUCACIÓN</span>
-    </div>
-  </div>
-
-  <div class="foto foto-alta">
-    <img src="/imagenes/AQUI-GALERIA-5.jpg" alt="Voluntariado Ubuntu">
-    <div class="foto-text">
-      <span>VOLUNTARIADO</span>
-    </div>
-  </div>
-
-  <div class="foto">
-    <img src="/imagenes/AQUI-GALERIA-6.jpg" alt="Actividad Ubuntu">
-    <div class="foto-text">
-      <span>COMUNIDAD</span>
-    </div>
-  </div>
-
-  <div class="foto">
-    <img src="/imagenes/AQUI-GALERIA-7.jpg" alt="Actividad Ubuntu">
-    <div class="foto-text">
-      <span>AMBIENTAL</span>
-    </div>
-  </div>
-
-  <div class="foto">
-    <img src="/imagenes/AQUI-GALERIA-8.jpg" alt="Actividad Ubuntu">
-    <div class="foto-text">
-      <span>ANIMALISTA</span>
-    </div>
-  </div>
-
-  <div class="foto foto-grande">
-    <img src="/imagenes/AQUI-GALERIA-9.jpg" alt="Actividad Ubuntu">
-    <div class="foto-text">
-      <span>CULTURAL</span>
-    </div>
-  </div>
-
-</section>
-
-
-<section class="cierre">
-  <h2>Las imágenes cuentan nuestra historia</h2>
-
-  <p>
-    Cada fotografía representa una experiencia compartida entre
-    voluntarios, comunidades y colaboradores.
-  </p>
-
-  <a href="/voluntariado/registro">
-    Sé parte de Ubuntu →
-  </a>
 </section>

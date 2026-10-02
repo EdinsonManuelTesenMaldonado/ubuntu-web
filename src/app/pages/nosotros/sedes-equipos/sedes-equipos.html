@@ -1,7 +1,3 @@
-<!-- =========================================
-     HERO
-========================================= -->
-
 <section class="sedes-hero">
 
   <div class="sedes-hero-content">
@@ -11,9 +7,8 @@
     <h1>Sedes de Ubuntu</h1>
 
     <span>
-      Nuestra presencia se extiende por diferentes territorios
-      del Perú, donde jóvenes y voluntarios participan en
-      iniciativas y proyectos de Ubuntu.
+      Explora nuestra presencia en diferentes territorios
+      del Perú y conoce nuestros equipos.
     </span>
 
   </div>
@@ -21,869 +16,461 @@
 </section>
 
 
-<!-- =========================================
-     MAPA NACIONAL
-========================================= -->
+<!-- =========================
+     BUSCADOR
+========================= -->
+
+<section class="buscador-section">
+
+  <div class="buscador-content">
+
+    <span class="etiqueta">
+      ENCUENTRA UNA SEDE
+    </span>
+
+    <h2>
+      ¿Qué sede estás buscando?
+    </h2>
+
+    <p>
+      Escribe el nombre de una sede o selecciónala directamente
+      en el mapa.
+    </p>
+
+
+    <div class="buscador">
+
+      <i class="fas fa-search"></i>
+
+      <input
+        type="text"
+        [(ngModel)]="busqueda"
+        placeholder="Buscar sede..."
+        autocomplete="off"
+      >
+
+      @if (busqueda) {
+
+        <button
+          type="button"
+          class="btn-limpiar"
+          (click)="limpiarBusqueda()">
+
+          <i class="fas fa-times"></i>
+
+        </button>
+
+      }
+
+    </div>
+
+
+    @if (busqueda && sedesFiltradas.length > 0) {
+
+      <div class="resultados-busqueda">
+
+        @for (sede of sedesFiltradas; track sede.nombre) {
+
+          <button
+            type="button"
+            (click)="seleccionarSede(sede)">
+
+            <i class="fas fa-location-dot"></i>
+
+            <span>
+              {{ sede.nombre }}
+            </span>
+
+            <i class="fas fa-arrow-right"></i>
+
+          </button>
+
+        }
+
+      </div>
+
+    }
+
+
+    @if (busqueda && sedesFiltradas.length === 0) {
+
+      <div class="sin-resultados">
+
+        <i class="fas fa-circle-exclamation"></i>
+
+        No encontramos una sede llamada
+        <strong>"{{ busqueda }}"</strong>.
+
+      </div>
+
+    }
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     MAPA INTERACTIVO
+========================= -->
 
 <section class="mapa-section">
 
   <div class="section-heading">
 
-    <p class="section-label">
-      DÓNDE ESTAMOS
-    </p>
+    <span class="etiqueta">
+      PRESENCIA NACIONAL
+    </span>
 
     <h2>
-      Presencia de Ubuntu a nivel nacional
+      Explora nuestras sedes
     </h2>
 
     <p>
-      Ubuntu tiene presencia en diferentes territorios del Perú,
-      llegando a comunidades y compartiendo su filosofía con
-      niños, jóvenes, padres de familia, estudiantes y profesionales.
+      Pasa el cursor sobre los puntos del mapa y haz clic
+      para conocer cada sede.
     </p>
 
   </div>
 
 
-  <div class="mapa-container">
+  <div class="mapa-interactivo">
 
-    <img
-      src="/imagenes/mapa.png"
-      alt="Mapa de presencia de Ubuntu en el Perú">
+    <!--
+      EL MAPA ORIGINAL
+      615 x 655
+    -->
+
+    <svg
+      viewBox="0 0 615 655"
+      class="mapa-svg"
+      role="img"
+      aria-label="Mapa interactivo de las sedes de Ubuntu">
+
+
+      <!-- IMAGEN ORIGINAL -->
+
+      <image
+        href="/imagenes/mapa.png"
+        x="0"
+        y="0"
+        width="615"
+        height="655"
+        preserveAspectRatio="xMidYMid meet"
+      />
+
+
+      <!-- =========================
+           PUNTOS INTERACTIVOS
+      ========================= -->
+
+
+      @for (sede of sedes; track sede.nombre) {
+
+        <g
+          class="sede-marker"
+          [class.activo]="sedeSeleccionada?.nombre === sede.nombre"
+          [attr.transform]="'translate(' + sede.x + ',' + sede.y + ')'"
+          (click)="seleccionarSede(sede)">
+
+
+          <!-- CÍRCULO -->
+
+          <circle
+            class="marker-halo"
+            cx="0"
+            cy="0"
+            r="13">
+          </circle>
+
+
+          <circle
+            class="marker-circle"
+            cx="0"
+            cy="0"
+            r="7">
+          </circle>
+
+
+          <!-- NOMBRE AL PASAR EL MOUSE -->
+
+          <g class="marker-label">
+
+            <rect
+              x="-55"
+              y="-42"
+              width="110"
+              height="25"
+              rx="4">
+            </rect>
+
+            <text
+              x="0"
+              y="-25"
+              text-anchor="middle">
+
+              {{ sede.nombre }}
+
+            </text>
+
+          </g>
+
+        </g>
+
+      }
+
+    </svg>
 
   </div>
+
+
+  <p class="mapa-ayuda">
+
+    <i class="fas fa-hand-pointer"></i>
+
+    Haz clic en un punto para ver la información de la sede.
+
+  </p>
 
 </section>
 
 
-<!-- =========================================
-     SEDES
-========================================= -->
+<!-- =========================
+     INFORMACIÓN
+========================= -->
 
-<section class="sedes-section">
+@if (sedeSeleccionada) {
 
-  <div class="section-heading">
-
-    <p class="section-label">
-      NUESTRA PRESENCIA
-    </p>
-
-    <h2>
-      Conoce nuestras sedes
-    </h2>
-
-    <p>
-      Conoce algunos de los territorios donde Ubuntu mantiene
-      presencia y desarrolla sus iniciativas.
-    </p>
-
-  </div>
+  <section
+    id="informacion-sede"
+    class="informacion-section">
 
 
-  <div class="sedes-grid">
+    <div class="informacion-card">
 
 
-    <!-- ICA -->
+      <!-- FOTO -->
 
-    <article class="sede-card">
+      <div class="informacion-imagen">
 
-      <div class="sede-image">
+        @if (sedeSeleccionada.imagen) {
 
-        <img
-          src="/imagenes/ica.png"
-          alt="Ubuntu en Ica">
+          <img
+            [src]="sedeSeleccionada.imagen"
+            [alt]="'Sede Ubuntu ' + sedeSeleccionada.nombre"
+          >
+
+        } @else {
+
+          <div class="foto-pendiente">
+
+            <i class="fas fa-image"></i>
+
+            <strong>
+              {{ sedeSeleccionada.nombre }}
+            </strong>
+
+            <span>
+              Foto de la sede próximamente
+            </span>
+
+          </div>
+
+        }
 
       </div>
 
-      <div class="sede-content">
 
-        <span>SEDE 01</span>
+      <!-- INFORMACIÓN -->
 
-        <h3>Ica</h3>
+      <div class="informacion-contenido">
+
+        <span class="etiqueta">
+          SEDE UBUNTU
+        </span>
+
+        <h2>
+          {{ sedeSeleccionada.nombre }}
+        </h2>
 
         <p>
-          Presencia de Ubuntu en Ica.
+          {{ sedeSeleccionada.descripcion }}
         </p>
 
-        <div class="sede-sociales">
 
-          <a
-            href="#"
-            aria-label="Facebook de Ubuntu Ica">
-            <i class="fab fa-facebook-f"></i>
-          </a>
+        <!-- REDES -->
 
-          <a
-            href="#"
-            aria-label="Instagram de Ubuntu Ica">
-            <i class="fab fa-instagram"></i>
-          </a>
+        <div class="redes">
 
-          <a
-            href="https://www.tiktok.com/@ubuntu.ica"
-            aria-label="TikTok de Ubuntu Ica">
-            <i class="fab fa-tiktok"></i>
-          </a>
+          <span>
+            REDES SOCIALES
+          </span>
+
+
+          <div class="redes-botones">
+
+            @if (sedeSeleccionada.facebook) {
+
+              <a
+                [href]="sedeSeleccionada.facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook">
+
+                <i class="fab fa-facebook-f"></i>
+
+              </a>
+
+            } @else {
+
+              <span class="red-disabled">
+                <i class="fab fa-facebook-f"></i>
+              </span>
+
+            }
+
+
+            @if (sedeSeleccionada.instagram) {
+
+              <a
+                [href]="sedeSeleccionada.instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram">
+
+                <i class="fab fa-instagram"></i>
+
+              </a>
+
+            } @else {
+
+              <span class="red-disabled">
+                <i class="fab fa-instagram"></i>
+              </span>
+
+            }
+
+
+            @if (sedeSeleccionada.tiktok) {
+
+              <a
+                [href]="sedeSeleccionada.tiktok"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="TikTok">
+
+                <i class="fab fa-tiktok"></i>
+
+              </a>
+
+            } @else {
+
+              <span class="red-disabled">
+                <i class="fab fa-tiktok"></i>
+              </span>
+
+            }
+
+          </div>
 
         </div>
 
-      </div>
 
-    </article>
+        <button
+          type="button"
+          class="cerrar-info"
+          (click)="cerrarInformacion()">
 
+          Cerrar información
 
-    <!-- AYACUCHO -->
+          <i class="fas fa-times"></i>
 
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/ayacucho.png"
-          alt="Ubuntu en Ayacucho">
+        </button>
 
       </div>
 
-      <div class="sede-content">
+    </div>
 
-        <span>SEDE 02</span>
+  </section>
 
-        <h3>Ayacucho</h3>
+}
 
-        <p>
-          Presencia de Ubuntu en Ayacucho.
-        </p>
 
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Ayacucho">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Ayacucho">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.tiktok.com/@ubuntu.ayacucho" aria-label="TikTok de Ubuntu Ayacucho">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- JUNÍN -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/JUNIN.jpg"
-          alt="Ubuntu en Junín">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 03</span>
-
-        <h3>Junín</h3>
-
-        <p>
-          Presencia de Ubuntu en Junín.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Junín">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Junín">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.tiktok.com/@ubuntu.junin" aria-label="TikTok de Ubuntu Junín">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- PUNO -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/PUNO.jpg"
-          alt="Ubuntu en Puno">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 05</span>
-
-        <h3>Puno</h3>
-
-        <p>
-          Presencia de Ubuntu en Puno.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Puno">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Puno">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.tiktok.com/@ubuntu_puno" aria-label="TikTok de Ubuntu Puno">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- AREQUIPA -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/AREQUIPA.jpg"
-          alt="Ubuntu en Arequipa">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 06</span>
-
-        <h3>Arequipa</h3>
-
-        <p>
-          Presencia de Ubuntu en Arequipa.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Arequipa">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Arequipa">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.tiktok.com/@ubuntu.arequipa" aria-label="TikTok de Ubuntu Arequipa">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- CAJAMARCA -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/CAJAMARCA.jpg"
-          alt="Ubuntu en Cajamarca">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 07</span>
-
-        <h3>Cajamarca</h3>
-
-        <p>
-          Presencia de Ubuntu en Cajamarca.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Cajamarca">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Cajamarca">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="" aria-label="TikTok de Ubuntu Cajamarca">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- TRUJILLO -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/TRUJILLO.jpg"
-          alt="Ubuntu en Trujillo">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 08</span>
-
-        <h3>Trujillo</h3>
-
-        <p>
-          Presencia de Ubuntu en Trujillo.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Trujillo">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Trujillo">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.tiktok.com/@ubuntu_trujillo_" aria-label="TikTok de Ubuntu Trujillo">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- CUSCO -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/CUSCO.jpg"
-          alt="Ubuntu en Cusco">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 09</span>
-
-        <h3>Cusco</h3>
-
-        <p>
-          Presencia de Ubuntu en Cusco.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Cusco">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Cusco">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.tiktok.com/@ubuntu_cusco" aria-label="TikTok de Ubuntu Cusco">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- HUÁNUCO -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/HUANUCO.jpg"
-          alt="Ubuntu en Huánuco">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 10</span>
-
-        <h3>Huánuco</h3>
-
-        <p>
-          Presencia de Ubuntu en Huánuco.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Huánuco">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Huánuco">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.tiktok.com/@ubuntu_huanuco" aria-label="TikTok de Ubuntu Huánuco">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- PIURA -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/PIURA.jpg"
-          alt="Ubuntu en Piura">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 11</span>
-
-        <h3>Piura</h3>
-
-        <p>
-          Presencia de Ubuntu en Piura.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Piura">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Piura">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.tiktok.com/@ubuntu.piura" aria-label="TikTok de Ubuntu Piura">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- LAMBAYEQUE -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/LAMBAYEQUE.jpg"
-          alt="Ubuntu en Lambayeque">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 12</span>
-
-        <h3>Lambayeque</h3>
-
-        <p>
-          Presencia de Ubuntu en Lambayeque.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Lambayeque">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Lambayeque">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.tiktok.com/@ubuntu_lambayeque" aria-label="TikTok de Ubuntu Lambayeque">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- CALLAO -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/callao.png"
-          alt="Ubuntu en Callao">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 13</span>
-
-        <h3>Callao</h3>
-
-        <p>
-          Presencia de Ubuntu en Callao.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Callao">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Callao">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.tiktok.com/@ubuntu.callao" aria-label="TikTok de Ubuntu Callao">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- TACNA -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/TACNA.jpg"
-          alt="Ubuntu en Tacna">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 14</span>
-
-        <h3>Tacna</h3>
-
-        <p>
-          Presencia de Ubuntu en Tacna.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Tacna">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Tacna">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="https://www.tiktok.com/@ubuntutacna" aria-label="TikTok de Ubuntu Tacna">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- MANCHAY -->
-
-    <article class="sede-card">
-
-      <div class="sede-image">
-
-        <img
-          src="/imagenes/MANCHAY.jpg"
-          alt="Ubuntu en Manchay">
-
-      </div>
-
-      <div class="sede-content">
-
-        <span>SEDE 15</span>
-
-        <h3>Manchay</h3>
-
-        <p>
-          Presencia de Ubuntu en Manchay.
-        </p>
-
-        <div class="sede-sociales">
-
-          <a href="#" aria-label="Facebook de Ubuntu Manchay">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-
-          <a href="#" aria-label="Instagram de Ubuntu Manchay">
-            <i class="fab fa-instagram"></i>
-          </a>
-
-          <a href="#" aria-label="TikTok de Ubuntu Manchay">
-            <i class="fab fa-tiktok"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-    </article>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================
-     LIMA METROPOLITANA
-========================================= -->
+<!-- =========================
+     LIMA
+========================= -->
 
 <section class="lima-section">
 
-  <div class="section-heading">
-
-    <p class="section-label">
-      PRESENCIA EN LIMA
-    </p>
-
-    <h2>
-      Ubuntu en Lima Metropolitana
-    </h2>
-
-    <p>
-      Actualmente Ubuntu tiene presencia en 11 distritos de Lima
-      Metropolitana y mantiene como objetivo continuar expandiéndose
-      y ayudando a más personas.
-    </p>
-
-  </div>
-
-
-  <div class="lima-map-container">
+  <div class="lima-image">
 
     <img
-      src="/imagenes/limametropolitana.png"
-      alt="Mapa de presencia de Ubuntu en Lima Metropolitana">
+      src="/imagenes/limametropolitano.png"
+      alt="Presencia de Ubuntu en Lima Metropolitana"
+    >
 
   </div>
 
 
-  <div class="lima-number">
+  <div class="lima-content">
 
-    <strong>11</strong>
-
-    <span>
-      distritos de presencia en Lima Metropolitana
+    <span class="etiqueta">
+      LIMA METROPOLITANA
     </span>
 
-  </div>
-
-</section>
-
-
-<!-- =========================================
-     GRUPOS JUVENILES
-========================================= -->
-
-<section class="groups-section">
-
-  <div class="section-heading">
-
-    <p class="section-label">
-      COMUNIDAD UBUNTU
-    </p>
-
     <h2>
-      Grupos juveniles
+      Presencia en Lima
     </h2>
 
     <p>
-      El material institucional presenta diferentes grupos
-      y organizaciones juveniles que forman parte de Ubuntu.
+      Ubuntu cuenta con presencia en 11 distritos a nivel
+      Lima Metropolitana y tiene como objetivo continuar
+      expandiéndose.
     </p>
 
-  </div>
+    <div class="lima-number">
 
+      <strong>11</strong>
 
-  <div class="groups-grid">
+      <span>
+        distritos mencionados en el material institucional
+      </span>
 
-
-    <article class="group-card">
-
-      <img
-        src="/imagenes/RENACE.jpg"
-        alt="RENACE">
-
-      <div class="group-content">
-
-        <span>
-          GRUPO JUVENIL
-        </span>
-
-        <h3>
-          RENACE
-        </h3>
-
-      </div>
-
-    </article>
-
-
-    <article class="group-card">
-
-      <img
-        src="/imagenes/BIOHU-SOSTENIBLE.jpg"
-        alt="BIOHU SOSTENIBLE">
-
-      <div class="group-content">
-
-        <span>
-          GRUPO JUVENIL
-        </span>
-
-        <h3>
-          BIOHU SOSTENIBLE
-        </h3>
-
-      </div>
-
-    </article>
-
-
-    <article class="group-card">
-
-      <img
-        src="/imagenes/UBUNTU-AMBIENTAL.jpg"
-        alt="Ubuntu Ambiental">
-
-      <div class="group-content">
-
-        <span>
-          ORGANIZACIÓN JUVENIL
-        </span>
-
-        <h3>
-          Ubuntu Ambiental
-        </h3>
-
-      </div>
-
-    </article>
-
-
-    <article class="group-card">
-
-      <img
-        src="/imagenes/SEMBRANDO-PSICOEDUCACION.jpg"
-        alt="Sembrando Psicoeducación">
-
-      <div class="group-content">
-
-        <span>
-          ORGANIZACIÓN JUVENIL
-        </span>
-
-        <h3>
-          Sembrando Psicoeducación
-        </h3>
-
-      </div>
-
-    </article>
+    </div>
 
   </div>
 
 </section>
 
 
-<!-- =========================================
-     CIERRE
-========================================= -->
+<!-- =========================
+     CTA
+========================= -->
 
-<section class="community-section">
+<section class="sedes-cta">
 
-  <div class="community-content">
+  <div class="sedes-cta-content">
 
-    <p class="section-label">
-      UBUNTU
+    <p>
+      CONOCE MÁS SOBRE UBUNTU
     </p>
 
     <h2>
-      Una comunidad presente en diferentes territorios
+      Forma parte de nuestra red
     </h2>
 
-    <p>
-      Jóvenes, voluntarios, profesionales, estudiantes y diferentes
-      grupos forman parte de las iniciativas desarrolladas por Ubuntu.
-    </p>
+    <span>
+      Conoce nuestro programa de voluntariado y participa
+      en nuestras iniciativas.
+    </span>
+
+    <br>
 
     <a
-      routerLink="/voluntariado"
-      class="btn-primary">
+      routerLink="/voluntariado/registro"
+      class="btn-white">
 
-      Conoce el voluntariado
+      Quiero ser voluntario
 
     </a>
 
