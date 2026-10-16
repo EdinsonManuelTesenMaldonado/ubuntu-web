@@ -1,240 +1,1570 @@
-.page-header {
-  background: #e30613;
-  color: white;
-  padding: 90px 40px;
-  text-align: center;
+/* =========================================================
+   MISIÓN Y VISIÓN - UBUNTU
+========================================================= */
+
+:host {
+  display: block;
+
+  --red: #d60000;
+  --black: #181818;
+  --white: #ffffff;
+
+  --yellow: #f4c542;
+  --blue: #2e6f95;
+  --green: #2e8b57;
+  --pink: #e85d8e;
+
+  --cream: #fff8ef;
+  --gray-bg: #f3f3f0;
+
+  --text-gray: #606060;
 }
 
-.page-header > div {
-  max-width: 800px;
-  margin: auto;
+* {
+  box-sizing: border-box;
 }
 
-.page-header span {
+.mision-page {
+  width: 100%;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.mv-hero {
+  min-height: 680px;
+
+  background: var(--red);
+
+  color: var(--white);
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 100px 9%;
+}
+
+.mv-hero-content {
+  position: relative;
+
+  z-index: 3;
+
+  max-width: 850px;
+}
+
+.hero-kicker {
+  display: inline-block;
+
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 25px;
+
+  border-left: 42px solid var(--white);
+
+  padding-left: 13px;
 }
 
-.page-header h1 {
+.mv-hero-content h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 50px;
-  margin: 18px 0;
+
+  font-size: clamp(50px, 7vw, 100px);
+
+  line-height: 0.9;
+
+  letter-spacing: -5px;
+
+  font-weight: 400;
+
+  margin: 0 0 35px;
 }
 
-.page-header p {
+.mv-hero-content h1 strong {
+  color: var(--yellow);
+
+  font-weight: 800;
+}
+
+.mv-hero-content p {
+  max-width: 560px;
+
   font-size: 18px;
+
   line-height: 1.7;
+
   margin: 0;
 }
 
 
-/* INTRO */
+/* =========================================================
+   HERO SÍMBOLO
+========================================================= */
 
-.intro-section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 100px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+.hero-symbol {
+  position: absolute;
+
+  right: 9%;
+  top: 50%;
+
+  width: 390px;
+  height: 390px;
+
+  transform:
+    translateY(-50%)
+    rotate(8deg);
+
+  z-index: 2;
+
+  opacity: 0.2;
 }
 
-.intro-image {
-  height: 450px;
-}
-
-.intro-image img,
-.filosofia-image img {
+.hero-symbol img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+
+  object-fit: contain;
+
+  filter: brightness(0) invert(1);
 }
 
-.etiqueta {
-  color: #e30613;
+.hero-symbol span {
+  position: absolute;
+
+  right: 25px;
+  top: 30px;
+
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
 
-.intro-text h2,
-.filosofia-text h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 38px;
-  line-height: 1.2;
-  margin: 15px 0 25px;
-}
+  font-size: 18px;
 
-.intro-text p,
-.filosofia-text p {
-  color: #555;
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-
-/* MISIÓN Y VISIÓN */
-
-.mission-section {
-  background: #f7f7f7;
-  padding: 100px 40px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 35px;
-}
-
-.mission-card {
-  max-width: 550px;
-  width: 100%;
-  margin: auto;
-  background: white;
-  padding: 55px 45px;
-  min-height: 360px;
-}
-
-.mission-card.red-card {
-  background: #e30613;
-  color: white;
-}
-
-.mission-card span {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.mission-card h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 40px;
-  margin: 20px 0;
-}
-
-.mission-card p {
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-.card-number {
-  color: #e30613;
-  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
-  font-size: 20px;
-  margin-bottom: 25px;
+
+  color: var(--yellow);
+
+  z-index: 3;
 }
 
-.red-card .card-number {
-  color: white;
+
+/* =========================================================
+   HERO DECORACIÓN
+========================================================= */
+
+.hero-hand {
+  position: absolute;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  opacity: 0.1;
+}
+
+.hero-hand img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter: brightness(0) invert(1);
+}
+
+.hero-hand-one {
+  width: 360px;
+  height: 360px;
+
+  left: -130px;
+  bottom: -100px;
+
+  transform: rotate(-20deg);
+}
+
+.hero-hand-two {
+  width: 260px;
+  height: 260px;
+
+  right: 25%;
+  top: -100px;
+
+  transform: rotate(20deg);
 }
 
 
-/* FILOSOFÍA */
+/* =========================================================
+   INTRO
+========================================================= */
 
-.filosofia {
-  max-width: 1200px;
-  margin: auto;
-  padding: 100px 40px;
+.mv-intro {
+  min-height: 460px;
+
+  background: var(--cream);
+
+  padding: 100px 9%;
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+
+  grid-template-columns: 0.25fr 1fr 0.5fr;
+
   align-items: center;
+
+  gap: 60px;
+
+  position: relative;
 }
 
-.filosofia-text h2 {
-  color: #e30613;
-  font-size: 42px;
+.intro-label {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
 }
 
-.filosofia-image {
-  height: 400px;
-}
-
-
-/* CIERRE */
-
-.cierre {
-  background: #e30613;
-  color: white;
-  text-align: center;
-  padding: 90px 40px;
-}
-
-.cierre span {
+.intro-label span {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  color: var(--red);
+
+  writing-mode: vertical-rl;
+}
+
+.intro-label strong {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 95px;
+
+  color: rgba(214, 0, 0, 0.1);
+
+  line-height: 0.8;
+}
+
+.intro-content {
+  max-width: 700px;
+}
+
+.intro-content h2 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(45px, 5vw, 75px);
+
+  line-height: 0.9;
+
+  letter-spacing: -4px;
+
+  margin: 0 0 25px;
+}
+
+.intro-content h2 strong {
+  color: var(--red);
+}
+
+.intro-content p {
+  max-width: 590px;
+
+  color: var(--text-gray);
+
+  font-size: 17px;
+
+  line-height: 1.8;
+
+  margin: 0;
+}
+
+.intro-hand {
+  width: 260px;
+  height: 260px;
+
+  justify-self: end;
+
+  opacity: 0.12;
+
+  transform: rotate(10deg);
+}
+
+.intro-hand img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   PILARES
+========================================================= */
+
+.pilares-section {
+  padding: 120px 9%;
+
+  background: var(--gray-bg);
+}
+
+.pilares-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 60px;
+
+  margin-bottom: 50px;
+}
+
+.section-kicker {
+  display: block;
+
+  color: var(--red);
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+
+  margin-bottom: 18px;
+}
+
+.pilares-header h2 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(45px, 5vw, 75px);
+
+  line-height: 0.9;
+
+  letter-spacing: -4px;
+
+  margin: 0;
+}
+
+.pilares-header h2 strong {
+  color: var(--red);
+}
+
+.pilares-header > p {
+  max-width: 400px;
+
+  color: var(--text-gray);
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.pilares-tabs {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 12px;
+
+  margin-bottom: 15px;
+}
+
+.pilar-tab {
+  min-height: 100px;
+
+  border: none;
+
+  background: var(--white);
+
+  padding: 22px 25px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  cursor: pointer;
+
+  position: relative;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  color: var(--black);
+
+  text-align: left;
+
+  transition: 0.25s ease;
+}
+
+.pilar-tab::before {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 6px;
+
+  background: var(--pilar-color);
+}
+
+.pilar-tab:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.pilar-tab.active {
+  background: var(--black);
+
+  color: var(--white);
+
+  transform: translateY(-5px);
+}
+
+.tab-number {
+  color: var(--pilar-color);
+
+  font-size: 12px;
+}
+
+.pilar-tab i {
+  margin-left: auto;
+
+  color: var(--pilar-color);
+
+  transition: 0.25s ease;
+}
+
+.pilar-tab:hover i {
+  transform: translateX(5px);
+}
+
+
+/* =========================================================
+   PILAR PRINCIPAL
+========================================================= */
+
+.pilar-main {
+  min-height: 500px;
+
+  background: var(--active-color);
+
+  color: var(--white);
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 70px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.pilar-main::before {
+  content: '';
+
+  position: absolute;
+
+  width: 390px;
+  height: 390px;
+
+  border: 70px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 50%;
+
+  right: -120px;
+  top: -130px;
+}
+
+.pilar-icon {
+  position: absolute;
+
+  top: 55px;
+  right: 65px;
+
+  width: 75px;
+  height: 75px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.17);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+}
+
+.pilar-number {
+  position: absolute;
+
+  top: 45px;
+  left: 70px;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 120px;
+
+  font-weight: 800;
+
+  line-height: 0.8;
+
+  opacity: 0.12;
+}
+
+.pilar-text {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 780px;
+}
+
+.pilar-text > span {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  color: var(--white);
+
+  opacity: 0.8;
+}
+
+.pilar-text h3 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(48px, 6vw, 85px);
+
+  line-height: 0.85;
+
+  letter-spacing: -4px;
+
+  margin: 20px 0 30px;
+}
+
+.pilar-text p {
+  max-width: 720px;
+
+  font-size: 18px;
+
+  line-height: 1.75;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.pilar-controls {
+  position: absolute;
+
+  right: 60px;
+  bottom: 45px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.pilar-controls button {
+  width: 45px;
+  height: 45px;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  background: transparent;
+
+  color: var(--white);
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.pilar-controls button:hover {
+  background: var(--white);
+
+  color: var(--active-color);
+}
+
+.pilar-controls span {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   MISIÓN DESTACADA
+========================================================= */
+
+.mision-highlight {
+  padding: 120px 9%;
+
+  display: grid;
+
+  grid-template-columns: 1fr 0.9fr;
+
+  gap: 90px;
+
+  align-items: center;
+
+  background: var(--white);
+}
+
+.highlight-photo {
+  height: 550px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.highlight-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.highlight-photo:hover img {
+  transform: scale(1.05);
+}
+
+.photo-stamp {
+  position: absolute;
+
+  left: 25px;
+  top: 25px;
+
+  padding: 12px 18px;
+
+  background: var(--red);
+
+  color: var(--white);
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
   letter-spacing: 2px;
 }
 
-.cierre h2 {
+.highlight-content > span {
   font-family: 'Montserrat', sans-serif;
-  font-size: 38px;
-  margin: 18px 0;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+
+  color: var(--red);
 }
 
-.cierre p {
-  max-width: 650px;
-  margin: 0 auto 30px;
-  line-height: 1.7;
+.highlight-content h2 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(48px, 5vw, 78px);
+
+  line-height: 0.9;
+
+  letter-spacing: -4px;
+
+  margin: 22px 0 30px;
 }
 
-.cierre a {
-  display: inline-block;
-  background: white;
-  color: #e30613
-  padding: 15px 28px;
-  text-decoration: none;
+.highlight-content h2 strong {
+  color: var(--red);
+}
+
+.highlight-content > p {
+  color: var(--text-gray);
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  margin: 0;
+}
+
+.highlight-line {
+  width: 100px;
+  height: 5px;
+
+  background: var(--yellow);
+
+  margin: 35px 0;
+}
+
+.highlight-mini {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.highlight-mini i {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: var(--cream);
+
+  color: var(--red);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.highlight-mini span {
   font-family: 'Montserrat', sans-serif;
+
+  font-size: 12px;
+
   font-weight: 700;
+
+  color: var(--black);
 }
 
 
-/* RESPONSIVE */
+/* =========================================================
+   VISIÓN
+========================================================= */
 
-@media (max-width: 800px) {
+.vision-section {
+  min-height: 620px;
 
-  .intro-section,
-  .filosofia,
-  .mission-section {
+  background: var(--blue);
+
+  color: var(--white);
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 100px 9%;
+}
+
+.vision-content {
+  position: relative;
+
+  z-index: 3;
+
+  max-width: 750px;
+}
+
+.vision-content > span {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  color: var(--yellow);
+}
+
+.vision-content h2 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(60px, 8vw, 110px);
+
+  line-height: 0.8;
+
+  letter-spacing: -6px;
+
+  font-weight: 400;
+
+  margin: 25px 0;
+}
+
+.vision-content h2 strong {
+  color: var(--yellow);
+
+  font-weight: 800;
+}
+
+.vision-content > p {
+  max-width: 610px;
+
+  font-size: 18px;
+
+  line-height: 1.75;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.vision-points {
+  display: flex;
+
+  gap: 15px;
+
+  margin-top: 40px;
+
+  flex-wrap: wrap;
+}
+
+.vision-points div {
+  min-height: 70px;
+
+  padding: 15px 20px;
+
+  background: rgba(255, 255, 255, 0.12);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  transition: 0.25s ease;
+}
+
+.vision-points div:hover {
+  background: var(--yellow);
+
+  color: var(--black);
+
+  transform: translateY(-5px);
+}
+
+.vision-points i {
+  font-size: 18px;
+}
+
+.vision-points span {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+}
+
+.vision-decoration {
+  position: absolute;
+
+  right: -80px;
+  top: 50%;
+
+  width: 600px;
+  height: 600px;
+
+  transform:
+    translateY(-50%)
+    rotate(10deg);
+
+  opacity: 0.14;
+}
+
+.vision-decoration img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter: brightness(0) invert(1);
+}
+
+
+/* =========================================================
+   FILOSOFÍA
+========================================================= */
+
+.filosofia-section {
+  min-height: 560px;
+
+  background: var(--cream);
+
+  display: grid;
+
+  grid-template-columns: 0.7fr 1.3fr;
+
+  align-items: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.filosofia-left {
+  height: 100%;
+
+  min-height: 560px;
+
+  background: var(--yellow);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.filosofia-left > span {
+  position: absolute;
+
+  left: 35px;
+  top: 35px;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.filosofia-hand {
+  width: 350px;
+  height: 350px;
+
+  transform: rotate(-10deg);
+}
+
+.filosofia-hand img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+.filosofia-right {
+  padding: 80px 9%;
+}
+
+.filosofia-right h2 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(55px, 7vw, 100px);
+
+  line-height: 0.85;
+
+  letter-spacing: -5px;
+
+  font-weight: 400;
+
+  margin: 0 0 30px;
+}
+
+.filosofia-right h2 strong {
+  color: var(--red);
+
+  font-weight: 800;
+}
+
+.filosofia-right > p {
+  max-width: 650px;
+
+  color: var(--text-gray);
+
+  font-size: 17px;
+
+  line-height: 1.8;
+}
+
+.filosofia-quote {
+  margin-top: 35px;
+
+  display: flex;
+
+  gap: 20px;
+
+  align-items: flex-start;
+}
+
+.filosofia-quote > i {
+  color: var(--red);
+
+  font-size: 28px;
+}
+
+.filosofia-quote div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.filosofia-quote strong {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 17px;
+
+  line-height: 1.3;
+}
+
+.filosofia-quote span {
+  color: var(--text-gray);
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   COMUNIDAD
+========================================================= */
+
+.comunidad-section {
+  padding: 100px 9%;
+
+  background: var(--white);
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.community-card {
+  min-height: 330px;
+
+  padding: 35px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  position: relative;
+
+  overflow: hidden;
+
+  transition: 0.3s ease;
+}
+
+.community-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.community-card i {
+  font-size: 35px;
+}
+
+.community-card span {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.community-card h3 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 35px;
+
+  line-height: 0.9;
+
+  letter-spacing: -1.5px;
+
+  margin: 0;
+}
+
+.community-red {
+  background: var(--red);
+
+  color: var(--white);
+}
+
+.community-yellow {
+  background: var(--yellow);
+
+  color: var(--black);
+}
+
+.community-blue {
+  background: var(--blue);
+
+  color: var(--white);
+}
+
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.mv-cierre {
+  min-height: 580px;
+
+  background: var(--black);
+
+  color: var(--white);
+
+  padding: 100px 9%;
+
+  display: flex;
+
+  align-items: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.cierre-content {
+  position: relative;
+
+  z-index: 3;
+}
+
+.cierre-content > span {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  color: var(--yellow);
+}
+
+.cierre-content h2 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(65px, 9vw, 125px);
+
+  line-height: 0.8;
+
+  letter-spacing: -6px;
+
+  font-weight: 400;
+
+  margin: 25px 0;
+}
+
+.cierre-content p {
+  max-width: 500px;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+
+  color: #dddddd;
+
+  margin-bottom: 30px;
+}
+
+.cierre-buttons {
+  display: flex;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+}
+
+.btn-white,
+.btn-outline {
+  min-height: 52px;
+
+  padding: 0 24px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  text-decoration: none;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  transition: 0.25s ease;
+}
+
+.btn-white {
+  background: var(--red);
+
+  color: var(--white);
+}
+
+.btn-white:hover {
+  background: var(--white);
+
+  color: var(--red);
+
+  transform: translateY(-4px);
+}
+
+.btn-outline {
+  border: 2px solid var(--white);
+
+  color: var(--white);
+}
+
+.btn-outline:hover {
+  background: var(--white);
+
+  color: var(--black);
+
+  transform: translateY(-4px);
+}
+
+.cierre-hand {
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  right: -100px;
+  top: 50%;
+
+  transform:
+    translateY(-50%)
+    rotate(-12deg);
+
+  opacity: 0.14;
+}
+
+.cierre-hand img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter: brightness(0) invert(1);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .mv-hero,
+  .mv-intro,
+  .pilares-section,
+  .mision-highlight,
+  .vision-section,
+  .mv-cierre {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+  .hero-symbol {
+    right: 4%;
+  }
+
+  .mv-intro {
+    grid-template-columns: 0.2fr 1fr;
+  }
+
+  .intro-hand {
+    display: none;
+  }
+
+  .pilares-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .mision-highlight {
+    gap: 60px;
+  }
+
+  .comunidad-section {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+
+}
+
+
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .mv-hero {
+    min-height: 670px;
+
+    padding: 75px 7%;
+  }
+
+  .mv-hero-content h1 {
+    font-size: 52px;
+
+    letter-spacing: -3px;
+  }
+
+  .mv-hero-content p {
+    font-size: 15px;
+  }
+
+  .hero-symbol {
+    width: 270px;
+    height: 270px;
+
+    right: -80px;
+    bottom: -60px;
+
+    top: auto;
+
+    transform: rotate(8deg);
+  }
+
+  .hero-hand-two {
+    right: -100px;
+  }
+
+  .mv-intro {
+    grid-template-columns: 1fr;
+
+    padding: 75px 7%;
+
+    gap: 15px;
+  }
+
+  .intro-label {
+    flex-direction: row;
+
+    align-items: center;
+  }
+
+  .intro-label span {
+    writing-mode: horizontal-tb;
+  }
+
+  .intro-label strong {
+    font-size: 65px;
+  }
+
+  .intro-content h2 {
+    font-size: 50px;
+  }
+
+  .pilares-section {
+    padding: 75px 7%;
+  }
+
+  .pilares-header h2 {
+    font-size: 50px;
+  }
+
+  .pilares-tabs {
     grid-template-columns: 1fr;
   }
 
-  .page-header h1 {
-    font-size: 38px;
+  .pilar-main {
+    min-height: 550px;
+
+    padding: 45px 25px;
   }
 
-  .intro-image,
-  .filosofia-image {
-    height: 350px;
+  .pilar-number {
+    left: 25px;
+    top: 35px;
+
+    font-size: 90px;
   }
 
-  .intro-text h2,
-  .filosofia-text h2 {
-    font-size: 30px;
-  }
-}
-
-@media (max-width: 500px) {
-
-  .intro-section,
-  .filosofia {
-    padding: 65px 25px;
+  .pilar-icon {
+    right: 25px;
+    top: 35px;
   }
 
-  .mission-section {
-    padding: 65px 25px;
+  .pilar-text {
+    margin-top: 70px;
   }
 
-  .mission-card {
-    padding: 40px 30px;
+  .pilar-text h3 {
+    font-size: 52px;
   }
 
-  .cierre {
-    padding: 65px 25px;
+  .pilar-text p {
+    font-size: 15px;
   }
+
+  .pilar-controls {
+    left: 25px;
+    right: auto;
+
+    bottom: 25px;
+  }
+
+  .mision-highlight {
+    grid-template-columns: 1fr;
+
+    padding: 75px 7%;
+  }
+
+  .highlight-photo {
+    height: 360px;
+  }
+
+  .highlight-content h2 {
+    font-size: 52px;
+  }
+
+  .vision-section {
+    min-height: 650px;
+
+    padding: 75px 7%;
+  }
+
+  .vision-content h2 {
+    font-size: 65px;
+
+    letter-spacing: -4px;
+  }
+
+  .vision-content > p {
+    font-size: 15px;
+  }
+
+  .vision-points {
+    flex-direction: column;
+  }
+
+  .vision-points div {
+    width: 100%;
+  }
+
+  .vision-decoration {
+    width: 400px;
+    height: 400px;
+
+    right: -150px;
+    bottom: -100px;
+
+    top: auto;
+
+    transform: rotate(10deg);
+  }
+
+  .filosofia-section {
+    grid-template-columns: 1fr;
+  }
+
+  .filosofia-left {
+    min-height: 350px;
+  }
+
+  .filosofia-right {
+    padding: 70px 7%;
+  }
+
+  .filosofia-right h2 {
+    font-size: 62px;
+  }
+
+  .comunidad-section {
+    grid-template-columns: 1fr;
+
+    padding: 75px 7%;
+  }
+
+  .community-card {
+    min-height: 270px;
+  }
+
+  .mv-cierre {
+    min-height: 620px;
+
+    padding: 75px 7%;
+  }
+
+  .cierre-content h2 {
+    font-size: 75px;
+
+    letter-spacing: -4px;
+  }
+
+  .cierre-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .btn-white,
+  .btn-outline {
+    width: 100%;
+  }
+
+  .cierre-hand {
+    width: 430px;
+    height: 430px;
+
+    right: -150px;
+  }
+
 }

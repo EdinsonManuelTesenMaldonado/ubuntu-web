@@ -1,13 +1,17 @@
 <header class="navbar">
 
   <!-- LOGO -->
-  <a
-    routerLink="/inicio"
-    class="logo"
-    (click)="closeMenu()">
-    UBUNTU
-  </a>
+  <a routerLink="/inicio" class="navbar-brand">
+  <img
+    src="/imagenes/manitos-ubuntu.png"
+    alt="Símbolo de Ubuntu"
+  />
 
+  <span class="navbar-brand-text">
+    <strong>Ubuntu</strong>
+    <span>Jóvenes Voluntarios Perú</span>
+  </span>
+</a>
 
   <!-- BOTÓN HAMBURGUESA -->
   <button
@@ -118,7 +122,10 @@
           Nuestro trabajo
         </a>
 
-        <a routerLink="/lineas-accion">
+     
+<a
+  routerLink="/trabajo/lineas-accion"
+  (click)="closeMenu()">
   Líneas de acción
 </a>
 
@@ -178,12 +185,6 @@
           routerLink="/voluntariado/porque-voluntario"
           (click)="closeMenu()">
           ¿Por qué ser voluntario?
-        </a>
-
-        <a
-          routerLink="/voluntariado/profesional"
-          (click)="closeMenu()">
-          Voluntariado profesional
         </a>
 
         <a

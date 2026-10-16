@@ -1,24 +1,74 @@
-<!-- =========================
-     HERO PRINCIPAL
-========================= -->
+<!-- =====================================================
+     BARRA SUPERIOR DE REDES
+===================================================== -->
+
+<section class="social-topbar">
+
+  <div class="social-topbar-content">
+
+    <div class="social-brand">
+      <span class="brand-dot"></span>
+      <span>Ubuntu Jóvenes Voluntarios Perú</span>
+    </div>
+
+    <div class="social-links">
+
+      @for (red of redesSociales; track red.nombre) {
+
+        <a
+          [href]="red.enlace"
+          target="_blank"
+          rel="noopener noreferrer"
+          [attr.aria-label]="red.nombre"
+          class="social-link"
+        >
+          <i [class]="red.icono"></i>
+        </a>
+
+      }
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
 
 <section class="hero">
+
+  <div class="hero-decoration hero-decoration-one"></div>
+  <div class="hero-decoration hero-decoration-two"></div>
 
   <div class="hero-overlay">
 
     <div class="hero-content">
 
-      <p class="hero-subtitle">
+      <div class="ubuntu-symbol">
+
+        <img
+          src="/imagenes/manitos-ubuntu.png"
+          alt="Símbolo Ubuntu"
+        >
+
+      </div>
+
+      <p class="hero-kicker">
         UBUNTU JÓVENES VOLUNTARIOS PERÚ
       </p>
 
       <h1>
-        Yo soy porque todos somos
+        Yo soy porque
+        <span>todos somos.</span>
       </h1>
 
       <p class="hero-text">
-        Jóvenes unidos por un mismo propósito:
-        aportar, participar y generar impacto.
+        Una comunidad de jóvenes, voluntarios y profesionales
+        que comparte experiencias, conocimientos y acciones
+        para construir un Perú más solidario.
       </p>
 
       <div class="hero-buttons">
@@ -28,14 +78,262 @@
           class="btn-primary"
         >
           Conoce Ubuntu
+          <span>→</span>
         </a>
 
         <a
           routerLink="/voluntariado/registro"
           class="btn-secondary"
         >
-          Sé voluntario
+          Sé parte de Ubuntu
+          <span>♡</span>
         </a>
+
+      </div>
+
+      <div class="hero-mini-text">
+
+        <span>Desde 2016</span>
+        <span class="mini-separator">•</span>
+        <span>Voluntariado juvenil</span>
+        <span class="mini-separator">•</span>
+        <span>Presencia nacional</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="hero-scroll">
+
+    <span>Descubre nuestra historia</span>
+
+    <span class="scroll-arrow">
+      ↓
+    </span>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     FRASE UBUNTU
+===================================================== -->
+
+<section class="ubuntu-phrase">
+
+  <div class="phrase-hand phrase-hand-left">
+
+    <img
+      src="/imagenes/manitos-ubuntu.png"
+      alt=""
+    >
+
+  </div>
+
+  <div class="phrase-content">
+
+    <span class="phrase-small">
+      LA FILOSOFÍA QUE NOS UNE
+    </span>
+
+    <h2>
+      Yo soy porque todos somos.
+    </h2>
+
+    <p>
+      Ubuntu nos recuerda que somos parte de una comunidad,
+      que aprendemos junto a otros y que nuestras acciones
+      adquieren sentido cuando las construimos colectivamente.
+    </p>
+
+  </div>
+
+  <div class="phrase-hand phrase-hand-right">
+
+    <img
+      src="/imagenes/manitos-ubuntu.png"
+      alt=""
+    >
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     ESTADÍSTICAS
+===================================================== -->
+
+<section class="stats-section">
+
+  <div class="stats-header">
+
+    <p class="section-label">
+      UBUNTU EN NÚMEROS
+    </p>
+
+    <h2>
+      Una historia construida por personas
+    </h2>
+
+    <p>
+      Desde nuestros inicios, cada voluntario, pasante y
+      colaborador ha sido parte de este camino.
+    </p>
+
+  </div>
+
+  <div class="stats-grid">
+
+    <article class="stat-item">
+
+      <div class="stat-number">
+        2016
+      </div>
+
+      <div class="stat-line"></div>
+
+      <h3>
+        Año de inicio
+      </h3>
+
+      <p>
+        Ubuntu inició su labor el 30 de septiembre de 2016.
+      </p>
+
+    </article>
+
+    <article class="stat-item featured-stat">
+
+      <div class="stat-number">
+        +700
+      </div>
+
+      <div class="stat-line"></div>
+
+      <h3>
+        Voluntarios
+      </h3>
+
+      <p>
+        Personas que han formado parte de nuestra comunidad.
+      </p>
+
+    </article>
+
+    <article class="stat-item">
+
+      <div class="stat-number">
+        +300
+      </div>
+
+      <div class="stat-line"></div>
+
+      <h3>
+        Pasantes
+      </h3>
+
+      <p>
+        Estudiantes y jóvenes que han vivido esta experiencia.
+      </p>
+
+    </article>
+
+    <article class="stat-item">
+
+      <div class="stat-number">
+        4
+      </div>
+
+      <div class="stat-line"></div>
+
+      <h3>
+        Líneas de acción
+      </h3>
+
+      <p>
+        Social, ambiental, animalista y cultural.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     QUIÉNES SOMOS
+===================================================== -->
+
+<section class="about">
+
+  <div class="about-content">
+
+    <div class="about-text">
+
+      <p class="section-label">
+        QUIÉNES SOMOS
+      </p>
+
+      <h2>
+        Una comunidad que aprende haciendo.
+      </h2>
+
+      <p>
+        Ubuntu es una organización peruana liderada por jóvenes
+        voluntarios que desarrolla proyectos sociales y trabaja
+        directamente con comunidades.
+      </p>
+
+      <p>
+        Nuestro valor diferencial está en el trabajo en campo:
+        estar presentes, acompañar y aprender junto a las personas
+        y comunidades con las que compartimos cada iniciativa.
+      </p>
+
+      <a
+        routerLink="/nosotros"
+        class="text-link"
+      >
+        Conoce nuestra historia
+        <span>→</span>
+      </a>
+
+    </div>
+
+    <div class="about-image">
+
+      <img
+        src="/imagenes/ss.png"
+        alt="Voluntarios de Ubuntu"
+      >
+
+      <div class="image-badge">
+
+        <div class="badge-symbol">
+
+          <img
+            src="/imagenes/manitos-ubuntu.png"
+            alt=""
+          >
+
+        </div>
+
+        <div>
+
+          <strong>
+            Somos Ubuntu
+          </strong>
+
+          <small>
+            Yo soy porque todos somos
+          </small>
+
+        </div>
 
       </div>
 
@@ -46,87 +344,42 @@
 </section>
 
 
-<!-- =========================
-     QUIÉNES SOMOS
-========================= -->
-
-<section class="about">
-
-  <div class="about-content">
-
-
-    <!-- TEXTO -->
-
-    <div class="about-text">
-
-      <p class="section-label">
-        QUIÉNES SOMOS
-      </p>
-
-      <h2>
-        Jóvenes que creen en la acción
-      </h2>
-
-      <p>
-        Somos una organización peruana de jóvenes voluntarios
-        comprometidos con el desarrollo de proyectos innovadores
-        y sostenibles que generan un impacto positivo en las
-        comunidades.
-      </p>
-
-      <a
-        routerLink="/nosotros"
-        class="text-link"
-      >
-        Conócenos →
-      </a>
-
-    </div>
-
-
-    <!-- IMAGEN -->
-
-    <div class="about-image">
-
-      <img
-        src="/imagenes/ss.png"
-        alt="Voluntarios de Ubuntu"
-      >
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =========================
+<!-- =====================================================
      LÍNEAS DE ACCIÓN
-========================= -->
+===================================================== -->
 
 <section class="action-section">
 
+  <div class="action-header">
 
-  <div class="section-header">
+    <div>
 
-    <p class="section-label light">
-      LO QUE HACEMOS
+      <p class="section-label light">
+        LO QUE HACEMOS
+      </p>
+
+      <h2>
+        Cuatro caminos,<br>
+        una misma comunidad.
+      </h2>
+
+    </div>
+
+    <p class="action-intro">
+      Nuestras iniciativas se desarrollan alrededor de cuatro
+      líneas de acción que nos permiten participar en diferentes
+      realidades y necesidades.
     </p>
-
-    <h2>
-      Nuestras líneas de acción
-    </h2>
 
   </div>
 
-
   <div class="action-cards">
 
-
-    <!-- SOCIAL -->
-
     <article class="action-card">
+
+      <div class="action-number">
+        01
+      </div>
 
       <div class="action-icon">
         🤝
@@ -137,15 +390,19 @@
       </h3>
 
       <p>
-        Acciones junto a las comunidades.
+        Acompañamos comunidades y desarrollamos acciones
+        orientadas a fortalecer capacidades y oportunidades.
       </p>
+
+      
 
     </article>
 
-
-    <!-- AMBIENTAL -->
-
     <article class="action-card">
+
+      <div class="action-number">
+        02
+      </div>
 
       <div class="action-icon">
         🌱
@@ -156,15 +413,19 @@
       </h3>
 
       <p>
-        Comprometidos con el cuidado del entorno.
+        Participamos en iniciativas relacionadas con el cuidado
+        del ambiente y la sostenibilidad.
       </p>
+
+   
 
     </article>
 
-
-    <!-- ANIMALISTA -->
-
     <article class="action-card">
+
+      <div class="action-number">
+        03
+      </div>
 
       <div class="action-icon">
         🐾
@@ -175,15 +436,19 @@
       </h3>
 
       <p>
-        Promovemos el bienestar animal.
+        Apoyamos acciones orientadas al bienestar y protección
+        de los animales.
       </p>
+
+     
 
     </article>
 
-
-    <!-- CULTURAL -->
-
     <article class="action-card">
+
+      <div class="action-number">
+        04
+      </div>
 
       <div class="action-icon">
         🎨
@@ -194,231 +459,412 @@
       </h3>
 
       <p>
-        Impulsamos la creatividad y participación.
+        Promovemos espacios de aprendizaje, creatividad,
+        expresión y participación.
       </p>
 
+      
     </article>
 
-
   </div>
 
-
-  <div class="center-button">
-
-    <a
-      routerLink="/trabajo"
-      class="btn-lines"
-    >
-      Conoce nuestro trabajo
-    </a>
-
-  </div>
-
+<div class="action-general-button">
+  <a routerLink="/trabajo/lineas-accion">
+    Conoce nuestras líneas de acción
+    <span>→</span>
+  </a>
+</div>
 
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      UBUNTU EN ACCIÓN
-========================= -->
+===================================================== -->
 
 <section class="ubuntu-action">
 
-
-  <div class="action-gallery-header">
+  <div class="section-heading-centered">
 
     <p class="section-label">
       UBUNTU EN ACCIÓN
     </p>
 
     <h2>
-      Así vivimos el voluntariado
+      Aquí es donde sucede.
     </h2>
+
+    <p>
+      Detrás de cada fotografía hay personas, aprendizajes
+      y experiencias compartidas.
+    </p>
 
   </div>
 
-
   <div class="photo-grid">
 
-
-    <div class="photo-main">
+    <div class="photo-card photo-large">
 
       <img
         src="/imagenes/PSX_20241001_083915.jpg"
-        alt="Voluntariado Ubuntu"
+        alt="Voluntarios realizando una actividad"
       >
 
-      <div class="photo-caption">
-        <span>VOLUNTARIADO</span>
+      <div class="photo-overlay">
+
+        <span>
+          VOLUNTARIADO
+        </span>
+
+        <h3>
+          Personas que deciden participar.
+        </h3>
+
       </div>
 
     </div>
 
-
-    <div class="photo-side">
+    <div class="photo-card">
 
       <img
         src="/imagenes/image.png"
         alt="Comunidad Ubuntu"
       >
 
-      <div class="photo-caption">
-        <span>COMUNIDAD</span>
+      <div class="photo-overlay">
+
+        <span>
+          COMUNIDAD
+        </span>
+
+        <h3>
+          Compartimos experiencias.
+        </h3>
+
       </div>
 
     </div>
 
-
-    <div class="photo-side">
+    <div class="photo-card">
 
       <img
         src="/imagenes/WhatsApp Image 2026-06-26 at 11.46.38 AM.jpeg"
-        alt="Actividad Ubuntu"
+        alt="Actividad de voluntariado Ubuntu"
       >
 
-      <div class="photo-caption">
-        <span>ACCIÓN</span>
+      <div class="photo-overlay">
+
+        <span>
+          ACCIÓN
+        </span>
+
+        <h3>
+          Pasamos de las ideas a la acción.
+        </h3>
+
       </div>
 
     </div>
 
-
   </div>
-
 
   <div class="center-button">
 
     <a
       routerLink="/trabajo/galeria"
-      class="text-link"
+      class="outline-button"
     >
-      Ver galería →
+      Explorar galería
+      <span>→</span>
     </a>
 
   </div>
 
+</section>
+
+
+<!-- =====================================================
+     VIDEOS
+===================================================== -->
+
+<section class="video-section">
+
+  <div class="video-container">
+
+    <div class="video-text">
+
+      <p class="section-label light">
+        VIVE UBUNTU
+      </p>
+
+      <h2>
+        Hay experiencias
+        que se entienden
+        mejor viviéndolas.
+      </h2>
+
+      <p>
+        Conoce más sobre Ubuntu, nuestras experiencias y
+        las personas que forman parte de esta comunidad.
+      </p>
+
+      <a
+        href="https://www.instagram.com/ubuntujvperu/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="video-channel-button"
+      >
+        Ver contenido
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+
+    </div>
+
+    <div class="video-player">
+
+      <div class="video-placeholder">
+
+        <i class="fa-brands fa-youtube"></i>
+
+        <span>
+          VIDEOS DE UBUNTU
+        </span>
+
+        <p>
+          Próximamente podrás encontrar aquí
+          nuestras experiencias en video.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- =========================
-     IMPACTO
-========================= -->
+<!-- =====================================================
+     TESTIMONIOS
+===================================================== -->
 
-<section class="impact-section">
+<section class="testimonials-section">
 
-
-  <div class="impact-header">
+  <div class="testimonials-header">
 
     <p class="section-label">
-      NUESTRO IMPACTO
+      VOCES DE UBUNTU
     </p>
 
     <h2>
-      Un camino construido juntos
+      Las personas también cuentan nuestra historia.
     </h2>
 
-  </div>
-
-
-  <div class="impact-stats">
-
-
-    <div class="stat-card">
-
-      <h3>
-        2016
-      </h3>
-
-      <p>
-        Año de inicio
-      </p>
-
-    </div>
-
-
-    <div class="stat-card">
-
-      <h3>
-        4
-      </h3>
-
-      <p>
-        Líneas de acción
-      </p>
-
-    </div>
-
-
-    <div class="stat-card">
-
-      <h3>
-        🇵🇪
-      </h3>
-
-      <p>
-        Compromiso con el Perú
-      </p>
-
-    </div>
-
+    <p>
+      Conoce las experiencias de quienes han formado parte
+      de Ubuntu como voluntarios, pasantes y practicantes.
+    </p>
 
   </div>
 
 
-  <div class="center-button">
+  <div class="testimonials-grid">
 
-    <a
-      routerLink="/trabajo/impacto"
-      class="text-link"
-    >
-      Conoce nuestro impacto →
-    </a>
+    @for (
+      testimonio of testimonios;
+      track testimonio.nombre
+    ) {
+
+      <article class="testimonial-card">
+
+        <div class="testimonial-top">
+
+          <div class="testimonial-avatar">
+            {{ testimonio.iniciales }}
+          </div>
+
+          <div class="testimonial-person">
+
+            <strong>
+              {{ testimonio.nombre }}
+            </strong>
+
+            <span>
+              {{ testimonio.cargo }}
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="testimonial-mark">
+          “
+        </div>
+
+
+        <p class="testimonial-text">
+          {{ testimonio.texto }}
+        </p>
+
+
+        <div class="testimonial-bottom">
+
+          <img
+            src="/imagenes/manitos-ubuntu.png"
+            alt=""
+          >
+
+          <span>
+            Yo soy porque todos somos
+          </span>
+
+        </div>
+
+      </article>
+
+    }
 
   </div>
-
 
 </section>
 
 
-<!-- =========================
-     VOLUNTARIADO FINAL
-========================= -->
+<!-- =====================================================
+     PRESENCIA
+===================================================== -->
+
+<section class="presence-section">
+
+  <div class="presence-content">
+
+    <div class="presence-text">
+
+      <p class="section-label">
+        NUESTRA PRESENCIA
+      </p>
+
+      <h2>
+        Ubuntu está donde
+        la comunidad nos necesita.
+      </h2>
+
+      <p>
+        Nuestra organización ha extendido su trabajo a diferentes
+        territorios del Perú, construyendo experiencias junto a
+        comunidades, jóvenes, estudiantes y profesionales.
+      </p>
+
+      <div class="presence-number">
+
+        <strong>
+          11+
+        </strong>
+
+        <span>
+          departamentos y territorios
+          mencionados en nuestro material institucional
+        </span>
+
+      </div>
+
+      <a
+        routerLink="/nosotros/sedes-equipos"
+        class="text-link"
+      >
+        Explorar nuestras sedes
+        <span>→</span>
+      </a>
+
+    </div>
+
+
+    <div class="presence-visual">
+
+      <div class="peru-circle">
+
+        <img
+          src="/imagenes/manitos-ubuntu.png"
+          alt="Símbolo Ubuntu"
+        >
+
+        <strong>
+          PERÚ
+        </strong>
+
+        <small>
+          YO SOY PORQUE TODOS SOMOS
+        </small>
+
+      </div>
+
+      <div class="floating-point point-one"></div>
+      <div class="floating-point point-two"></div>
+      <div class="floating-point point-three"></div>
+      <div class="floating-point point-four"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA FINAL
+===================================================== -->
 
 <section class="volunteer-section">
 
-
   <div class="volunteer-overlay">
 
-
     <div class="volunteer-content">
+
+      <div class="cta-symbol">
+
+        <img
+          src="/imagenes/manitos-ubuntu.png"
+          alt="Símbolo Ubuntu"
+        >
+
+      </div>
 
       <p>
         SÉ PARTE DE UBUNTU
       </p>
 
       <h2>
-        ¿Quieres vivir la experiencia del voluntariado?
+        Tu experiencia también
+        puede formar parte de esta historia.
       </h2>
 
       <span>
-        Conoce nuevas personas, comparte experiencias y sé parte
-        de nuestras próximas iniciativas.
+        Conoce nuevas personas, comparte tus conocimientos,
+        participa en nuestras iniciativas y vive la experiencia
+        del voluntariado.
       </span>
 
-      <br><br>
+      <div class="cta-buttons">
 
-      <a
-        routerLink="/voluntariado/registro"
-        class="btn-volunteer"
-      >
-        Quiero ser voluntario
-      </a>
+        <a
+          routerLink="/voluntariado/registro"
+          class="btn-volunteer"
+        >
+          Quiero ser voluntario
+          <span>→</span>
+        </a>
+
+        <a
+          routerLink="/voluntariado"
+          class="btn-cta-outline"
+        >
+          Conocer el programa
+        </a>
+
+      </div>
 
     </div>
 
-
   </div>
-
 
 </section>

@@ -1,234 +1,1387 @@
-.page-header {
-  background: #e30613;
-  color: white;
-  padding: 90px 40px;
-  text-align: center;
+/* =========================================================
+   HISTORIA - UBUNTU
+========================================================= */
+
+:host {
+  display: block;
+
+  --red: #d60000;
+  --black: #181818;
+  --white: #ffffff;
+
+  --yellow: #f4c542;
+  --green: #2e8b57;
+  --blue: #2e6f95;
+  --pink: #e85d8e;
+
+  --cream: #fff8ef;
+  --gray-bg: #f2f2ef;
+
+  --text-gray: #606060;
 }
 
-.header-content {
+* {
+  box-sizing: border-box;
+}
+
+.historia-page {
+  width: 100%;
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   ELEMENTOS GENERALES
+========================================================= */
+
+.section-kicker {
+  display: block;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+
+  color: var(--red);
+
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.historia-hero {
+  min-height: 670px;
+
+  background: var(--red);
+
+  color: var(--white);
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 100px 9%;
+}
+
+.hero-content {
+  position: relative;
+
+  z-index: 3;
+
   max-width: 850px;
-  margin: auto;
 }
 
-.header-content span {
+.hero-label {
+  display: inline-block;
+
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 25px;
+
+  border-left: 40px solid var(--white);
+
+  padding-left: 12px;
 }
 
-.header-content h1 {
+.hero-content h1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 50px;
-  margin: 18px 0;
+
+  font-size: clamp(55px, 8vw, 105px);
+
+  line-height: 0.88;
+
+  letter-spacing: -5px;
+
+  font-weight: 400;
+
+  margin: 0 0 35px;
 }
 
-.header-content p {
+.hero-content h1 strong {
+  font-weight: 800;
+
+  color: var(--yellow);
+}
+
+.hero-content p {
+  max-width: 570px;
+
   font-size: 18px;
+
   line-height: 1.7;
+
   margin: 0;
 }
 
+.hero-date {
+  position: absolute;
 
-/* INTRO */
+  left: 650px;
 
-.historia-intro {
-  max-width: 1200px;
-  margin: auto;
-  padding: 100px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  bottom: -100px;
+
+  display: flex;
+
+  flex-direction: column;
 }
 
-.historia-text h2,
-.actual-text h2,
-.camino-header h2 {
+.hero-date strong {
   font-family: 'Montserrat', sans-serif;
-  font-size: 38px;
-  line-height: 1.2;
-  margin: 15px 0 25px;
+
+  font-size: 150px;
+
+  line-height: 0.75;
+
+  letter-spacing: -10px;
+
+  opacity: 0.18;
 }
 
-.etiqueta {
-  color: #e30613;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
+.hero-date span {
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  margin-top: 15px;
 }
 
-.historia-text p,
-.actual-text p,
-.camino-header p {
-  color: #555;
-  font-size: 17px;
-  line-height: 1.8;
+
+/* =========================================================
+   MANITOS HERO
+========================================================= */
+
+.hero-hand {
+  position: absolute;
+
+  pointer-events: none;
+
+  opacity: 0.11;
+
+  z-index: 1;
 }
 
-.historia-image {
-  height: 450px;
-}
-
-.historia-image img,
-.actual-image img {
+.hero-hand img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+
+  object-fit: contain;
+
+  filter: brightness(0) invert(1);
+}
+
+.hero-hand-left {
+  width: 450px;
+  height: 450px;
+
+  left: -170px;
+  top: -90px;
+
+  transform: rotate(-25deg);
+}
+
+.hero-hand-right {
+  width: 520px;
+  height: 520px;
+
+  right: -130px;
+  bottom: -150px;
+
+  transform: rotate(20deg);
 }
 
 
-/* CAMINO */
+/* =========================================================
+   INTRO
+========================================================= */
 
-.camino {
-  background: #f7f7f7;
-  padding: 100px 40px;
+.historia-intro {
+  min-height: 500px;
+
+  background: var(--cream);
+
+  padding: 110px 9%;
+
+  display: grid;
+
+  grid-template-columns: 0.25fr 1fr 0.5fr;
+
+  gap: 60px;
+
+  align-items: center;
+
+  position: relative;
 }
 
-.camino-header {
-  max-width: 750px;
-  margin: auto;
+.intro-number {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 160px;
+
+  font-weight: 800;
+
+  color: var(--red);
+
+  line-height: 0.8;
+
+  opacity: 0.12;
+}
+
+.intro-content {
+  max-width: 700px;
+}
+
+.intro-content h2 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(45px, 5vw, 75px);
+
+  line-height: 0.9;
+
+  letter-spacing: -4px;
+
+  margin: 0 0 30px;
+}
+
+.intro-content h2 strong {
+  color: var(--red);
+}
+
+.intro-content p {
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: var(--text-gray);
+
+  margin: 0 0 18px;
+}
+
+.intro-sticker {
+  width: 230px;
+  height: 230px;
+
+  background: var(--yellow);
+
+  border-radius: 50%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  transform: rotate(7deg);
+}
+
+.intro-sticker img {
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  object-fit: contain;
+
+  opacity: 0.16;
+}
+
+.intro-sticker span {
+  position: relative;
+
+  z-index: 2;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  line-height: 1.2;
+
   text-align: center;
 }
 
-.timeline {
-  max-width: 900px;
-  margin: 60px auto 0;
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline-section {
+  background: var(--gray-bg);
+
+  padding: 120px 9%;
 }
 
-.timeline-item {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 30px;
-  padding: 30px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-.timeline-number {
-  width: 60px;
-  height: 60px;
-  background: #e30613;
-  color: white;
+.timeline-header {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  gap: 60px;
+
+  margin-bottom: 55px;
 }
 
-.timeline-item h3 {
+.timeline-header h2 {
   font-family: 'Montserrat', sans-serif;
-  margin: 5px 0 10px;
-  font-size: 22px;
+
+  font-size: clamp(45px, 5vw, 75px);
+
+  line-height: 0.9;
+
+  letter-spacing: -4px;
+
+  margin: 0;
 }
 
-.timeline-item p {
-  color: #555;
+.timeline-header h2 strong {
+  color: var(--red);
+}
+
+.timeline-header > p {
+  max-width: 430px;
+
+  font-size: 16px;
+
   line-height: 1.7;
+
+  color: var(--text-gray);
+
   margin: 0;
 }
 
 
-/* UBUNTU HOY */
+/* =========================================================
+   BOTONES TIMELINE
+========================================================= */
 
-.historia-actual {
-  max-width: 1200px;
-  margin: auto;
-  padding: 100px 40px;
+.timeline-navigation {
   display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.timeline-step {
+  min-height: 100px;
+
+  border: none;
+
+  background: var(--white);
+
+  border-bottom: 5px solid #dddddd;
+
+  padding: 20px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  transition: 0.25s ease;
+}
+
+.timeline-step:hover {
+  transform: translateY(-5px);
+
+  border-bottom-color: var(--step-color);
+}
+
+.timeline-step.active {
+  background: var(--black);
+
+  color: var(--white);
+
+  border-bottom-color: var(--step-color);
+
+  transform: translateY(-5px);
+}
+
+.step-number {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  color: var(--step-color);
+}
+
+.step-title {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   CONTENIDO TIMELINE
+========================================================= */
+
+.timeline-content {
+  display: grid;
+
+  grid-template-columns: 1.15fr 0.85fr;
+
+  min-height: 560px;
+
+  background: var(--white);
+
+  position: relative;
+}
+
+.timeline-photo {
+  position: relative;
+
+  min-height: 560px;
+
+  overflow: hidden;
+
+  background: var(--active-color);
+}
+
+.timeline-photo::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.45),
+      transparent 45%
+    );
+}
+
+.timeline-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.7s ease;
+}
+
+.timeline-photo:hover img {
+  transform: scale(1.05);
+}
+
+.photo-number {
+  position: absolute;
+
+  z-index: 3;
+
+  top: 30px;
+  left: 30px;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 90px;
+
+  line-height: 0.8;
+
+  font-weight: 800;
+
+  color: var(--white);
+
+  opacity: 0.9;
+}
+
+.photo-date {
+  position: absolute;
+
+  z-index: 3;
+
+  left: 30px;
+  bottom: 30px;
+
+  color: var(--white);
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.timeline-info {
+  padding: 65px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.timeline-counter {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+
+  color: var(--active-color);
+
+  margin-bottom: 20px;
+}
+
+.timeline-info h3 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(42px, 5vw, 70px);
+
+  line-height: 0.9;
+
+  letter-spacing: -3px;
+
+  margin: 0 0 30px;
+
+  color: var(--black);
+}
+
+.timeline-main-text {
+  font-size: 17px;
+
+  line-height: 1.75;
+
+  color: var(--text-gray);
+
+  margin: 0 0 25px;
+}
+
+.timeline-detail {
+  display: flex;
+
+  gap: 18px;
+
+  padding: 22px;
+
+  background: #f5f5f5;
+
+  border-left: 5px solid var(--active-color);
+
+  margin-bottom: 30px;
+}
+
+.timeline-detail i {
+  color: var(--active-color);
+
+  font-size: 24px;
+
+  padding-top: 3px;
+}
+
+.timeline-detail p {
+  margin: 0;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  color: var(--text-gray);
+}
+
+.timeline-controls {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.timeline-controls > span {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  color: var(--text-gray);
+}
+
+.arrow-button {
+  width: 48px;
+  height: 48px;
+
+  border: 2px solid var(--black);
+
+  background: var(--white);
+
+  cursor: pointer;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.25s ease;
+}
+
+.arrow-button:hover {
+  background: var(--black);
+
+  color: var(--white);
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   PRIMER PASO
+========================================================= */
+
+.primer-paso {
+  padding: 120px 9%;
+
+  display: grid;
+
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+
+  gap: 90px;
+
+  align-items: center;
+
+  background: var(--white);
+}
+
+.primer-paso-image {
+  height: 550px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.primer-paso-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: transform 0.6s ease;
+}
+
+.primer-paso-image:hover img {
+  transform: scale(1.05);
+}
+
+.image-label {
+  position: absolute;
+
+  left: 25px;
+  bottom: 25px;
+
+  padding: 12px 17px;
+
+  background: var(--red);
+
+  color: var(--white);
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+}
+
+.primer-paso-content h2 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(45px, 5vw, 75px);
+
+  line-height: 0.9;
+
+  letter-spacing: -4px;
+
+  margin: 0 0 30px;
+}
+
+.primer-paso-content h2 strong {
+  color: var(--red);
+}
+
+.primer-paso-content > p {
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: var(--text-gray);
+
+  margin-bottom: 30px;
+}
+
+.quote-card {
+  padding: 25px;
+
+  background: var(--yellow);
+
+  display: flex;
+
+  gap: 18px;
+
+  align-items: flex-start;
+
+  transform: rotate(-1deg);
+}
+
+.quote-card i {
+  font-size: 25px;
+}
+
+.quote-card p {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 17px;
+
+  font-weight: 800;
+
+  margin: 0;
+}
+
+
+/* =========================================================
+   CRECIMIENTO
+========================================================= */
+
+.crecimiento {
+  min-height: 550px;
+
+  background: var(--blue);
+
+  color: var(--white);
+
+  padding: 100px 9%;
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+
   align-items: center;
 }
 
-.actual-image {
-  height: 450px;
+.crecimiento-content {
+  position: relative;
+
+  z-index: 3;
+
+  max-width: 700px;
 }
 
-
-/* CIERRE */
-
-.historia-cierre {
-  background: #e30613;
-  color: white;
-  text-align: center;
-  padding: 90px 40px;
-}
-
-.historia-cierre h2 {
+.crecimiento-content > span {
   font-family: 'Montserrat', sans-serif;
-  font-size: 38px;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  color: var(--yellow);
+}
+
+.crecimiento-content h2 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(55px, 7vw, 100px);
+
+  line-height: 0.85;
+
+  letter-spacing: -5px;
+
+  font-weight: 400;
+
+  margin: 25px 0;
+}
+
+.crecimiento-content h2 strong {
+  color: var(--yellow);
+
+  font-weight: 800;
+}
+
+.crecimiento-content > p {
+  max-width: 560px;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.growth-items {
+  display: flex;
+
+  gap: 65px;
+
+  margin-top: 40px;
+}
+
+.growth-item {
+  display: grid;
+
+  grid-template-columns: auto auto;
+
+  grid-template-rows: auto auto;
+
+  column-gap: 5px;
+}
+
+.growth-item > span {
+  grid-row: span 2;
+
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 35px;
+
+  font-weight: 800;
+
+  color: var(--yellow);
+}
+
+.growth-item strong {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 48px;
+
+  line-height: 0.8;
+}
+
+.growth-item p {
+  margin: 6px 0 0;
+
+  font-size: 12px;
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.crecimiento-decoration {
+  position: absolute;
+
+  right: -70px;
+  top: 50%;
+
+  width: 600px;
+  height: 600px;
+
+  transform:
+    translateY(-50%)
+    rotate(15deg);
+
+  opacity: 0.13;
+}
+
+.crecimiento-decoration img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter: brightness(0) invert(1);
+}
+
+
+/* =========================================================
+   FILOSOFÍA
+========================================================= */
+
+.historia-filosofia {
+  min-height: 520px;
+
+  background: var(--cream);
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 100px 9%;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.filosofia-content {
+  position: relative;
+
+  z-index: 2;
+}
+
+.filosofia-content > span {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  color: var(--red);
+}
+
+.filosofia-content h2 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(55px, 7vw, 100px);
+
+  line-height: 0.85;
+
+  letter-spacing: -5px;
+
+  font-weight: 400;
+
+  margin: 25px 0;
+}
+
+.filosofia-content h2 strong {
+  color: var(--red);
+
+  font-weight: 800;
+}
+
+.filosofia-content > p {
+  font-size: 18px;
+
+  color: var(--text-gray);
+
   margin: 0 0 20px;
 }
 
-.historia-cierre p {
-  max-width: 650px;
-  margin: 0 auto 30px;
-  line-height: 1.7;
+.filosofia-line {
+  width: 100px;
+  height: 5px;
+
+  background: var(--yellow);
+
+  margin: 30px 0;
 }
 
-.historia-cierre a {
-  display: inline-block;
-  background: white;
-  color: #e30613;
-  padding: 15px 28px;
-  text-decoration: none;
+.filosofia-content .small-text {
   font-family: 'Montserrat', sans-serif;
+
+  font-size: 15px;
+
   font-weight: 700;
+
+  color: var(--black);
+}
+
+.filosofia-hand {
+  position: absolute;
+
+  right: 5%;
+
+  width: 430px;
+  height: 430px;
+
+  opacity: 0.08;
+
+  transform: rotate(10deg);
+}
+
+.filosofia-hand img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
 }
 
 
-/* RESPONSIVE */
+/* =========================================================
+   CIERRE
+========================================================= */
 
-@media (max-width: 800px) {
+.historia-cierre {
+  min-height: 560px;
 
-  .historia-intro,
-  .historia-actual {
+  background: var(--black);
+
+  color: var(--white);
+
+  padding: 100px 9%;
+
+  display: flex;
+
+  align-items: center;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.cierre-content {
+  position: relative;
+
+  z-index: 3;
+}
+
+.cierre-content > span {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  color: var(--yellow);
+}
+
+.cierre-content h2 {
+  font-family: 'Montserrat', sans-serif;
+
+  font-size: clamp(65px, 9vw, 125px);
+
+  line-height: 0.8;
+
+  letter-spacing: -6px;
+
+  font-weight: 400;
+
+  margin: 25px 0;
+}
+
+.cierre-content h2 strong {
+  color: var(--red);
+
+  font-weight: 800;
+}
+
+.cierre-content p {
+  font-size: 18px;
+
+  margin-bottom: 30px;
+}
+
+.cierre-buttons {
+  display: flex;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+}
+
+.cierre-hand {
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  right: -80px;
+  top: 50%;
+
+  transform:
+    translateY(-50%)
+    rotate(-10deg);
+
+  opacity: 0.15;
+}
+
+.cierre-hand img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter: brightness(0) invert(1);
+}
+
+.cierre-buttons .btn-primary {
+  background: var(--red);
+
+  color: var(--white);
+}
+
+.cierre-buttons .btn-primary:hover {
+  background: var(--white);
+
+  color: var(--red);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .historia-hero {
+    padding: 90px 7%;
+  }
+
+  .hero-date {
+    left: 55%;
+  }
+
+  .historia-intro {
+    grid-template-columns: 0.2fr 1fr;
+
+    padding: 90px 7%;
+  }
+
+  .intro-sticker {
+    display: none;
+  }
+
+  .timeline-section {
+    padding: 90px 7%;
+  }
+
+  .timeline-navigation {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timeline-content {
     grid-template-columns: 1fr;
-    gap: 40px;
   }
 
-  .historia-image,
-  .actual-image {
-    height: 350px;
+  .timeline-photo {
+    min-height: 430px;
   }
 
-  .header-content h1 {
-    font-size: 38px;
+  .primer-paso {
+    padding: 90px 7%;
+
+    gap: 60px;
   }
 
-  .historia-text h2,
-  .actual-text h2,
-  .camino-header h2 {
-    font-size: 30px;
+  .historia-filosofia,
+  .crecimiento,
+  .historia-cierre {
+    padding-left: 7%;
+    padding-right: 7%;
   }
+
 }
 
-@media (max-width: 500px) {
 
-  .page-header {
-    padding: 70px 25px;
+/* =========================================================
+   CELULAR
+========================================================= */
+
+@media (max-width: 650px) {
+
+  .historia-hero {
+    min-height: 650px;
+
+    padding: 75px 7%;
   }
 
-  .historia-intro,
-  .historia-actual {
-    padding: 65px 25px;
+  .hero-content h1 {
+    font-size: 53px;
+
+    letter-spacing: -3px;
   }
 
-  .camino {
-    padding: 65px 25px;
+  .hero-content p {
+    font-size: 15px;
   }
 
-  .timeline-item {
-    grid-template-columns: 55px 1fr;
+  .hero-date {
+    left: auto;
+    right: 7%;
+    bottom: 35px;
+  }
+
+  .hero-date strong {
+    font-size: 85px;
+
+    letter-spacing: -6px;
+  }
+
+  .hero-hand-left {
+    width: 300px;
+    height: 300px;
+
+    left: -130px;
+  }
+
+  .hero-hand-right {
+    width: 330px;
+    height: 330px;
+
+    right: -130px;
+  }
+
+  .historia-intro {
+    grid-template-columns: 1fr;
+
+    padding: 75px 7%;
+
     gap: 20px;
   }
 
-  .timeline-number {
-    width: 50px;
-    height: 50px;
+  .intro-number {
+    font-size: 90px;
   }
+
+  .intro-content h2 {
+    font-size: 50px;
+  }
+
+  .timeline-section {
+    padding: 75px 7%;
+  }
+
+  .timeline-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 25px;
+  }
+
+  .timeline-header h2 {
+    font-size: 50px;
+  }
+
+  .timeline-navigation {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-content {
+    min-height: auto;
+  }
+
+  .timeline-photo {
+    min-height: 350px;
+  }
+
+  .timeline-info {
+    padding: 40px 25px;
+  }
+
+  .timeline-info h3 {
+    font-size: 48px;
+  }
+
+  .primer-paso {
+    grid-template-columns: 1fr;
+
+    padding: 75px 7%;
+  }
+
+  .primer-paso-image {
+    height: 360px;
+  }
+
+  .primer-paso-content h2 {
+    font-size: 50px;
+  }
+
+  .crecimiento {
+    min-height: 600px;
+
+    padding: 75px 7%;
+  }
+
+  .crecimiento-content h2 {
+    font-size: 62px;
+  }
+
+  .growth-items {
+    gap: 35px;
+  }
+
+  .growth-item strong {
+    font-size: 38px;
+  }
+
+  .crecimiento-decoration {
+    width: 400px;
+    height: 400px;
+
+    right: -150px;
+  }
+
+  .historia-filosofia {
+    min-height: 550px;
+
+    padding: 75px 7%;
+  }
+
+  .filosofia-content h2 {
+    font-size: 60px;
+  }
+
+  .filosofia-hand {
+    width: 330px;
+    height: 330px;
+
+    right: -100px;
+    bottom: -50px;
+  }
+
+  .historia-cierre {
+    min-height: 600px;
+
+    padding: 75px 7%;
+  }
+
+  .cierre-content h2 {
+    font-size: 75px;
+
+    letter-spacing: -4px;
+  }
+
+  .cierre-buttons {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .cierre-buttons .btn-primary,
+  .cierre-buttons .btn-outline {
+    width: 100%;
+  }
+
+  .cierre-hand {
+    width: 430px;
+    height: 430px;
+
+    right: -150px;
+  }
+
 }

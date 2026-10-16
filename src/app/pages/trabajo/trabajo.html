@@ -1,197 +1,105 @@
-<section class="page-header">
-  <div>
-    <span>NUESTRO TRABAJO</span>
-    <h1>Acciones que se convierten en proyectos</h1>
+
+<!-- ==================================================
+     PÁGINA: NUESTRO TRABAJO
+     SECCIÓN 1: HERO / ENCABEZADO PRINCIPAL
+     SECCIÓN 2: INTRODUCCIÓN
+     SECCIÓN 3: ÁREAS DE TRABAJO
+     SECCIÓN 4: INVITACIÓN AL VOLUNTARIADO
+================================================== -->
+
+<section class="trabajo-page">
+
+  <!-- SECCIÓN 1: HERO / ENCABEZADO PRINCIPAL -->
+  <section class="trabajo-hero">
+    <div class="hero-content">
+      <span class="hero-etiqueta">UBUNTU JÓVENES VOLUNTARIOS PERÚ</span>
+
+      <h1>
+        Nuestro trabajo,
+        <span>nuestro compromiso</span>
+      </h1>
+
+      <p>
+        Creemos en el poder de las personas para transformar su entorno.
+        A través del voluntariado, impulsamos iniciativas que promueven
+        la solidaridad, la participación y el compromiso con la comunidad.
+      </p>
+
+      <a routerLink="/voluntariado/registro" class="btn-principal">
+        Quiero ser voluntario
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+
+    <div class="hero-decoracion">
+      <div class="circulo circulo-grande"></div>
+      <div class="circulo circulo-pequeno"></div>
+
+      <div class="hero-mensaje">
+        <i class="fa-solid fa-heart" aria-hidden="true"></i>
+        <h2>Pequeñas acciones.</h2>
+        <h2>Grandes cambios.</h2>
+        <p>El cambio comienza cuando decidimos participar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2: INTRODUCCIÓN -->
+  <section class="introduccion">
+    <span class="subtitulo">LO QUE HACEMOS</span>
+    <h2>Transformamos el compromiso en acción</h2>
+
     <p>
-      Conoce las líneas de acción y las iniciativas que forman parte
-      del trabajo de Ubuntu.
+      Trabajamos junto a voluntarios y comunidades para desarrollar
+      iniciativas con propósito. Conoce nuestras áreas de trabajo,
+      proyectos, actividades y experiencias.
     </p>
-  </div>
-</section>
+  </section>
 
-
-<section class="intro">
-  <div class="intro-image">
-    <img
-      src="/imagenes/AQUI-FOTO-TRABAJO.jpg"
-      alt="Trabajo de voluntariado Ubuntu"
+  <!-- SECCIÓN 3: TARJETAS DE ÁREAS DE TRABAJO -->
+  <section class="areas-trabajo">
+    <a
+      *ngFor="let linea of lineas"
+      [routerLink]="linea.enlace"
+      class="trabajo-card"
     >
-  </div>
+      <div class="card-superior">
+        <span class="card-numero">{{ linea.numero }}</span>
 
-  <div class="intro-text">
-    <span class="etiqueta">UBUNTU EN ACCIÓN</span>
-
-    <h2>Trabajamos desde el territorio</h2>
-
-    <p>
-      Ubuntu desarrolla proyectos innovadores y sostenibles junto a
-      personas y comunidades, con la participación de jóvenes voluntarios,
-      profesionales, internos y otros colaboradores.
-    </p>
-
-    <p>
-      Nuestro trabajo se organiza en cuatro líneas de acción.
-    </p>
-  </div>
-</section>
-
-
-<section class="lineas">
-
-  <div class="lineas-header">
-    <span>CUATRO LÍNEAS DE ACCIÓN</span>
-    <h2>¿Dónde concentramos nuestros esfuerzos?</h2>
-  </div>
-
-  <div class="lineas-grid">
-
-    <article class="linea">
-      <div class="linea-image">
-        <img
-          src="/imagenes/SOCIAL.jpeg"
-          alt="Línea social Ubuntu"
-        >
+        <span class="card-icono">
+          <i [class]="linea.icono" aria-hidden="true"></i>
+        </span>
       </div>
 
-      <div class="linea-content">
-        <span>01</span>
-        <h3>Social</h3>
-        <p>
-          Iniciativas orientadas al acompañamiento y fortalecimiento
-          de personas y comunidades.
-        </p>
+      <div class="card-contenido">
+        <h3>{{ linea.titulo }}</h3>
+        <p>{{ linea.descripcion }}</p>
+
+        <span class="card-enlace">
+          Conocer más
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </span>
       </div>
-    </article>
-
-
-    <article class="linea">
-      <div class="linea-image">
-        <img
-          src="/imagenes/ambiental.png"
-          alt="Línea ambiental Ubuntu"
-        >
-      </div>
-
-      <div class="linea-content">
-        <span>02</span>
-        <h3>Ambiental</h3>
-        <p>
-          Acciones relacionadas con el cuidado y protección del entorno.
-        </p>
-      </div>
-    </article>
-
-
-    <article class="linea">
-      <div class="linea-image">
-        <img
-          src="/imagenes/animalista.png"
-          alt="Línea animalista Ubuntu"
-        >
-      </div>
-
-      <div class="linea-content">
-        <span>03</span>
-        <h3>Animalista</h3>
-        <p>
-          Actividades e iniciativas relacionadas con el bienestar animal.
-        </p>
-      </div>
-    </article>
-
-
-    <article class="linea">
-      <div class="linea-image">
-        <img
-          src="/imagenes/CULTURAL.jpeg"
-          alt="Línea cultural Ubuntu"
-        >
-      </div>
-
-      <div class="linea-content">
-        <span>04</span>
-        <h3>Cultural</h3>
-        <p>
-          Iniciativas que promueven la participación y expresión cultural.
-        </p>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-
-<section class="destacados">
-
-  <div class="destacados-header">
-    <span>EXPLORA UBUNTU</span>
-    <h2>Conoce nuestro trabajo</h2>
-  </div>
-
-  <div class="destacados-grid">
-
-    <a href="/trabajo/proyectos" class="destacado">
-      <div>
-        <span>01</span>
-        <h3>Proyectos</h3>
-        <p>
-          Conoce algunas de las iniciativas desarrolladas por Ubuntu.
-        </p>
-      </div>
-      <strong>→</strong>
     </a>
+  </section>
 
+  <!-- SECCIÓN 4: INVITACIÓN AL VOLUNTARIADO -->
+  <section class="invitacion">
+    <div>
+      <span class="subtitulo">SÉ PARTE DEL CAMBIO</span>
 
-    <a href="/trabajo/actividades" class="destacado">
-      <div>
-        <span>02</span>
-        <h3>Actividades</h3>
-        <p>
-          Descubre las actividades realizadas por nuestros voluntarios.
-        </p>
-      </div>
-      <strong>→</strong>
+      <h2>Tu tiempo también puede transformar vidas.</h2>
+
+      <p>
+        Súmate a nuestra comunidad y descubre cómo aportar con tus
+        habilidades, ideas y ganas de ayudar.
+      </p>
+    </div>
+
+    <a routerLink="/voluntariado/registro" class="btn-invitacion">
+      Únete a Ubuntu
+      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
     </a>
-
-
-    <a href="/trabajo/impacto" class="destacado">
-      <div>
-        <span>03</span>
-        <h3>Nuestro impacto</h3>
-        <p>
-          Conoce algunos datos sobre el alcance de nuestro trabajo.
-        </p>
-      </div>
-      <strong>→</strong>
-    </a>
-
-
-    <a href="/trabajo/galeria" class="destacado">
-      <div>
-        <span>04</span>
-        <h3>Galería</h3>
-        <p>
-          Mira Ubuntu en acción a través de nuestras fotografías.
-        </p>
-      </div>
-      <strong>→</strong>
-    </a>
-
-  </div>
-</section>
-
-
-<section class="cierre">
-
-  <h2>Conoce Ubuntu en acción</h2>
-
-  <p>
-    Explora nuestros proyectos, actividades, impacto y experiencias
-    compartidas por nuestros voluntarios.
-  </p>
-
-  <a href="/trabajo/galeria">
-    Ver galería →
-  </a>
+  </section>
 
 </section>

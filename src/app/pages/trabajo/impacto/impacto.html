@@ -1,176 +1,208 @@
-<section class="page-header">
-  <div>
-    <span>NUESTRO TRABAJO</span>
-    <h1>Nuestro impacto</h1>
-    <p>
-      El camino recorrido por Ubuntu junto a voluntarios,
-      comunidades y aliados.
-    </p>
-  </div>
-</section>
 
+<!-- NUESTRO IMPACTO: portada -->
+<section class="impacto-hero">
+  <div class="hero-texto">
+    <span class="hero-etiqueta">
+      <i class="fa-solid fa-heart"></i>
+      El valor de ayudar
+    </span>
 
-<section class="impact-intro">
-
-  <div class="impact-image">
-    <img
-      src="/imagenes/AQUI-FOTO-IMPACTO.jpg"
-      alt="Voluntarios de Ubuntu"
-    >
-  </div>
-
-  <div class="impact-text">
-    <span class="etiqueta">UNA HISTORIA EN CRECIMIENTO</span>
-
-    <h2>Desde 2016, más personas se han sumado a Ubuntu</h2>
+    <h1>
+      El cambio empieza
+      <span>cuando nos unimos.</span>
+    </h1>
 
     <p>
-      Desde su inicio, Ubuntu ha desarrollado iniciativas en diferentes
-      territorios del Perú con la participación de jóvenes voluntarios,
-      internos y otros colaboradores.
+      Creemos en el poder de las personas para construir una
+      sociedad más solidaria. Cada aporte, cada idea y cada
+      acción pueden abrir nuevas oportunidades.
     </p>
+
+    <a routerLink="/voluntariado/registro" class="boton-amarillo">
+      Sé parte del cambio
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="hero-ilustracion">
+    <div class="hero-foto">
+      <img
+        src="/imagenes/PSX_20241001_083915.jpg"
+        alt="Personas participando en una experiencia de voluntariado"
+      />
+    </div>
+
+    <div class="burbuja burbuja-superior">
+      <i class="fa-solid fa-heart"></i>
+    </div>
+
+    <div class="burbuja burbuja-inferior">
+      <i class="fa-solid fa-hands-holding-circle"></i>
+    </div>
+
+    <div class="hero-mensaje">
+      <strong>El impacto comienza contigo.</strong>
+      <span>Una acción a la vez.</span>
+    </div>
+  </div>
+
+  <span class="hero-decoracion hero-decoracion-1"></span>
+  <span class="hero-decoracion hero-decoracion-2"></span>
+</section>
+
+<!-- NUESTRO IMPACTO: mensaje principal -->
+<section class="impacto-intro">
+  <div class="intro-sello">
+    <i class="fa-solid fa-hands-holding-circle"></i>
+    <span>NUESTRA RAZÓN DE SER</span>
+  </div>
+
+  <div class="intro-cuerpo">
+    <h2>
+      No se trata solo de ayudar.
+      <span>Se trata de transformar.</span>
+    </h2>
+
+    <div class="intro-descripcion">
+      <p>
+        En Ubuntu entendemos el voluntariado como una forma
+        de participar activamente en la construcción de una
+        comunidad más humana, inclusiva y solidaria.
+      </p>
+
+      <p>
+        Buscamos que cada experiencia contribuya al bienestar
+        colectivo y, al mismo tiempo, permita que los voluntarios
+        desarrollen empatía, responsabilidad y compromiso social.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- NUESTRO IMPACTO: ejes -->
+<section class="ejes-impacto">
+  <div class="seccion-encabezado">
+    <span class="seccion-etiqueta">LO QUE NOS MUEVE</span>
+    <h2>El impacto tiene <span>muchas formas.</span></h2>
+    <p>
+      Estos son los valores que orientan nuestras acciones
+      y dan sentido a la participación voluntaria.
+    </p>
+  </div>
+
+  <div class="ejes-grid">
+    @for (eje of ejes; track eje.numero) {
+      <article class="eje-card">
+        <div class="eje-card-cabecera">
+          <span class="eje-numero">{{ eje.numero }}</span>
+
+          <span class="eje-icono">
+            <i [class]="eje.icono"></i>
+          </span>
+        </div>
+
+        <h3>{{ eje.titulo }}</h3>
+        <p>{{ eje.descripcion }}</p>
+
+        <div class="eje-detalle">
+          <span></span>
+          {{ eje.detalle }}
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<!-- NUESTRO IMPACTO: proceso -->
+<section class="proceso-impacto">
+  <div class="proceso-intro">
+    <span class="seccion-etiqueta">DE LA INTENCIÓN A LA ACCIÓN</span>
+
+    <h2>
+      ¿Cómo construimos
+      <span>un impacto positivo?</span>
+    </h2>
 
     <p>
-      El trabajo realizado ha permitido ampliar la presencia de la
-      organización y desarrollar proyectos en diferentes áreas.
+      El cambio necesita compromiso, organización y voluntad
+      de aprender. Por eso, damos importancia a cada etapa
+      de la experiencia voluntaria.
     </p>
+
+    <a routerLink="/trabajo/actividades" class="enlace-proceso">
+      Conoce nuestras actividades
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
   </div>
 
+  <div class="proceso-lista">
+    @for (paso of pasos; track paso.numero) {
+      <article class="proceso-paso">
+        <div class="paso-numero">{{ paso.numero }}</div>
+
+        <div class="paso-contenido">
+          <h3>{{ paso.titulo }}</h3>
+          <p>{{ paso.descripcion }}</p>
+        </div>
+
+        <i class="fa-solid fa-arrow-up-right-from-square paso-flecha"></i>
+      </article>
+    }
+  </div>
 </section>
 
-
-<section class="numbers">
-
-  <div class="numbers-header">
-    <span>UBUNTU EN CIFRAS</span>
-    <h2>Algunos datos de nuestro recorrido</h2>
+<!-- NUESTRO IMPACTO: frase destacada -->
+<section class="frase-impacto">
+  <div class="frase-icono">
+    <i class="fa-solid fa-quote-left"></i>
   </div>
 
-  <div class="numbers-grid">
+  <div class="frase-contenido">
+    <span>UNA IDEA QUE NOS INSPIRA</span>
 
-    <div class="number-card">
-      <strong>2016</strong>
-      <span>Inicio de Ubuntu</span>
-      <p>
-        Año en que comenzó la labor de la organización.
-      </p>
-    </div>
-
-    <div class="number-card">
-      <strong>+700</strong>
-      <span>Voluntarios</span>
-      <p>
-        Personas que han contribuido a las iniciativas de Ubuntu.
-      </p>
-    </div>
-
-    <div class="number-card">
-      <strong>+300</strong>
-      <span>Internos y pasantes</span>
-      <p>
-        Participantes que han formado parte de la organización.
-      </p>
-    </div>
-
-    <div class="number-card">
-      <strong>4</strong>
-      <span>Líneas de acción</span>
-      <p>
-        Social, ambiental, animalista y cultural.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="territorio">
-
-  <div class="territorio-text">
-    <span class="etiqueta">PRESENCIA</span>
-
-    <h2>Ubuntu en diferentes territorios del Perú</h2>
+    <h2>
+      El verdadero cambio se construye
+      <span>con muchas manos y un mismo propósito.</span>
+    </h2>
 
     <p>
-      Ubuntu ha desarrollado actividades en diferentes departamentos
-      y territorios del país, ampliando progresivamente el alcance
-      de sus iniciativas.
+      Cada persona tiene algo valioso que aportar.
+      Cuando colaboramos, nuestras diferencias se convierten
+      en fortalezas.
     </p>
-
-    <div class="territorio-dato">
-      <strong>11+</strong>
-      <span>departamentos y territorios mencionados en el material institucional</span>
-    </div>
   </div>
 
-  <div class="territorio-image">
-    <img
-      src="/imagenes/AQUI-FOTO-TERRITORIO.jpg"
-      alt="Ubuntu en el Perú"
-    >
-  </div>
-
+  <div class="frase-decoracion">UBUNTU</div>
 </section>
 
-
-<section class="impacto-visual">
-
-  <div class="impacto-visual-header">
-    <span>¿CÓMO SE CONSTRUYE?</span>
-    <h2>El impacto nace del trabajo conjunto</h2>
+<!-- NUESTRO IMPACTO: llamada a la acción -->
+<section class="impacto-cta">
+  <div class="cta-iconos">
+    <span><i class="fa-solid fa-heart"></i></span>
+    <span><i class="fa-solid fa-people-group"></i></span>
+    <span><i class="fa-solid fa-seedling"></i></span>
   </div>
 
-  <div class="impacto-pasos">
+  <span class="cta-etiqueta">TU PARTICIPACIÓN IMPORTA</span>
 
-    <div class="paso">
-      <strong>01</strong>
-      <h3>Participación</h3>
-      <p>
-        Personas que deciden involucrarse y aportar.
-      </p>
-    </div>
-
-    <div class="paso">
-      <strong>02</strong>
-      <h3>Acción</h3>
-      <p>
-        Actividades desarrolladas directamente en territorio.
-      </p>
-    </div>
-
-    <div class="paso">
-      <strong>03</strong>
-      <h3>Colaboración</h3>
-      <p>
-        Alianzas con instituciones, empresas y grupos.
-      </p>
-    </div>
-
-    <div class="paso">
-      <strong>04</strong>
-      <h3>Continuidad</h3>
-      <p>
-        Proyectos y experiencias que permiten seguir creciendo.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="cierre">
-
-  <h2>Conoce Ubuntu en acción</h2>
+  <h2>
+    El próximo cambio
+    <span>puede comenzar contigo.</span>
+  </h2>
 
   <p>
-    Descubre fotografías y momentos de las actividades realizadas
-    por nuestros voluntarios.
+    Comparte tu tiempo, tus ideas y tus ganas de ayudar.
+    Súmate a Ubuntu y construyamos nuevas oportunidades juntos.
   </p>
 
-  <a href="/trabajo/galeria">
-    Ver galería →
-  </a>
+  <div class="cta-botones">
+    <a routerLink="/voluntariado/registro" class="boton-oscuro">
+      Quiero ser voluntario
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
 
+    <a routerLink="/trabajo/proyectos" class="boton-texto">
+      Explorar proyectos
+    </a>
+  </div>
 </section>

@@ -1,185 +1,162 @@
-<section class="page-header">
-  <div>
-    <span>NUESTRO TRABAJO</span>
-    <h1>Proyectos</h1>
-    <p>
-      Conoce algunas de las iniciativas desarrolladas por Ubuntu
-      junto a voluntarios y comunidades.
-    </p>
-  </div>
-</section>
 
+<main class="proyectos-page">
 
-<section class="proyectos-intro">
-  <div>
-    <span class="etiqueta">NUESTRAS INICIATIVAS</span>
-    <h2>Proyectos que nacen de las necesidades del territorio</h2>
-    <p>
-      A través de diferentes iniciativas, Ubuntu desarrolla actividades
-      educativas, sociales, ambientales, culturales y animalistas.
-    </p>
-  </div>
-</section>
+  <!-- ENCABEZADO PRINCIPAL -->
+  <section class="proyectos-hero">
+    <div class="hero-decoracion hero-circulo-uno"></div>
+    <div class="hero-decoracion hero-circulo-dos"></div>
 
+    <div class="proyectos-hero-contenido">
+      <span class="hero-etiqueta">
+        <span class="punto-etiqueta"></span>
+        NUESTRO TRABAJO EN ACCIÓN
+      </span>
 
-<section class="proyectos-grid-section">
+      <h1>
+        Pequeñas acciones,<br />
+        <span>grandes cambios.</span>
+      </h1>
 
-  <div class="proyectos-grid">
+      <p>
+        Conoce los proyectos e iniciativas con los que transformamos
+        nuestra comunidad. Cada acción cuenta y cada persona puede
+        ser parte del cambio.
+      </p>
 
-    <article class="proyecto">
-      <div class="proyecto-image">
-        <img
-          src="/imagenes/AQUI-FOTO-PROYECTO-1.jpg"
-          alt="Proyecto Ubuntu"
-        >
-      </div>
+      <a class="boton-hero" href="#proyectos-lista">
+        Descubre nuestros proyectos
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
 
-      <div class="proyecto-content">
-        <span>EDUCACIÓN</span>
-        <h3>Actividades educativas</h3>
+    <div class="hero-numero" aria-hidden="true">UBUNTU<br />2026</div>
+  </section>
+
+  <!-- INTRODUCCIÓN -->
+  <section class="proyectos-intro">
+    <div class="intro-indicador">
+      <span></span>
+      LO QUE HACEMOS
+    </div>
+
+    <div class="intro-contenido">
+      <h2>
+        El cambio empieza<br />
+        <span>cuando actuamos juntos.</span>
+      </h2>
+
+      <div class="intro-texto">
         <p>
-          Talleres y actividades educativas desarrolladas junto a
-          niños y jóvenes en diferentes comunidades.
+          En Ubuntu creemos que todas las personas tenemos algo valioso
+          que aportar. Por eso promovemos iniciativas que conectan a
+          jóvenes, voluntarios y comunidades para construir un futuro
+          con más oportunidades.
+        </p>
+
+        <p>
+          Nuestros proyectos nacen de la solidaridad, la participación
+          y las ganas de generar un impacto positivo en nuestro entorno.
         </p>
       </div>
-    </article>
+    </div>
 
+    <div class="intro-franja">
+      <span>COMPROMISO</span>
+      <span class="franja-punto">●</span>
+      <span>PARTICIPACIÓN</span>
+      <span class="franja-punto">●</span>
+      <span>TRANSFORMACIÓN</span>
+    </div>
+  </section>
 
-    <article class="proyecto">
-      <div class="proyecto-image">
-        <img
-          src="/imagenes/AQUI-FOTO-PROYECTO-2.jpg"
-          alt="Proyecto Ubuntu"
+  <!-- LISTADO DE PROYECTOS -->
+  <section class="proyectos-listado" id="proyectos-lista">
+    <div class="listado-encabezado">
+      <div>
+        <span class="seccion-etiqueta">INICIATIVAS UBUNTU</span>
+        <h2>Proyectos que <span>nos mueven.</span></h2>
+      </div>
+
+      <p>
+        Descubre las distintas formas en las que trabajamos para
+        aportar a nuestra comunidad.
+      </p>
+    </div>
+
+    <div class="proyectos-grid">
+      @for (proyecto of proyectos; track proyecto.numero) {
+        <article
+          class="proyecto-card"
+          [class.proyecto-destacado]="proyecto.destacado"
         >
-      </div>
+          <div class="proyecto-imagen-contenedor">
+            <img
+              class="proyecto-imagen"
+              [src]="proyecto.imagen"
+              [alt]="proyecto.imagenAlt"
+              loading="lazy"
+            />
 
-      <div class="proyecto-content">
-        <span>AMBIENTAL</span>
-        <h3>Educando con sostenibilidad</h3>
-        <p>
-          Iniciativas orientadas a promover la educación y el cuidado
-          del medio ambiente.
-        </p>
-      </div>
-    </article>
+            <span class="proyecto-numero">
+              {{ proyecto.numero }}
+            </span>
 
+            <span class="proyecto-etiqueta">
+              {{ proyecto.etiqueta }}
+            </span>
+          </div>
 
-    <article class="proyecto">
-      <div class="proyecto-image">
-        <img
-          src="/imagenes/AQUI-FOTO-PROYECTO-3.jpg"
-          alt="Proyecto Ubuntu"
-        >
-      </div>
+          <div class="proyecto-contenido">
+            <span class="proyecto-categoria">
+              {{ proyecto.categoria }}
+            </span>
 
-      <div class="proyecto-content">
-        <span>ANIMALISTA</span>
-        <h3>Acciones animalistas</h3>
-        <p>
-          Actividades destinadas a apoyar iniciativas relacionadas
-          con el bienestar y protección de los animales.
-        </p>
-      </div>
-    </article>
+            <h3>{{ proyecto.titulo }}</h3>
 
+            <p>{{ proyecto.descripcion }}</p>
 
-    <article class="proyecto">
-      <div class="proyecto-image">
-        <img
-          src="/imagenes/AQUI-FOTO-PROYECTO-4.jpg"
-          alt="Proyecto Ubuntu"
-        >
-      </div>
+            <div class="proyecto-pie">
+              <span class="proyecto-linea"></span>
+              <span class="proyecto-mensaje">SUMAMOS POR EL CAMBIO</span>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
 
-      <div class="proyecto-content">
-        <span>SOCIAL</span>
-        <h3>Campañas solidarias</h3>
-        <p>
-          Campañas y acciones de apoyo desarrolladas con la participación
-          de voluntarios.
-        </p>
-      </div>
-    </article>
+  <!-- INVITACIÓN A PARTICIPAR -->
+  <section class="proyectos-llamada">
+    <div class="llamada-decoracion" aria-hidden="true">+</div>
 
+    <div class="llamada-texto">
+      <span class="llamada-etiqueta">TÚ TAMBIÉN PUEDES SER PARTE</span>
 
-    <article class="proyecto">
-      <div class="proyecto-image">
-        <img
-          src="/imagenes/AQUI-FOTO-PROYECTO-5.jpg"
-          alt="Proyecto Ubuntu"
-        >
-      </div>
+      <h2>
+        El próximo cambio<br />
+        <span>puede empezar contigo.</span>
+      </h2>
 
-      <div class="proyecto-content">
-        <span>CULTURAL</span>
-        <h3>Talleres culturales</h3>
-        <p>
-          Espacios de aprendizaje y expresión artística desarrollados
-          en diferentes comunidades.
-        </p>
-      </div>
-    </article>
+      <p>
+        Comparte tu tiempo, tus ideas y tus ganas de ayudar.
+        En Ubuntu hay espacio para personas que quieren marcar
+        una diferencia.
+      </p>
+    </div>
 
+    <div class="llamada-accion">
+      <a
+        class="boton-llamada"
+        routerLink="/voluntariado/registro"
+      >
+        Quiero ser voluntario
+        <span aria-hidden="true">↗</span>
+      </a>
 
-    <article class="proyecto">
-      <div class="proyecto-image">
-        <img
-          src="/imagenes/AQUI-FOTO-PROYECTO-6.jpg"
-          alt="Proyecto Ubuntu"
-        >
-      </div>
+      <a class="enlace-secundario" routerLink="/trabajo/actividades">
+        Conoce nuestras actividades
+      </a>
+    </div>
+  </section>
 
-      <div class="proyecto-content">
-        <span>COMUNIDAD</span>
-        <h3>Apoyo comunitario</h3>
-        <p>
-          Iniciativas realizadas junto a comunidades y organizaciones
-          locales.
-        </p>
-      </div>
-    </article>
-
-  </div>
-
-</section>
-
-
-<section class="proyecto-destacado">
-
-  <div class="destacado-image">
-    <img
-      src="/imagenes/AQUI-FOTO-PROYECTO-DESTACADO.jpg"
-      alt="Proyecto destacado Ubuntu"
-    >
-  </div>
-
-  <div class="destacado-text">
-    <span>PROYECTOS EN TERRITORIO</span>
-
-    <h2>El voluntariado se convierte en acción</h2>
-
-    <p>
-      Cada iniciativa reúne personas, conocimientos y recursos para
-      responder a necesidades identificadas en diferentes comunidades.
-    </p>
-
-    <a href="/trabajo/actividades">
-      Ver actividades →
-    </a>
-  </div>
-
-</section>
-
-
-<section class="cierre">
-  <h2>¿Quieres conocer más?</h2>
-
-  <p>
-    Explora las actividades realizadas por Ubuntu y descubre el trabajo
-    desarrollado por nuestros voluntarios.
-  </p>
-
-  <a href="/trabajo/actividades">
-    Ver actividades →
-  </a>
-</section>
+</main>

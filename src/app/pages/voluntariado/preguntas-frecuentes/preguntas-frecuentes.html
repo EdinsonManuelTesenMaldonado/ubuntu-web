@@ -1,176 +1,102 @@
-<!-- =========================================
-     HERO
-========================================= -->
 
 <section class="faq-hero">
+  <div class="faq-hero-contenido">
+    <span class="faq-etiqueta">ESTAMOS PARA AYUDARTE</span>
+    <h1>Preguntas <span>frecuentes</span></h1>
+    <p>
+      Encuentra respuestas a tus dudas sobre el voluntariado,
+      el registro y las oportunidades para participar.
+    </p>
 
-  <div class="faq-hero-content">
-
-    <p>VOLUNTARIADO UBUNTU</p>
-
-    <h1>
-      Preguntas frecuentes
-    </h1>
-
-    <span>
-      Encuentra respuestas a las preguntas más frecuentes
-      sobre nuestro programa de voluntariado.
-    </span>
-
+    <a routerLink="/voluntariado/registro" class="btn-amarillo">
+      Quiero ser voluntario
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
   </div>
-
 </section>
 
+<section class="faq-seccion">
+  <div class="faq-contenedor">
+    <div class="faq-introduccion">
+      <span class="faq-subtitulo">RESOLVEMOS TUS DUDAS</span>
+      <h2>¿En qué podemos ayudarte?</h2>
+      <p>
+        Selecciona una categoría y encuentra la información
+        que necesitas antes de dar el siguiente paso.
+      </p>
+    </div>
 
-<!-- =========================================
-     PREGUNTAS
-========================================= -->
-
-<section class="faq-section">
-
-  <div class="section-heading">
-
-    <p class="section-label">
-      RESOLVEMOS TUS DUDAS
-    </p>
-
-    <h2>
-      Preguntas frecuentes
-    </h2>
-
-    <p>
-      Conoce más sobre el voluntariado, los perfiles que pueden
-      participar y las iniciativas de Ubuntu.
-    </p>
-
-  </div>
-
-
-  <div class="faq-list">
-
-    @for (item of preguntas; track $index) {
-
-      <article
-        class="faq-item"
-        [class.open]="preguntaAbierta === $index">
-
-
-        <!-- PREGUNTA -->
-
+    <div class="faq-categorias">
+      @for (categoria of categorias; track categoria) {
         <button
           type="button"
-          class="faq-question"
-          (click)="togglePregunta($index)"
-          [attr.aria-expanded]="preguntaAbierta === $index">
-
-          <span>
-
-            <strong>
-              {{ ($index + 1).toString().padStart(2, '0') }}
-            </strong>
-
-            {{ item.pregunta }}
-
-          </span>
-
-
-          <i
-            class="fas"
-            [class.fa-plus]="preguntaAbierta !== $index"
-            [class.fa-minus]="preguntaAbierta === $index">
-          </i>
-
+          class="faq-filtro"
+          [class.activo]="categoriaActiva === categoria"
+          (click)="cambiarCategoria(categoria)">
+          {{ categoria }}
         </button>
+      }
+    </div>
 
+    <div class="faq-lista">
+      @for (pregunta of preguntasFiltradas; track pregunta.indice) {
+        <article
+          class="faq-item"
+          [class.abierto]="preguntaAbierta === pregunta.indice">
 
-        <!-- RESPUESTA -->
+          <button
+            type="button"
+            class="faq-pregunta"
+            [attr.aria-expanded]="preguntaAbierta === pregunta.indice"
+            (click)="alternarPregunta(pregunta.indice)">
 
-        @if (preguntaAbierta === $index) {
+            <span class="faq-numero">
+              {{ (pregunta.indice + 1).toString().padStart(2, '0') }}
+            </span>
 
-          <div class="faq-answer">
+            <span class="faq-texto-pregunta">
+              {{ pregunta.pregunta }}
+            </span>
 
-            <p>
-              {{ item.respuesta }}
-            </p>
+            <span class="faq-icono">
+              <i
+                class="fa-solid"
+                [class.fa-plus]="preguntaAbierta !== pregunta.indice"
+                [class.fa-minus]="preguntaAbierta === pregunta.indice">
+              </i>
+            </span>
+          </button>
 
-          </div>
+          @if (preguntaAbierta === pregunta.indice) {
+            <div class="faq-respuesta">
+              <p>{{ pregunta.respuesta }}</p>
+            </div>
+          }
+        </article>
+      } @empty {
+        <p class="faq-vacio">
+          No hay preguntas disponibles en esta categoría.
+        </p>
+      }
+    </div>
 
-        }
+    <div class="faq-ayuda">
+      <div class="faq-ayuda-icono">
+        <i class="fa-regular fa-comments"></i>
+      </div>
 
-      </article>
+      <div class="faq-ayuda-texto">
+        <h3>¿Tienes otra consulta?</h3>
+        <p>
+          Si no encontraste la respuesta que buscabas,
+          puedes comunicarte con nosotros.
+        </p>
+      </div>
 
-    }
-
+      <a routerLink="/contacto" class="btn-rojo">
+        Contáctanos
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
   </div>
-
-</section>
-
-
-<!-- =========================================
-     CONTACTO
-========================================= -->
-
-<section class="faq-contact">
-
-  <div class="faq-contact-content">
-
-    <p class="section-label">
-      ¿NO ENCONTRASTE LO QUE BUSCABAS?
-    </p>
-
-    <h2>
-      Estamos aquí para ayudarte
-    </h2>
-
-    <p>
-      Si tienes alguna consulta adicional sobre Ubuntu,
-      nuestras actividades o el programa de voluntariado,
-      puedes comunicarte con nosotros.
-    </p>
-
-    <a
-      routerLink="/contacto"
-      class="btn-primary">
-
-      Contáctanos
-
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- =========================================
-     CTA
-========================================= -->
-
-<section class="faq-cta">
-
-  <div class="faq-cta-content">
-
-    <p>
-      FORMA PARTE DE UBUNTU
-    </p>
-
-    <h2>
-      ¿Quieres ser voluntario?
-    </h2>
-
-    <span>
-      Conoce nuestro programa y registra tu interés en participar.
-    </span>
-
-    <br>
-
-    <a
-      routerLink="/voluntariado/registro"
-      class="btn-white">
-
-      Quiero ser voluntario
-
-    </a>
-
-  </div>
-
 </section>

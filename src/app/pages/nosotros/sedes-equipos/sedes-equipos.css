@@ -1,852 +1,954 @@
-/* ================================
+/* =========================================================
+   BASE
+========================================================= */
+
+:host {
+  display: block;
+}
+
+.sedes-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+
+/* =========================================================
    HERO
-================================ */
+========================================================= */
 
-.sedes-hero {
-  min-height: 430px;
-
-  background: #D60000;
-
-  color: white;
-
+.hero-sedes {
+  min-height: 520px;
+  background: #d60000;
+  color: #ffffff;
   display: flex;
   align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  padding: 70px 25px;
+  justify-content: space-between;
+  padding: 90px 8%;
+  position: relative;
+  overflow: hidden;
 }
 
-.sedes-hero-content {
-  max-width: 900px;
+.hero-sedes::after {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border: 80px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  right: -150px;
+  bottom: -190px;
 }
 
-.sedes-hero p {
-  font-family: 'Montserrat', Arial, sans-serif;
+.hero-content {
+  max-width: 700px;
+  position: relative;
+  z-index: 2;
+}
 
-  font-size: 14px;
+.hero-tag {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 22px;
+}
 
+.hero-content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(52px, 7vw, 100px);
+  line-height: 0.95;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: -4px;
+}
+
+.hero-content h1 strong {
   font-weight: 800;
-
-  letter-spacing: 3px;
-
-  margin-bottom: 20px;
 }
 
-.sedes-hero h1 {
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: clamp(48px, 7vw, 80px);
-
-  font-weight: 800;
-
-  margin: 0 0 20px;
-}
-
-.sedes-hero span {
-  font-family: 'Open Sans', Arial, sans-serif;
-
+.hero-content p {
+  max-width: 560px;
+  margin: 30px 0 0;
   font-size: 18px;
-
   line-height: 1.7;
 }
 
+.hero-number {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 
-/* ================================
+.hero-number span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(100px, 14vw, 190px);
+  font-weight: 800;
+  line-height: 0.8;
+}
+
+.hero-number small {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: right;
+}
+
+
+/* =========================================================
    BUSCADOR
-================================ */
+========================================================= */
 
 .buscador-section {
-  background: #f7f7f7;
-
-  padding: 75px 25px;
+  padding: 75px 8% 35px;
+  background: #ffffff;
 }
 
-.buscador-content {
-  max-width: 800px;
-
-  margin: auto;
-
-  text-align: center;
+.buscador-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
 }
 
-.etiqueta {
-  display: block;
-
-  color: #D60000;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
+.buscador-texto span,
+.section-heading span,
+.lima-header span,
+.universidades-header span,
+.sedes-cierre span {
+  font-family: 'Montserrat', sans-serif;
   font-size: 12px;
-
   font-weight: 800;
-
   letter-spacing: 2px;
-
-  margin-bottom: 12px;
+  color: #d60000;
 }
 
-.buscador-content h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: clamp(30px, 4vw, 46px);
-
-  font-weight: 800;
-
-  margin: 0 0 15px;
+.buscador-texto h2 {
+  margin: 10px 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 42px;
+  line-height: 1;
 }
-
-.buscador-content > p {
-  color: #666;
-
-  line-height: 1.7;
-
-  margin-bottom: 30px;
-}
-
-
-/* INPUT */
 
 .buscador {
-  height: 62px;
-
-  max-width: 700px;
-
-  margin: auto;
-
+  width: min(520px, 100%);
+  height: 64px;
+  border: 2px solid #181818;
   display: flex;
-
   align-items: center;
-
-  background: white;
-
-  border: 2px solid #ddd;
-
-  transition: 0.25s ease;
-}
-
-.buscador:focus-within {
-  border-color: #D60000;
-
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.08);
+  padding: 0 20px;
+  gap: 14px;
+  background: #ffffff;
 }
 
 .buscador > i {
-  margin-left: 20px;
-
-  color: #D60000;
-
-  font-size: 18px;
+  color: #d60000;
+  font-size: 20px;
 }
 
 .buscador input {
   flex: 1;
-
-  height: 100%;
-
-  border: none;
-
-  outline: none;
-
-  padding: 0 15px;
-
-  font-family: 'Open Sans', Arial, sans-serif;
-
-  font-size: 15px;
-}
-
-.btn-limpiar {
-  border: none;
-
+  border: 0;
+  outline: 0;
+  font-size: 16px;
+  color: #181818;
   background: transparent;
+}
 
-  color: #777;
+.buscador input::placeholder {
+  color: #8b8b8b;
+}
 
-  padding: 15px;
-
+.limpiar-busqueda {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: #181818;
+  color: #ffffff;
   cursor: pointer;
-
-  font-size: 15px;
 }
 
 
-/* RESULTADOS */
+/* =========================================================
+   RESULTADOS
+========================================================= */
 
 .resultados-busqueda {
-  max-width: 700px;
-
-  margin: 8px auto 0;
-
-  background: white;
-
-  border: 1px solid #ddd;
-
-  box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.08);
-
-  text-align: left;
-}
-
-.resultados-busqueda button {
-  width: 100%;
-
-  border: none;
-
-  border-bottom: 1px solid #eee;
-
-  background: white;
-
-  color: #181818;
-
-  padding: 16px 20px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 12px;
-
-  cursor: pointer;
-
-  font-family: 'Open Sans', Arial, sans-serif;
-
-  transition: 0.2s ease;
-}
-
-.resultados-busqueda button:hover {
-  background: #f7f7f7;
-
-  color: #D60000;
-}
-
-.resultados-busqueda button i:first-child {
-  color: #D60000;
-}
-
-.resultados-busqueda button i:last-child {
-  margin-left: auto;
-}
-
-.sin-resultados {
-  max-width: 700px;
-
-  margin: 10px auto 0;
-
-  padding: 15px;
-
-  background: #fff0f0;
-
-  color: #a00000;
-
-  font-size: 14px;
-}
-
-
-/* ================================
-   MAPA
-================================ */
-
-.mapa-section {
-  background: white;
-
-  padding: 90px 25px;
-}
-
-.section-heading {
-  max-width: 850px;
-
-  margin: 0 auto 45px;
-
-  text-align: center;
-}
-
-.section-heading h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: clamp(32px, 4vw, 50px);
-
-  font-weight: 800;
-
-  margin: 0 0 15px;
-}
-
-.section-heading p {
-  color: #666;
-
-  line-height: 1.7;
-}
-
-
-/* MAPA */
-
-.mapa-interactivo {
-  width: min(615px, 100%);
-
-  margin: auto;
-
-  position: relative;
-
-  background: white;
-}
-
-.mapa-svg {
-  display: block;
-
-  width: 100%;
-
-  height: auto;
-
-  overflow: visible;
-}
-
-
-/* ================================
-   MARCADORES
-================================ */
-
-.sede-marker {
-  cursor: pointer;
-
-  outline: none;
-}
-
-.marker-halo {
-  fill: rgba(214, 0, 0, 0.20);
-
-  stroke: white;
-
-  stroke-width: 2;
-
-  opacity: 0;
-
-  transition:
-    r 0.2s ease,
-    opacity 0.2s ease;
-}
-
-.marker-circle {
-  fill: #D60000;
-
-  stroke: white;
-
-  stroke-width: 3;
-
-  transition:
-    r 0.2s ease,
-    fill 0.2s ease;
-}
-
-
-/* HOVER */
-
-.sede-marker:hover .marker-halo,
-.sede-marker.activo .marker-halo {
-  opacity: 1;
-
-  r: 16;
-}
-
-.sede-marker:hover .marker-circle,
-.sede-marker.activo .marker-circle {
-  fill: #111;
-
-  r: 9;
-}
-
-
-/* NOMBRE */
-
-.marker-label {
-  opacity: 0;
-
-  pointer-events: none;
-
-  transition: opacity 0.2s ease;
-}
-
-.sede-marker:hover .marker-label,
-.sede-marker.activo .marker-label {
-  opacity: 1;
-}
-
-.marker-label rect {
-  fill: white;
-
-  stroke: #D60000;
-
-  stroke-width: 1;
-}
-
-.marker-label text {
-  fill: #181818;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: 10px;
-
-  font-weight: 800;
-}
-
-
-/* AYUDA */
-
-.mapa-ayuda {
-  text-align: center;
-
-  margin: 25px 0 0;
-
-  color: #777;
-
-  font-size: 13px;
-}
-
-.mapa-ayuda i {
-  color: #D60000;
-
-  margin-right: 6px;
-}
-
-
-/* ================================
-   INFORMACIÓN DE SEDE
-================================ */
-
-.informacion-section {
-  padding: 10px 25px 90px;
-
-  background: white;
-}
-
-.informacion-card {
+  margin: 25px auto 0;
   max-width: 1100px;
-
-  min-height: 430px;
-
-  margin: auto;
-
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  background: white;
-
-  border: 1px solid #e2e2e2;
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.10);
-
-  animation: aparecer 0.35s ease;
+  border: 1px solid #dddddd;
+  padding: 25px;
+  background: #ffffff;
 }
 
-@keyframes aparecer {
-
-  from {
-    opacity: 0;
-
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-
-    transform: translateY(0);
-  }
-
-}
-
-
-/* IMAGEN */
-
-.informacion-imagen {
-  min-height: 430px;
-
-  background: #eeeeee;
-
-  overflow: hidden;
-}
-
-.informacion-imagen img {
-  width: 100%;
-
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-}
-
-
-/* SIN FOTO */
-
-.foto-pendiente {
-  height: 100%;
-
-  min-height: 430px;
-
-  padding: 30px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  justify-content: center;
-
-  text-align: center;
-
-  color: #D60000;
-}
-
-.foto-pendiente i {
-  font-size: 55px;
-
-  margin-bottom: 15px;
-}
-
-.foto-pendiente strong {
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: 25px;
-
-  margin-bottom: 8px;
-}
-
-.foto-pendiente span {
-  color: #777;
-
-  font-size: 13px;
-}
-
-
-/* CONTENIDO */
-
-.informacion-contenido {
-  padding: 50px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-}
-
-.informacion-contenido h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: clamp(38px, 5vw, 58px);
-
-  font-weight: 800;
-
-  margin: 5px 0 20px;
-}
-
-.informacion-contenido > p {
-  color: #666;
-
-  line-height: 1.8;
-
-  max-width: 470px;
-}
-
-
-/* ================================
-   REDES
-================================ */
-
-.redes {
+.resultado-grupo + .resultado-grupo {
   margin-top: 25px;
 }
 
-.redes > span {
+.resultado-titulo {
   display: block;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: 11px;
-
-  font-weight: 800;
-
-  letter-spacing: 1.5px;
-
   margin-bottom: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #d60000;
 }
 
-.redes-botones {
+.resultado-lista {
   display: flex;
-
+  flex-wrap: wrap;
   gap: 10px;
 }
 
-.redes-botones a,
-.red-disabled {
-  width: 46px;
-
-  height: 46px;
-
-  border-radius: 50%;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  text-decoration: none;
-
-  font-size: 17px;
-}
-
-.redes-botones a {
-  background: #D60000;
-
-  color: white;
-
-  transition: 0.2s ease;
-}
-
-.redes-botones a:hover {
-  background: #111;
-
-  transform: translateY(-3px);
-}
-
-.red-disabled {
-  background: #e5e5e5;
-
-  color: #999;
-}
-
-
-/* CERRAR */
-
-.cerrar-info {
-  align-self: flex-start;
-
-  margin-top: 25px;
-
-  padding: 11px 20px;
-
-  border: 1px solid #D60000;
-
-  background: white;
-
-  color: #D60000;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-weight: 700;
-
-  font-size: 12px;
-
+.resultado-item {
+  border: 1px solid #dddddd;
+  background: #ffffff;
+  padding: 12px 16px;
   cursor: pointer;
-
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-weight: 600;
   transition: 0.2s ease;
 }
 
-.cerrar-info:hover {
-  background: #D60000;
+.resultado-item:hover {
+  background: #d60000;
+  color: #ffffff;
+  border-color: #d60000;
+}
 
-  color: white;
+.resultado-item i {
+  font-size: 12px;
+}
+
+.sin-resultados {
+  text-align: center;
+  padding: 20px;
+  font-weight: 600;
 }
 
 
-/* ================================
-   LIMA
-================================ */
+/* =========================================================
+   MAPA
+========================================================= */
 
-.lima-section {
-  padding: 90px 6%;
-
-  background: #f7f7f7;
-
-  display: grid;
-
-  grid-template-columns: 1.1fr 0.9fr;
-
-  gap: 60px;
-
-  align-items: center;
+.mapa-section {
+  padding: 70px 8% 100px;
+  background: #f5f5f5;
 }
 
-.lima-image {
-  background: white;
-
-  border: 1px solid #ddd;
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 50px;
+  margin-bottom: 45px;
 }
 
-.lima-image img {
+.section-heading h2 {
+  margin: 12px 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(40px, 5vw, 65px);
+  line-height: 0.95;
+  letter-spacing: -2px;
+}
+
+.section-heading h2 strong {
+  color: #d60000;
+}
+
+.section-heading p {
+  max-width: 420px;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.mapa-wrapper {
+  width: min(1000px, 100%);
+  margin: 0 auto;
+  position: relative;
+}
+
+.peru-map {
   width: 100%;
-
-  height: 550px;
-
-  object-fit: contain;
-
   display: block;
 }
 
-.lima-content h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: clamp(35px, 5vw, 55px);
-
-  font-weight: 800;
-
-  margin: 10px 0 20px;
+.map-point {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 25px;
+  height: 25px;
+  border: 0;
+  border-radius: 50%;
+  background: #d60000;
+  border: 4px solid #ffffff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  padding: 0;
+  z-index: 5;
+  transition: 0.25s ease;
 }
 
-.lima-content p {
-  color: #666;
-
-  line-height: 1.8;
+.map-point:hover,
+.map-point.activo {
+  transform: translate(-50%, -50%) scale(1.35);
+  background: #181818;
 }
 
-.lima-number {
+.point-pulse {
+  position: absolute;
+  inset: -8px;
+  border: 2px solid rgba(214, 0, 0, 0.35);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.7);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.point-label {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  background: #181818;
+  color: #ffffff;
+  padding: 7px 10px;
+  white-space: nowrap;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s ease;
+}
+
+.map-point:hover .point-label,
+.map-point.activo .point-label {
+  opacity: 1;
+}
+
+.mapa-ayuda {
+  margin-top: 25px;
   display: flex;
-
+  justify-content: center;
   align-items: center;
-
-  gap: 20px;
-
-  margin-top: 30px;
-}
-
-.lima-number strong {
-  color: #D60000;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: 70px;
-}
-
-.lima-number span {
-  max-width: 200px;
-
-  color: #555;
-
+  gap: 10px;
+  color: #666666;
   font-size: 14px;
 }
 
-
-/* ================================
-   CTA
-================================ */
-
-.sedes-cta {
-  background: #D60000;
-
-  color: white;
-
-  text-align: center;
-
-  padding: 90px 30px;
+.ayuda-dot {
+  width: 10px;
+  height: 10px;
+  background: #d60000;
+  border-radius: 50%;
 }
 
-.sedes-cta-content {
-  max-width: 800px;
 
-  margin: auto;
+/* =========================================================
+   DETALLE DE SEDE
+========================================================= */
+
+.sede-detalle {
+  width: min(1200px, 84%);
+  margin: 0 auto 100px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  min-height: 520px;
+  background: #181818;
+  color: #ffffff;
+  position: relative;
 }
 
-.sedes-cta p {
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: 13px;
-
-  font-weight: 800;
-
-  letter-spacing: 2px;
+.sede-detalle-imagen {
+  position: relative;
+  min-height: 520px;
+  overflow: hidden;
 }
 
-.sedes-cta h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: clamp(32px, 5vw, 50px);
-
-  margin: 15px 0;
-}
-
-.sedes-cta span {
+.sede-detalle-imagen img {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
   display: block;
-
-  line-height: 1.7;
-
-  margin-bottom: 30px;
 }
 
-.btn-white {
-  display: inline-block;
+.imagen-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.15);
+}
 
-  background: white;
+.imagen-tag {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  background: #d60000;
+  padding: 9px 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
 
-  color: #D60000;
+.sede-detalle-contenido {
+  padding: 70px 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  padding: 14px 28px;
+.sede-etiqueta {
+  color: #d60000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
 
+.sede-detalle-contenido h2 {
+  margin: 0 0 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 0.95;
+}
+
+.sede-detalle-contenido p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #dddddd;
+  margin: 0;
+}
+
+.redes-sede {
+  margin-top: 40px;
+}
+
+.redes-sede > span {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon,
+.mini-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
+  color: #ffffff;
+  transition: 0.25s ease;
+}
 
-  font-family: 'Montserrat', Arial, sans-serif;
+.social-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 21px;
+}
 
-  font-weight: 700;
+.social-icon:hover,
+.mini-social:hover {
+  transform: translateY(-4px) scale(1.08);
+  color: #ffffff;
+}
+
+.facebook {
+  background: #1877f2;
+}
+
+.instagram {
+  background: #e1306c;
+}
+
+.tiktok {
+  background: #111111;
+}
+
+.cerrar-sede {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #181818;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 5;
 }
 
 
-/* ================================
+/* =========================================================
+   LIMA METROPOLITANA
+========================================================= */
+
+.lima-section {
+  padding: 100px 8%;
+  background: #d60000;
+  color: #ffffff;
+}
+
+.lima-header {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 70px;
+  align-items: end;
+  margin-bottom: 60px;
+}
+
+.lima-header span {
+  color: #ffffff;
+}
+
+.lima-header h2 {
+  margin: 15px 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(48px, 6vw, 82px);
+  line-height: 0.9;
+  letter-spacing: -3px;
+}
+
+.lima-header h2 strong {
+  font-weight: 800;
+}
+
+.lima-header p {
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 0;
+  max-width: 520px;
+}
+
+.lima-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.lima-card {
+  background: #ffffff;
+  color: #181818;
+  min-height: 100%;
+  transition: 0.25s ease;
+}
+
+.lima-card:hover {
+  transform: translateY(-7px);
+}
+
+.lima-card-image {
+  height: 245px;
+  position: relative;
+  overflow: hidden;
+}
+
+.lima-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-number {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #d60000;
+  color: #ffffff;
+  padding: 8px 11px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.lima-card-content {
+  padding: 28px;
+}
+
+.card-location {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  color: #d60000;
+}
+
+.lima-card h3 {
+  margin: 10px 0 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 25px;
+  line-height: 1;
+}
+
+.lima-card p {
+  color: #555555;
+  line-height: 1.6;
+  font-size: 14px;
+  margin: 0;
+}
+
+.card-social {
+  display: flex;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.mini-social {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+
+/* =========================================================
+   UNIVERSIDADES
+========================================================= */
+
+.universidades-section {
+  padding: 100px 8%;
+  background: #ffffff;
+}
+
+.universidades-header {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 70px;
+  align-items: end;
+  margin-bottom: 55px;
+}
+
+.universidades-header h2 {
+  margin: 15px 0 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(45px, 5vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -2px;
+}
+
+.universidades-header h2 strong {
+  color: #d60000;
+}
+
+.universidades-header p {
+  max-width: 500px;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.universidades-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.universidad-card {
+  background: #181818;
+  color: #ffffff;
+  overflow: hidden;
+  transition: 0.25s ease;
+}
+
+.universidad-card:hover {
+  transform: translateY(-7px);
+}
+
+.universidad-image {
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+}
+
+.universidad-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.universidad-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(214, 0, 0, 0.08);
+}
+
+.universidad-content {
+  padding: 25px;
+}
+
+.universidad-content > span {
+  color: #d60000;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.universidad-content h3 {
+  margin: 10px 0 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+}
+
+.universidad-content p {
+  color: #cccccc;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+/* =========================================================
+   CIERRE
+========================================================= */
+
+.sedes-cierre {
+  background: #181818;
+  color: #ffffff;
+  padding: 90px 8%;
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.sedes-cierre span {
+  color: #d60000;
+}
+
+.sedes-cierre h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(45px, 6vw, 78px);
+  line-height: 0.9;
+  margin: 15px 0 0;
+  letter-spacing: -3px;
+}
+
+.sedes-cierre h2 strong {
+  color: #d60000;
+}
+
+.sedes-cierre p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #dddddd;
+}
+
+
+/* =========================================================
    RESPONSIVE
-================================ */
+========================================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
 
-  .informacion-card {
-    grid-template-columns: 1fr;
+  .hero-sedes {
+    padding: 75px 6%;
   }
 
-  .informacion-imagen,
-  .foto-pendiente {
-    min-height: 300px;
+  .hero-number {
+    display: none;
+  }
+
+  .buscador-section,
+  .mapa-section,
+  .universidades-section {
+    padding-left: 6%;
+    padding-right: 6%;
   }
 
   .lima-section {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .section-heading,
+  .lima-header,
+  .universidades-header,
+  .sedes-cierre {
     grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    display: grid;
+  }
+
+  .lima-header,
+  .universidades-header,
+  .sedes-cierre {
+    display: grid;
+  }
+
+  .lima-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .universidades-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sede-detalle {
+    width: 88%;
+    grid-template-columns: 1fr;
+  }
+
+  .sede-detalle-imagen,
+  .sede-detalle-imagen img {
+    min-height: 400px;
   }
 
 }
 
 
-@media (max-width: 600px) {
+/* =========================================================
+   MOBILE
+========================================================= */
 
-  .sedes-hero {
-    min-height: 360px;
+@media (max-width: 650px) {
+
+  .hero-sedes {
+    min-height: 450px;
+    padding: 65px 7%;
+  }
+
+  .hero-content h1 {
+    font-size: 54px;
+    letter-spacing: -2px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+
+  .buscador-section {
+    padding: 55px 7% 25px;
+  }
+
+  .buscador-container {
+    display: block;
+  }
+
+  .buscador-texto {
+    margin-bottom: 25px;
+  }
+
+  .buscador-texto h2 {
+    font-size: 34px;
   }
 
   .buscador {
-    height: 58px;
+    width: 100%;
   }
 
   .mapa-section {
-    padding-left: 15px;
-
-    padding-right: 15px;
+    padding: 55px 7% 70px;
   }
 
-  .marker-label text {
-    font-size: 9px;
+  .section-heading h2 {
+    font-size: 43px;
   }
 
-  .informacion-section {
-    padding-left: 15px;
-
-    padding-right: 15px;
+  .section-heading p {
+    font-size: 14px;
   }
 
-  .informacion-contenido {
-    padding: 30px 25px;
+  .map-point {
+    width: 18px;
+    height: 18px;
+    border-width: 3px;
+  }
+
+  .point-label {
+    display: none;
+  }
+
+  .sede-detalle {
+    width: 90%;
+    margin-bottom: 70px;
+  }
+
+  .sede-detalle-imagen,
+  .sede-detalle-imagen img {
+    min-height: 280px;
+  }
+
+  .sede-detalle-contenido {
+    padding: 45px 30px;
+  }
+
+  .sede-detalle-contenido h2 {
+    font-size: 48px;
   }
 
   .lima-section {
-    padding: 60px 20px;
+    padding: 65px 7%;
+  }
+
+  .lima-header h2 {
+    font-size: 50px;
+  }
+
+  .lima-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .universidades-section {
+    padding: 65px 7%;
+  }
+
+  .universidades-header h2 {
+    font-size: 48px;
+  }
+
+  .universidades-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sedes-cierre {
+    padding: 65px 7%;
+  }
+
+  .sedes-cierre h2 {
+    font-size: 50px;
   }
 
 }

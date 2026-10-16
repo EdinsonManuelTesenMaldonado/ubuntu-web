@@ -1,232 +1,325 @@
-<section class="gallery-hero">
 
-  <div class="gallery-hero-content">
-
-    <p>TRABAJO UBUNTU</p>
-
-    <h1>Galería</h1>
-
-    <span>
-      Conoce algunos momentos de nuestras actividades,
-      proyectos y acciones junto a la comunidad.
+<!-- GALERÍA: portada -->
+<section class="galeria-hero">
+  <div class="hero-contenido">
+    <span class="hero-etiqueta">
+      <i class="fa-solid fa-camera"></i>
+      Nuestro álbum
     </span>
 
-  </div>
-
-</section>
-
-
-<section class="gallery-section">
-
-  <div class="section-heading">
-
-    <p class="section-label">
-      CONOCE NUESTRO TRABAJO
-    </p>
-
-    <h2>
-      Momentos que forman parte de Ubuntu
-    </h2>
+    <h1>
+      Historias que
+      <span>merecen ser</span>
+      compartidas.
+    </h1>
 
     <p>
-      Explora imágenes de nuestras diferentes líneas de acción.
+      Fotografías y videos que muestran experiencias,
+      aprendizajes y momentos del voluntariado Ubuntu.
     </p>
 
+    <a routerLink="/trabajo/actividades" class="boton-hero">
+      Conocer nuestras actividades
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
   </div>
 
-
-  <!-- FILTROS -->
-
-  <div class="gallery-filters">
-
-    <button
-      type="button"
-      [class.active]="filtroActual === 'TODAS'"
-      (click)="cambiarFiltro('TODAS')">
-
-      Todas
-
-    </button>
-
-
-    <button
-      type="button"
-      [class.active]="filtroActual === 'SOCIAL'"
-      (click)="cambiarFiltro('SOCIAL')">
-
-      Social
-
-    </button>
-
-
-    <button
-      type="button"
-      [class.active]="filtroActual === 'AMBIENTAL'"
-      (click)="cambiarFiltro('AMBIENTAL')">
-
-      Ambiental
-
-    </button>
-
-
-    <button
-      type="button"
-      [class.active]="filtroActual === 'ANIMALISTA'"
-      (click)="cambiarFiltro('ANIMALISTA')">
-
-      Animalista
-
-    </button>
-
-
-    <button
-      type="button"
-      [class.active]="filtroActual === 'CULTURAL'"
-      (click)="cambiarFiltro('CULTURAL')">
-
-      Cultural
-
-    </button>
-
-  </div>
-
-
-  <!-- GALERÍA -->
-
-  <div class="gallery-grid">
-
-    @for (foto of fotosFiltradas; track foto.id) {
-
-      <article
-        class="gallery-card"
-        (click)="abrirFoto(foto)">
-
-        <img
-          [src]="foto.imagen"
-          [alt]="foto.titulo">
-
-        <div class="gallery-overlay">
-
-          <span>
-            {{ foto.categoria }}
-          </span>
-
-          <h3>
-            {{ foto.titulo }}
-          </h3>
-
-          <div class="view-icon">
-
-            <i class="fas fa-expand"></i>
-
-          </div>
-
-        </div>
-
-      </article>
-
-    }
-
-  </div>
-
-</section>
-
-
-<!-- VISOR DE IMAGEN -->
-
-@if (fotoSeleccionada) {
-
-  <div
-    class="gallery-modal"
-    (click)="cerrarFoto()">
-
-    <button
-      type="button"
-      class="modal-close"
-      aria-label="Cerrar"
-      (click)="cerrarFoto()">
-
-      <i class="fas fa-times"></i>
-
-    </button>
-
-
-    <button
-      type="button"
-      class="modal-arrow modal-prev"
-      aria-label="Imagen anterior"
-      (click)="$event.stopPropagation(); fotoAnterior()">
-
-      <i class="fas fa-chevron-left"></i>
-
-    </button>
-
-
-    <div
-      class="modal-content"
-      (click)="$event.stopPropagation()">
-
+  <div class="hero-collage">
+    <div class="collage-principal">
       <img
-        [src]="fotoSeleccionada.imagen"
-        [alt]="fotoSeleccionada.titulo">
-
-      <div class="modal-info">
-
-        <span>
-          {{ fotoSeleccionada.categoria }}
-        </span>
-
-        <h3>
-          {{ fotoSeleccionada.titulo }}
-        </h3>
-
-      </div>
-
+        src="/imagenes/PSX_20241001_083915.jpg"
+        alt="Experiencia de voluntariado"
+      />
     </div>
 
+    <div class="collage-secundaria">
+      <img
+        src="/imagenes/ss.png"
+        alt="Momentos compartidos"
+      />
+    </div>
+
+    <div class="collage-sello">
+      <i class="fa-solid fa-heart"></i>
+      <span>Compartir</span>
+      <strong>nos une</strong>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA: presentación -->
+<section class="galeria-intro">
+  <div>
+    <span class="intro-etiqueta">NUESTROS RECUERDOS</span>
+    <h2>
+      Cada imagen cuenta
+      <span>una historia.</span>
+    </h2>
+  </div>
+
+  <p>
+    Explora los recuerdos de Ubuntu. Puedes ver las fotografías,
+    reproducir videos y descubrir las experiencias que forman
+    parte de nuestro compromiso social.
+  </p>
+</section>
+
+<!-- GALERÍA: contenido multimedia -->
+<section class="galeria-contenedor">
+  <div class="galeria-cabecera">
+    <div>
+      <span class="seccion-etiqueta">ÁLBUM UBUNTU</span>
+      <h2>Momentos que <span>nos conectan.</span></h2>
+    </div>
+
+    <span class="contador">
+      {{ totalContenido }} contenidos
+    </span>
+  </div>
+
+  <!-- Filtros -->
+  <div class="galeria-filtros">
+    <button
+      type="button"
+      [class.activo]="tipoActivo === 'todos'"
+      [attr.aria-pressed]="tipoActivo === 'todos'"
+      (click)="cambiarTipo('todos')"
+    >
+      <i class="fa-solid fa-border-all"></i>
+      Todo
+    </button>
 
     <button
       type="button"
-      class="modal-arrow modal-next"
-      aria-label="Imagen siguiente"
-      (click)="$event.stopPropagation(); fotoSiguiente()">
-
-      <i class="fas fa-chevron-right"></i>
-
+      [class.activo]="tipoActivo === 'fotos'"
+      [attr.aria-pressed]="tipoActivo === 'fotos'"
+      (click)="cambiarTipo('fotos')"
+    >
+      <i class="fa-solid fa-image"></i>
+      Fotografías
     </button>
 
+    <button
+      type="button"
+      [class.activo]="tipoActivo === 'videos'"
+      [attr.aria-pressed]="tipoActivo === 'videos'"
+      (click)="cambiarTipo('videos')"
+    >
+      <i class="fa-solid fa-play"></i>
+      Videos
+    </button>
   </div>
 
+  <!-- Fotografías -->
+  @if (fotosVisibles.length > 0) {
+    <div class="contenido-titulo">
+      <h3><i class="fa-solid fa-images"></i> Fotografías</h3>
+      <span>{{ fotosVisibles.length }} imágenes</span>
+    </div>
+
+    <div class="galeria-mosaico">
+      @for (foto of fotosVisibles; track foto.numero) {
+        <button
+          type="button"
+          class="foto-item"
+          (click)="abrirFoto(foto)"
+          [attr.aria-label]="'Ampliar fotografía: ' + foto.titulo"
+        >
+          <img
+            [src]="foto.imagen"
+            [alt]="foto.descripcion"
+            loading="lazy"
+          />
+
+          <span class="foto-etiqueta">{{ foto.categoria }}</span>
+
+          <span class="foto-overlay">
+            <span class="foto-titulo">{{ foto.titulo }}</span>
+            <span class="foto-descripcion">{{ foto.descripcion }}</span>
+            <span class="foto-ampliar">
+              <i class="fa-solid fa-expand"></i>
+              Ampliar
+            </span>
+          </span>
+        </button>
+      }
+    </div>
+  }
+
+  <!-- Videos -->
+  @if (videosVisibles.length > 0) {
+    <div class="contenido-titulo titulo-videos">
+      <h3><i class="fa-solid fa-circle-play"></i> Videos</h3>
+      <span>{{ videosVisibles.length }} videos</span>
+    </div>
+
+    <div class="videos-grid">
+      @for (video of videosVisibles; track video.numero) {
+        <article class="video-card">
+          <button
+            type="button"
+            class="video-miniatura"
+            (click)="abrirVideo(video)"
+            [attr.aria-label]="'Reproducir video: ' + video.titulo"
+          >
+            <img [src]="video.miniatura" [alt]="video.titulo" loading="lazy" />
+
+            <span class="boton-play">
+              <i class="fa-solid fa-play"></i>
+            </span>
+
+            <span class="video-tipo">VIDEO</span>
+          </button>
+
+          <div class="video-informacion">
+            <span class="video-categoria">{{ video.categoria }}</span>
+            <h4>{{ video.titulo }}</h4>
+            <p>{{ video.descripcion }}</p>
+
+            <button
+              type="button"
+              class="enlace-reproducir"
+              (click)="abrirVideo(video)"
+            >
+              Ver video
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </article>
+      }
+    </div>
+  }
+
+  <!-- Estado vacío -->
+  @if (totalContenido === 0) {
+    <div class="galeria-vacia">
+      <i class="fa-regular fa-images"></i>
+      <h3>Pronto habrá contenido</h3>
+      <p>Estamos preparando nuevas fotografías y videos.</p>
+    </div>
+  }
+
+  @if (tipoActivo === 'fotos' && fotos.length === 0) {
+    <div class="galeria-vacia">
+      <i class="fa-regular fa-images"></i>
+      <h3>Todavía no hay fotografías</h3>
+      <p>Agrega tus imágenes en el arreglo fotos de galeria.ts.</p>
+    </div>
+  }
+
+  @if (tipoActivo === 'videos' && videos.length === 0) {
+    <div class="galeria-vacia">
+      <i class="fa-solid fa-film"></i>
+      <h3>Todavía no hay videos</h3>
+      <p>Agrega tus videos en el arreglo videos de galeria.ts.</p>
+    </div>
+  }
+
+  <p class="galeria-nota">
+    <i class="fa-solid fa-circle-info"></i>
+    El contenido de esta galería se configura directamente
+    en el código del proyecto.
+  </p>
+</section>
+
+<!-- GALERÍA: invitación -->
+<section class="galeria-cierre">
+  <span class="cierre-icono">
+    <i class="fa-solid fa-heart"></i>
+  </span>
+
+  <span>LAS HISTORIAS CONTINÚAN</span>
+
+  <h2>
+    Sé parte de
+    <span>lo que viene.</span>
+  </h2>
+
+  <p>
+    Súmate a Ubuntu y participa en nuevas experiencias
+    de voluntariado y compromiso social.
+  </p>
+
+  <a routerLink="/voluntariado/registro" class="boton-cierre">
+    Quiero ser voluntario
+    <i class="fa-solid fa-arrow-right"></i>
+  </a>
+</section>
+
+<!-- VISOR DE FOTOGRAFÍAS -->
+@if (fotoSeleccionada; as foto) {
+  <div
+    class="visor"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Fotografía ampliada"
+    (click)="cerrarVisor()"
+    (keydown.escape)="cerrarVisor()"
+    tabindex="0"
+  >
+    <button
+      type="button"
+      class="visor-cerrar"
+      aria-label="Cerrar fotografía"
+      (click)="cerrarVisor()"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="visor-foto-contenido" (click)="$event.stopPropagation()">
+      <img [src]="foto.imagen" [alt]="foto.descripcion" />
+
+      <div class="visor-caption">
+        <span>{{ foto.categoria }}</span>
+        <h3>{{ foto.titulo }}</h3>
+        <p>{{ foto.descripcion }}</p>
+      </div>
+    </div>
+  </div>
 }
 
+<!-- VISOR DE VIDEOS -->
+@if (videoSeleccionado; as video) {
+  <div
+    class="visor"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Reproductor de video"
+    (click)="cerrarVisor()"
+    (keydown.escape)="cerrarVisor()"
+    tabindex="0"
+  >
+    <button
+      type="button"
+      class="visor-cerrar"
+      aria-label="Cerrar video"
+      (click)="cerrarVisor()"
+    >
+      <i class="fa-solid fa-xmark"></i>
+    </button>
 
-<section class="gallery-cta">
+    <div class="visor-video-contenido" (click)="$event.stopPropagation()">
+      @if (obtenerUrlYoutube(video.url); as urlVideo) {
+        <iframe
+          [src]="urlVideo"
+          [title]="video.titulo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      } @else {
+        <div class="error-video">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <h3>Enlace de video no válido</h3>
+          <p>Revisa el enlace de YouTube en galeria.ts.</p>
+        </div>
+      }
 
-  <div class="gallery-cta-content">
-
-    <p>
-      FORMA PARTE DE UBUNTU
-    </p>
-
-    <h2>
-      Tú también puedes ser parte de estas experiencias
-    </h2>
-
-    <span>
-      Conoce nuestro programa de voluntariado y participa
-      en nuestras iniciativas.
-    </span>
-
-    <br>
-
-    <a
-      routerLink="/voluntariado/registro"
-      class="btn-white">
-
-      Quiero ser voluntario
-
-    </a>
-
+      <div class="visor-caption">
+        <span>{{ video.categoria }}</span>
+        <h3>{{ video.titulo }}</h3>
+        <p>{{ video.descripcion }}</p>
+      </div>
+    </div>
   </div>
-
-</section>
+}

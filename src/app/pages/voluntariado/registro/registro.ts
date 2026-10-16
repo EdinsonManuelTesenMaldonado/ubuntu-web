@@ -1,3 +1,4 @@
+
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -6,16 +7,11 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterLink
-  ],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './registro.html',
   styleUrl: './registro.css'
 })
-export class Registro {
-
+export class RegistroComponent {
   pasoActual = 1;
 
   voluntario = {
@@ -38,22 +34,15 @@ export class Registro {
 
   private apiUrl = 'http://localhost:8080/api/voluntarios';
 
-
-  // =========================
-  // CAMBIAR DE PASO
-  // =========================
-
   siguientePaso(): void {
-
     this.error = '';
 
     if (this.pasoActual === 1) {
-
       if (
-        !this.voluntario.nombres ||
-        !this.voluntario.apellidos ||
-        !this.voluntario.correo ||
-        !this.voluntario.telefono
+        !this.voluntario.nombres.trim() ||
+        !this.voluntario.apellidos.trim() ||
+        !this.voluntario.correo.trim() ||
+        !this.voluntario.telefono.trim()
       ) {
         this.error = 'Completa todos los campos obligatorios.';
         return;
@@ -68,14 +57,9 @@ export class Registro {
       return;
     }
 
-
     if (this.pasoActual === 2) {
-
-      if (
-        !this.voluntario.perfil ||
-        !this.voluntario.interes
-      ) {
-        this.error = 'Completa los campos obligatorios.';
+      if (!this.voluntario.perfil || !this.voluntario.interes) {
+        this.error = 'Selecciona tu perfil y área de interés.';
         return;
       }
 
@@ -83,9 +67,7 @@ export class Registro {
     }
   }
 
-
   pasoAnterior(): void {
-
     this.error = '';
 
     if (this.pasoActual > 1) {
@@ -93,89 +75,54 @@ export class Registro {
     }
   }
 
-
   irAPaso(paso: number): void {
-
-    if (paso < this.pasoActual) {
+    if (paso >= 1 && paso < this.pasoActual) {
       this.pasoActual = paso;
+      this.error = '';
     }
   }
 
-
-  // =========================
-  // VALIDAR CORREO
-  // =========================
-
   validarCorreo(): boolean {
-
-    const patron =
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    return patron.test(this.voluntario.correo);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+      this.voluntario.correo
+    );
   }
 
-
-  // =========================
-  // ENVIAR REGISTRO
-  // =========================
-
   async enviarRegistro(): Promise<void> {
-
     this.mensaje = '';
     this.error = '';
 
     if (!this.voluntario.consentimiento) {
-
-      this.error =
-        'Debes aceptar el consentimiento para continuar.';
-
+      this.error = 'Debes aceptar el consentimiento para continuar.';
       return;
     }
 
     this.enviando = true;
 
     try {
-
-      const respuesta = await fetch(
-        this.apiUrl,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(this.voluntario)
-        }
-      );
-
+      const respuesta = await fetch(this.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(this.voluntario)
+      });
 
       const texto = await respuesta.text();
 
-      console.log(
-        'STATUS DEL SERVIDOR:',
-        respuesta.status
-      );
-
-      console.log(
-        'RESPUESTA:',
-        texto
-      );
-
+      console.log('STATUS DEL SERVIDOR:', respuesta.status);
+      console.log('RESPUESTA:', texto);
 
       if (!respuesta.ok) {
-
         throw new Error(
           `El servidor respondió con código ${respuesta.status}`
         );
-
       }
-
 
       this.mensaje =
         '¡Registro enviado correctamente! Gracias por querer formar parte de Ubuntu.';
 
-
       this.voluntario = {
-
         nombres: '',
         apellidos: '',
         correo: '',
@@ -187,27 +134,15 @@ export class Registro {
         experiencia: '',
         disponibilidad: '',
         consentimiento: false
-
       };
 
-
       this.pasoActual = 1;
-
-
     } catch (error) {
-
-      console.error(
-        'ERROR AL ENVIAR REGISTRO:',
-        error
-      );
-
+      console.error('ERROR AL ENVIAR REGISTRO:', error);
       this.error =
         'No se pudo enviar el registro. Verifica que el servidor esté funcionando.';
-
     } finally {
-
       this.enviando = false;
-
     }
   }
 }

@@ -1,375 +1,370 @@
-<section class="sedes-hero">
+<section class="sedes-page">
 
-  <div class="sedes-hero-content">
+  <!-- ===================================================== -->
+  <!-- HERO -->
+  <!-- ===================================================== -->
 
-    <p>UBUNTU JÓVENES VOLUNTARIOS PERÚ</p>
+  <section class="hero-sedes">
 
-    <h1>Sedes de Ubuntu</h1>
+    <div class="hero-content">
 
-    <span>
-      Explora nuestra presencia en diferentes territorios
-      del Perú y conoce nuestros equipos.
-    </span>
+      <span class="hero-tag">NUESTRA PRESENCIA</span>
 
-  </div>
+      <h1>
+        Sedes y<br>
+        <strong>equipos</strong>
+      </h1>
 
-</section>
-
-
-<!-- =========================
-     BUSCADOR
-========================= -->
-
-<section class="buscador-section">
-
-  <div class="buscador-content">
-
-    <span class="etiqueta">
-      ENCUENTRA UNA SEDE
-    </span>
-
-    <h2>
-      ¿Qué sede estás buscando?
-    </h2>
-
-    <p>
-      Escribe el nombre de una sede o selecciónala directamente
-      en el mapa.
-    </p>
-
-
-    <div class="buscador">
-
-      <i class="fas fa-search"></i>
-
-      <input
-        type="text"
-        [(ngModel)]="busqueda"
-        placeholder="Buscar sede..."
-        autocomplete="off"
-      >
-
-      @if (busqueda) {
-
-        <button
-          type="button"
-          class="btn-limpiar"
-          (click)="limpiarBusqueda()">
-
-          <i class="fas fa-times"></i>
-
-        </button>
-
-      }
+      <p>
+        Ubuntu Jóvenes Voluntarios Perú está presente en diferentes
+        regiones y comunidades del país.
+      </p>
 
     </div>
 
+    <div class="hero-number">
+      <span>15</span>
+      <small>presencias<br>territoriales</small>
+    </div>
 
-    @if (busqueda && sedesFiltradas.length > 0) {
+  </section>
 
-      <div class="resultados-busqueda">
 
-        @for (sede of sedesFiltradas; track sede.nombre) {
+  <!-- ===================================================== -->
+  <!-- BUSCADOR -->
+  <!-- ===================================================== -->
 
+  <section class="buscador-section">
+
+    <div class="buscador-container">
+
+      <div class="buscador-texto">
+        <span>ENCUENTRA UNA SEDE</span>
+        <h2>¿Dónde estamos?</h2>
+      </div>
+
+      <div class="buscador">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          type="text"
+          [(ngModel)]="busqueda"
+          placeholder="Busca Piura, Cusco, Chorrillos, UNMSM..."
+        >
+
+        @if (busqueda) {
           <button
             type="button"
-            (click)="seleccionarSede(sede)">
-
-            <i class="fas fa-location-dot"></i>
-
-            <span>
-              {{ sede.nombre }}
-            </span>
-
-            <i class="fas fa-arrow-right"></i>
-
+            class="limpiar-busqueda"
+            (click)="limpiarBusqueda()"
+          >
+            <i class="fa-solid fa-xmark"></i>
           </button>
-
         }
 
       </div>
 
-    }
+    </div>
 
+    @if (busqueda) {
 
-    @if (busqueda && sedesFiltradas.length === 0) {
+      <div class="resultados-busqueda">
 
-      <div class="sin-resultados">
+        @if (sedesFiltradas.length > 0) {
 
-        <i class="fas fa-circle-exclamation"></i>
+          <div class="resultado-grupo">
 
-        No encontramos una sede llamada
-        <strong>"{{ busqueda }}"</strong>.
-
-      </div>
-
-    }
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     MAPA INTERACTIVO
-========================= -->
-
-<section class="mapa-section">
-
-  <div class="section-heading">
-
-    <span class="etiqueta">
-      PRESENCIA NACIONAL
-    </span>
-
-    <h2>
-      Explora nuestras sedes
-    </h2>
-
-    <p>
-      Pasa el cursor sobre los puntos del mapa y haz clic
-      para conocer cada sede.
-    </p>
-
-  </div>
-
-
-  <div class="mapa-interactivo">
-
-    <!--
-      EL MAPA ORIGINAL
-      615 x 655
-    -->
-
-    <svg
-      viewBox="0 0 615 655"
-      class="mapa-svg"
-      role="img"
-      aria-label="Mapa interactivo de las sedes de Ubuntu">
-
-
-      <!-- IMAGEN ORIGINAL -->
-
-      <image
-        href="/imagenes/mapa.png"
-        x="0"
-        y="0"
-        width="615"
-        height="655"
-        preserveAspectRatio="xMidYMid meet"
-      />
-
-
-      <!-- =========================
-           PUNTOS INTERACTIVOS
-      ========================= -->
-
-
-      @for (sede of sedes; track sede.nombre) {
-
-        <g
-          class="sede-marker"
-          [class.activo]="sedeSeleccionada?.nombre === sede.nombre"
-          [attr.transform]="'translate(' + sede.x + ',' + sede.y + ')'"
-          (click)="seleccionarSede(sede)">
-
-
-          <!-- CÍRCULO -->
-
-          <circle
-            class="marker-halo"
-            cx="0"
-            cy="0"
-            r="13">
-          </circle>
-
-
-          <circle
-            class="marker-circle"
-            cx="0"
-            cy="0"
-            r="7">
-          </circle>
-
-
-          <!-- NOMBRE AL PASAR EL MOUSE -->
-
-          <g class="marker-label">
-
-            <rect
-              x="-55"
-              y="-42"
-              width="110"
-              height="25"
-              rx="4">
-            </rect>
-
-            <text
-              x="0"
-              y="-25"
-              text-anchor="middle">
-
-              {{ sede.nombre }}
-
-            </text>
-
-          </g>
-
-        </g>
-
-      }
-
-    </svg>
-
-  </div>
-
-
-  <p class="mapa-ayuda">
-
-    <i class="fas fa-hand-pointer"></i>
-
-    Haz clic en un punto para ver la información de la sede.
-
-  </p>
-
-</section>
-
-
-<!-- =========================
-     INFORMACIÓN
-========================= -->
-
-@if (sedeSeleccionada) {
-
-  <section
-    id="informacion-sede"
-    class="informacion-section">
-
-
-    <div class="informacion-card">
-
-
-      <!-- FOTO -->
-
-      <div class="informacion-imagen">
-
-        @if (sedeSeleccionada.imagen) {
-
-          <img
-            [src]="sedeSeleccionada.imagen"
-            [alt]="'Sede Ubuntu ' + sedeSeleccionada.nombre"
-          >
-
-        } @else {
-
-          <div class="foto-pendiente">
-
-            <i class="fas fa-image"></i>
-
-            <strong>
-              {{ sedeSeleccionada.nombre }}
-            </strong>
-
-            <span>
-              Foto de la sede próximamente
+            <span class="resultado-titulo">
+              SEDES TERRITORIALES
             </span>
 
+            <div class="resultado-lista">
+
+              @for (sede of sedesFiltradas; track sede.id) {
+
+                <button
+                  type="button"
+                  class="resultado-item"
+                  (click)="seleccionarDesdeBusqueda(sede)"
+                >
+                  <span>{{ sede.nombre }}</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+              }
+
+            </div>
+
+          </div>
+
+        }
+
+        @if (sedesLimaFiltradas.length > 0) {
+
+          <div class="resultado-grupo">
+
+            <span class="resultado-titulo">
+              LIMA METROPOLITANA
+            </span>
+
+            <div class="resultado-lista">
+
+              @for (sede of sedesLimaFiltradas; track sede.id) {
+
+                <button
+                  type="button"
+                  class="resultado-item"
+                  (click)="seleccionarDesdeBusqueda(sede)"
+                >
+                  <span>{{ sede.nombre }}</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+              }
+
+            </div>
+
+          </div>
+
+        }
+
+        @if (universidadesFiltradas.length > 0) {
+
+          <div class="resultado-grupo">
+
+            <span class="resultado-titulo">
+              ORGANIZACIONES UNIVERSITARIAS
+            </span>
+
+            <div class="resultado-lista">
+
+              @for (universidad of universidadesFiltradas; track universidad.id) {
+
+                <button
+                  type="button"
+                  class="resultado-item"
+                  (click)="seleccionarDesdeBusqueda(universidad)"
+                >
+                  <span>{{ universidad.nombre }}</span>
+                  <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+              }
+
+            </div>
+
+          </div>
+
+        }
+
+        @if (
+          sedesFiltradas.length === 0 &&
+          sedesLimaFiltradas.length === 0 &&
+          universidadesFiltradas.length === 0
+        ) {
+
+          <div class="sin-resultados">
+            No encontramos una sede con ese nombre.
           </div>
 
         }
 
       </div>
 
+    }
 
-      <!-- INFORMACIÓN -->
+  </section>
 
-      <div class="informacion-contenido">
 
-        <span class="etiqueta">
-          SEDE UBUNTU
-        </span>
+  <!-- ===================================================== -->
+  <!-- MAPA -->
+  <!-- ===================================================== -->
+
+  <section class="mapa-section">
+
+    <div class="section-heading">
+
+      <div>
+        <span>MAPA DE PRESENCIA</span>
 
         <h2>
-          {{ sedeSeleccionada.nombre }}
+          Ubuntu está<br>
+          <strong>cerca de ti.</strong>
         </h2>
+      </div>
 
-        <p>
-          {{ sedeSeleccionada.descripcion }}
-        </p>
+      <p>
+        Selecciona uno de los puntos para conocer la información
+        de cada sede.
+      </p>
+
+    </div>
 
 
-        <!-- REDES -->
+    <div class="mapa-wrapper">
 
-        <div class="redes">
+      <img
+        src="/imagenes/mapa.png"
+        alt="Mapa de presencia de Ubuntu en Perú"
+        class="peru-map"
+      >
 
-          <span>
-            REDES SOCIALES
+      @for (punto of puntosMapa; track punto.id) {
+
+        @if (punto.id === 'lima') {
+
+          <button
+            type="button"
+            class="map-point"
+            [class.activo]="sedeActiva === 'lima'"
+            [style.left.%]="punto.x"
+            [style.top.%]="punto.y"
+            (click)="seleccionarLima()"
+            [attr.aria-label]="punto.nombre"
+          >
+
+            <span class="point-pulse"></span>
+
+            <span class="point-label">
+              {{ punto.nombre }}
+            </span>
+
+          </button>
+
+        } @else {
+
+          <button
+            type="button"
+            class="map-point"
+            [class.activo]="sedeActiva === punto.id"
+            [style.left.%]="punto.x"
+            [style.top.%]="punto.y"
+            (click)="seleccionarSede(punto.id)"
+            [attr.aria-label]="punto.nombre"
+          >
+
+            <span class="point-pulse"></span>
+
+            <span class="point-label">
+              {{ punto.nombre }}
+            </span>
+
+          </button>
+
+        }
+
+      }
+
+    </div>
+
+
+    <div class="mapa-ayuda">
+
+      <span class="ayuda-dot"></span>
+
+      <span>
+        Haz clic en un punto del mapa
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- ===================================================== -->
+  <!-- SEDE TERRITORIAL SELECCIONADA -->
+  <!-- ===================================================== -->
+
+  @if (sedeActiva && sedeActiva !== 'lima') {
+
+    @if (obtenerSedeActiva(); as sede) {
+
+      <section
+        class="sede-detalle"
+        id="informacion-sede"
+      >
+
+        <div class="sede-detalle-imagen">
+
+          <img
+            [src]="sede.foto"
+            [alt]="'Foto de ' + sede.nombre"
+          >
+
+          <div class="imagen-overlay"></div>
+
+          <span class="imagen-tag">
+            UBUNTU
           </span>
 
-
-          <div class="redes-botones">
-
-            @if (sedeSeleccionada.facebook) {
-
-              <a
-                [href]="sedeSeleccionada.facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook">
-
-                <i class="fab fa-facebook-f"></i>
-
-              </a>
-
-            } @else {
-
-              <span class="red-disabled">
-                <i class="fab fa-facebook-f"></i>
-              </span>
-
-            }
+        </div>
 
 
-            @if (sedeSeleccionada.instagram) {
+        <div class="sede-detalle-contenido">
 
-              <a
-                [href]="sedeSeleccionada.instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram">
+          <div class="sede-etiqueta">
+            SEDE TERRITORIAL
+          </div>
 
-                <i class="fab fa-instagram"></i>
+          <h2>
+            {{ sede.nombre }}
+          </h2>
 
-              </a>
-
-            } @else {
-
-              <span class="red-disabled">
-                <i class="fab fa-instagram"></i>
-              </span>
-
-            }
+          <p>
+            {{ sede.descripcion }}
+          </p>
 
 
-            @if (sedeSeleccionada.tiktok) {
+          <div class="redes-sede">
 
-              <a
-                [href]="sedeSeleccionada.tiktok"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="TikTok">
+            <span>SÍGUENOS</span>
 
-                <i class="fab fa-tiktok"></i>
+            <div class="social-links">
 
-              </a>
+              @if (sede.redes.facebook) {
 
-            } @else {
+                <a
+                  [href]="sede.redes.facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-icon facebook"
+                  aria-label="Facebook"
+                >
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
 
-              <span class="red-disabled">
-                <i class="fab fa-tiktok"></i>
-              </span>
+              }
 
-            }
+              @if (sede.redes.instagram) {
+
+                <a
+                  [href]="sede.redes.instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-icon instagram"
+                  aria-label="Instagram"
+                >
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+
+              }
+
+              @if (sede.redes.tiktok) {
+
+                <a
+                  [href]="sede.redes.tiktok"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="social-icon tiktok"
+                  aria-label="TikTok"
+                >
+                  <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+              }
+
+            </div>
 
           </div>
 
@@ -378,102 +373,284 @@
 
         <button
           type="button"
-          class="cerrar-info"
-          (click)="cerrarInformacion()">
-
-          Cerrar información
-
-          <i class="fas fa-times"></i>
-
+          class="cerrar-sede"
+          (click)="cerrarInformacion()"
+          aria-label="Cerrar información"
+        >
+          <i class="fa-solid fa-xmark"></i>
         </button>
 
+      </section>
+
+    }
+
+  }
+
+
+  <!-- ===================================================== -->
+  <!-- LIMA METROPOLITANA -->
+  <!-- ===================================================== -->
+
+  @if (sedeActiva === 'lima') {
+
+    <section
+      class="lima-section"
+      id="lima-metropolitana"
+    >
+
+      <div class="lima-header">
+
+        <div>
+
+          <span>LIMA METROPOLITANA</span>
+
+          <h2>
+            Una ciudad.<br>
+            <strong>11 sedes.</strong>
+          </h2>
+
+        </div>
+
+        <p>
+          El material institucional de Ubuntu señala presencia
+          en 11 distritos de Lima Metropolitana, con el objetivo
+          de continuar expandiéndose y acompañando a más comunidades.
+        </p>
+
       </div>
+
+
+      <div class="lima-grid">
+
+        @for (sede of sedesLima; track sede.id) {
+
+          <article class="lima-card">
+
+            <div class="lima-card-image">
+
+              <img
+                [src]="sede.foto"
+                [alt]="'Foto de ' + sede.nombre"
+              >
+
+              <span class="card-number">
+                {{ ($index + 1).toString().padStart(2, '0') }}
+              </span>
+
+            </div>
+
+
+            <div class="lima-card-content">
+
+              <span class="card-location">
+                LIMA METROPOLITANA
+              </span>
+
+              <h3>
+                {{ sede.nombre }}
+              </h3>
+
+              <p>
+                {{ sede.descripcion }}
+              </p>
+
+
+              <div class="card-social">
+
+                @if (sede.redes.facebook) {
+
+                  <a
+                    [href]="sede.redes.facebook"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mini-social facebook"
+                    aria-label="Facebook"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+
+                }
+
+                @if (sede.redes.instagram) {
+
+                  <a
+                    [href]="sede.redes.instagram"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mini-social instagram"
+                    aria-label="Instagram"
+                  >
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+
+                }
+
+                @if (sede.redes.tiktok) {
+
+                  <a
+                    [href]="sede.redes.tiktok"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mini-social tiktok"
+                    aria-label="TikTok"
+                  >
+                    <i class="fa-brands fa-tiktok"></i>
+                  </a>
+
+                }
+
+              </div>
+
+            </div>
+
+          </article>
+
+        }
+
+      </div>
+
+    </section>
+
+  }
+
+
+  <!-- ===================================================== -->
+  <!-- ORGANIZACIONES UNIVERSITARIAS -->
+  <!-- ===================================================== -->
+
+  <section class="universidades-section">
+
+    <div class="universidades-header">
+
+      <div>
+
+        <span>ORGANIZACIONES JUVENILES</span>
+
+        <h2>
+          También estamos<br>
+          <strong>en las universidades.</strong>
+        </h2>
+
+      </div>
+
+      <p>
+        Ubuntu también cuenta con organizaciones juveniles
+        universitarias que forman parte de su comunidad.
+      </p>
+
+    </div>
+
+
+    <div class="universidades-grid">
+
+      @for (universidad of universidades; track universidad.id) {
+
+        <article class="universidad-card">
+
+          <div class="universidad-image">
+
+            <img
+              [src]="universidad.foto"
+              [alt]="'Foto de ' + universidad.nombre"
+            >
+
+            <div class="universidad-overlay"></div>
+
+          </div>
+
+
+          <div class="universidad-content">
+
+            <span>ORGANIZACIÓN UNIVERSITARIA</span>
+
+            <h3>
+              {{ universidad.nombre }}
+            </h3>
+
+            <p>
+              {{ universidad.descripcion }}
+            </p>
+
+
+            <div class="card-social">
+
+              @if (universidad.redes.facebook) {
+
+                <a
+                  [href]="universidad.redes.facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mini-social facebook"
+                  aria-label="Facebook"
+                >
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+              }
+
+              @if (universidad.redes.instagram) {
+
+                <a
+                  [href]="universidad.redes.instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mini-social instagram"
+                  aria-label="Instagram"
+                >
+                  <i class="fa-brands fa-instagram"></i>
+                </a>
+
+              }
+
+              @if (universidad.redes.tiktok) {
+
+                <a
+                  [href]="universidad.redes.tiktok"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mini-social tiktok"
+                  aria-label="TikTok"
+                >
+                  <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+              }
+
+            </div>
+
+          </div>
+
+        </article>
+
+      }
 
     </div>
 
   </section>
 
-}
 
+  <!-- ===================================================== -->
+  <!-- CIERRE -->
+  <!-- ===================================================== -->
 
-<!-- =========================
-     LIMA
-========================= -->
+  <section class="sedes-cierre">
 
-<section class="lima-section">
+    <div>
 
-  <div class="lima-image">
+      <span>YO SOY PORQUE TODOS SOMOS</span>
 
-    <img
-      src="/imagenes/limametropolitano.png"
-      alt="Presencia de Ubuntu en Lima Metropolitana"
-    >
-
-  </div>
-
-
-  <div class="lima-content">
-
-    <span class="etiqueta">
-      LIMA METROPOLITANA
-    </span>
-
-    <h2>
-      Presencia en Lima
-    </h2>
-
-    <p>
-      Ubuntu cuenta con presencia en 11 distritos a nivel
-      Lima Metropolitana y tiene como objetivo continuar
-      expandiéndose.
-    </p>
-
-    <div class="lima-number">
-
-      <strong>11</strong>
-
-      <span>
-        distritos mencionados en el material institucional
-      </span>
+      <h2>
+        Una red que<br>
+        <strong>crece contigo.</strong>
+      </h2>
 
     </div>
 
-  </div>
-
-</section>
-
-
-<!-- =========================
-     CTA
-========================= -->
-
-<section class="sedes-cta">
-
-  <div class="sedes-cta-content">
-
     <p>
-      CONOCE MÁS SOBRE UBUNTU
+      Desde cada sede, comunidad y organización universitaria,
+      los voluntarios forman parte de una misma familia Ubuntu.
     </p>
 
-    <h2>
-      Forma parte de nuestra red
-    </h2>
-
-    <span>
-      Conoce nuestro programa de voluntariado y participa
-      en nuestras iniciativas.
-    </span>
-
-    <br>
-
-    <a
-      routerLink="/voluntariado/registro"
-      class="btn-white">
-
-      Quiero ser voluntario
-
-    </a>
-
-  </div>
+  </section>
 
 </section>

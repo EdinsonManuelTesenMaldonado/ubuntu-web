@@ -1,225 +1,271 @@
-<section class="page-header">
-  <div>
-    <span>VOLUNTARIADO</span>
-    <h1>Forma parte de Ubuntu</h1>
+
+<!-- VOLUNTARIADO: portada principal -->
+<section class="voluntariado-hero">
+  <div class="hero-texto">
+    <span class="hero-etiqueta">
+      <i class="fa-solid fa-heart"></i>
+      Sé parte de Ubuntu
+    </span>
+
+    <h1>
+      Tu tiempo puede
+      <span>cambiar historias.</span>
+    </h1>
+
     <p>
-      Una oportunidad para participar, aprender y aportar desde tus
-      conocimientos, habilidades y experiencias.
+      Creemos en el poder de las personas que deciden involucrarse,
+      compartir sus capacidades y trabajar por una sociedad más
+      solidaria. Tu participación puede ser el inicio de algo grande.
     </p>
+
+    <div class="hero-botones">
+      <a routerLink="/voluntariado/registro" class="boton-principal">
+        Quiero ser voluntario
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <a routerLink="/trabajo/proyectos" class="boton-secundario">
+        Conoce nuestros proyectos
+      </a>
+    </div>
+
+    <div class="hero-frase">
+      <span class="frase-linea"></span>
+      <span>Compartir, aprender y transformar.</span>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-foto">
+      <img
+        src="/imagenes/PSX_20241001_083915.jpg"
+        alt="Experiencia de voluntariado de Ubuntu"
+      />
+    </div>
+
+    <div class="hero-foto-secundaria">
+      <img
+        src="/imagenes/ss.png"
+        alt="Participación y colaboración"
+      />
+    </div>
+
+    <div class="hero-sello">
+      <i class="fa-solid fa-hands-holding-circle"></i>
+      <span>Unidos por</span>
+      <strong>un propósito</strong>
+    </div>
+
+    <span class="hero-circulo"></span>
   </div>
 </section>
 
-
-<section class="intro">
-
-  <div class="intro-image">
-    <img
-      src="/imagenes/AQUI-FOTO-VOLUNTARIADO.jpg"
-      alt="Voluntarios de Ubuntu"
-    >
+<!-- VOLUNTARIADO: presentación -->
+<section class="voluntariado-intro">
+  <div class="intro-etiqueta">
+    <span></span>
+    ¿POR QUÉ SER VOLUNTARIO?
   </div>
 
-  <div class="intro-text">
-    <span class="etiqueta">VOLUNTARIADO UBUNTU</span>
+  <div class="intro-contenido">
+    <h2>
+      No necesitas cambiar
+      <span>el mundo en un día.</span>
+    </h2>
 
-    <h2>Tu tiempo y tu talento también pueden aportar</h2>
+    <div class="intro-texto">
+      <p>
+        A veces, el cambio empieza con una idea, una conversación
+        o la decisión de dedicar parte de nuestro tiempo a los demás.
+      </p>
+
+      <p>
+        Ser voluntario en Ubuntu es una oportunidad para participar,
+        compartir lo que sabes y aprender junto a otras personas.
+      </p>
+
+      <a routerLink="/trabajo/impacto" class="enlace-intro">
+        Conoce el impacto que buscamos
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTARIADO: beneficios -->
+<section class="voluntariado-beneficios">
+  <div class="beneficios-encabezado">
+    <span class="seccion-etiqueta">UNA EXPERIENCIA QUE SUMA</span>
+
+    <h2>
+      Lo que compartes
+      <span>también te transforma.</span>
+    </h2>
 
     <p>
-      El programa de voluntariado de Ubuntu está dirigido a jóvenes,
-      estudiantes, internos y profesionales interesados en participar
-      en nuestras iniciativas.
+      Participar como voluntario es una oportunidad para contribuir
+      a los demás y desarrollar nuevas experiencias personales.
     </p>
+  </div>
+
+  <div class="beneficios-lista">
+    <article class="beneficio">
+      <div class="beneficio-icono">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+
+      <div>
+        <span class="beneficio-numero">01</span>
+        <h3>Contribuye a una causa</h3>
+        <p>
+          Dedica tu tiempo y tus capacidades a iniciativas
+          que buscan aportar al bienestar colectivo.
+        </p>
+      </div>
+    </article>
+
+    <article class="beneficio">
+      <div class="beneficio-icono">
+        <i class="fa-solid fa-user-group"></i>
+      </div>
+
+      <div>
+        <span class="beneficio-numero">02</span>
+        <h3>Conoce nuevas personas</h3>
+        <p>
+          Comparte experiencias, ideas y aprendizajes con
+          personas que también desean colaborar.
+        </p>
+      </div>
+    </article>
+
+    <article class="beneficio">
+      <div class="beneficio-icono">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
+
+      <div>
+        <span class="beneficio-numero">03</span>
+        <h3>Desarrolla tus habilidades</h3>
+        <p>
+          Fortalece tu capacidad para trabajar en equipo,
+          comunicarte y asumir nuevos retos.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- VOLUNTARIADO: modalidades -->
+<section class="modalidades-voluntariado">
+  <div class="modalidades-encabezado">
+    <div>
+      <span class="seccion-etiqueta">ENCUENTRA TU FORMA DE PARTICIPAR</span>
+
+      <h2>
+        Hay muchas maneras
+        <span>de aportar.</span>
+      </h2>
+    </div>
 
     <p>
-      Puedes aportar tus conocimientos, habilidades y talento en las
-      diferentes actividades y proyectos de la organización.
+      Cada persona tiene algo valioso que compartir.
+      Descubre algunas formas de involucrarte.
+    </p>
+  </div>
+
+  <div class="modalidades-grid">
+    @for (modalidad of modalidades; track modalidad.numero) {
+      <article class="modalidad-card">
+        <div class="modalidad-superior">
+          <span class="modalidad-numero">{{ modalidad.numero }}</span>
+
+          <span class="modalidad-icono">
+            <i [class]="modalidad.icono"></i>
+          </span>
+        </div>
+
+        <span class="modalidad-etiqueta">{{ modalidad.etiqueta }}</span>
+
+        <h3>{{ modalidad.titulo }}</h3>
+
+        <p>{{ modalidad.descripcion }}</p>
+
+        <a
+          routerLink="/voluntariado/registro"
+          class="modalidad-enlace"
+        >
+          Me interesa
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </article>
+    }
+  </div>
+
+  <p class="modalidades-nota">
+    Las modalidades y oportunidades específicas se confirmarán
+    de acuerdo con las iniciativas y necesidades de Ubuntu.
+  </p>
+</section>
+
+<!-- VOLUNTARIADO: pasos para participar -->
+<section class="pasos-voluntariado">
+  <div class="pasos-intro">
+    <span class="seccion-etiqueta">EMPIEZA AQUÍ</span>
+
+    <h2>
+      Tu camino como
+      <span>voluntario.</span>
+    </h2>
+
+    <p>
+      Dar el primer paso es sencillo. Registra tu interés y
+      comparte con nosotros cómo te gustaría participar.
     </p>
 
-    <a href="/voluntariado/registro" class="btn-primary">
-      Quiero ser voluntario →
+    <a routerLink="/voluntariado/registro" class="boton-pasos">
+      Ir al formulario
+      <i class="fa-solid fa-arrow-right"></i>
     </a>
   </div>
 
+  <div class="pasos-lista">
+    @for (paso of pasos; track paso.numero) {
+      <article class="paso-item">
+        <span class="paso-numero">{{ paso.numero }}</span>
+
+        <div class="paso-texto">
+          <h3>{{ paso.titulo }}</h3>
+          <p>{{ paso.descripcion }}</p>
+        </div>
+      </article>
+    }
+  </div>
 </section>
 
+<!-- VOLUNTARIADO: cierre -->
+<section class="voluntariado-cta">
+  <div class="cta-decoracion">UBUNTU</div>
 
-<section class="experiencia">
+  <div class="cta-contenido">
+    <span class="cta-etiqueta">
+      <i class="fa-solid fa-heart"></i>
+      TU PARTICIPACIÓN IMPORTA
+    </span>
 
-  <div class="experiencia-header">
-    <span>LA EXPERIENCIA</span>
-    <h2>Ser voluntario también es aprender</h2>
-    <p>
-      Participar en Ubuntu permite conocer nuevas realidades,
-      compartir con otras personas y desarrollar nuevas experiencias.
-    </p>
-  </div>
-
-
-  <div class="experiencia-grid">
-
-    <article>
-      <div class="numero">01</div>
-      <h3>Participa</h3>
-      <p>
-        Sé parte de las actividades e iniciativas desarrolladas
-        por Ubuntu.
-      </p>
-    </article>
-
-    <article>
-      <div class="numero">02</div>
-      <h3>Comparte</h3>
-      <p>
-        Comparte tus conocimientos, habilidades y experiencias
-        con otras personas.
-      </p>
-    </article>
-
-    <article>
-      <div class="numero">03</div>
-      <h3>Aprende</h3>
-      <p>
-        Conoce nuevas realidades y adquiere experiencias fuera
-        de tu entorno habitual.
-      </p>
-    </article>
-
-  </div>
-
-</section>
-
-
-<section class="tipos">
-
-  <div class="tipos-image">
-    <img
-      src="/imagenes/AQUI-FOTO-ACTIVIDAD-VOLUNTARIADO.jpg"
-      alt="Actividad de voluntariado Ubuntu"
-    >
-  </div>
-
-  <div class="tipos-text">
-    <span class="etiqueta">DIFERENTES FORMAS DE PARTICIPAR</span>
-
-    <h2>Encuentra la forma de aportar</h2>
+    <h2>
+      El primer paso
+      <span>lo das tú.</span>
+    </h2>
 
     <p>
-      Ubuntu cuenta con oportunidades para jóvenes, estudiantes,
-      internos y profesionales.
+      Comparte tu tiempo, tus ideas y tus ganas de ayudar.
+      Nos encantará conocer tu interés por formar parte de Ubuntu.
     </p>
 
-    <div class="tipo-lista">
-      <div>
-        <strong>Jóvenes</strong>
-        <span>Participación en actividades y proyectos.</span>
-      </div>
-
-      <div>
-        <strong>Estudiantes</strong>
-        <span>Experiencias de voluntariado y aprendizaje.</span>
-      </div>
-
-      <div>
-        <strong>Internos y pasantes</strong>
-        <span>Participación vinculada a su formación.</span>
-      </div>
-
-      <div>
-        <strong>Profesionales</strong>
-        <span>Aporte de conocimientos y experiencia.</span>
-      </div>
-    </div>
-
+    <a routerLink="/voluntariado/registro" class="boton-cta">
+      Registrarme como voluntario
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
   </div>
-
-</section>
-
-
-<section class="beneficios">
-
-  <div class="beneficios-header">
-    <span>COMO VOLUNTARIO</span>
-    <h2>¿Qué encontrarás en Ubuntu?</h2>
-  </div>
-
-  <div class="beneficios-grid">
-
-    <div class="beneficio">
-      <div>🤝</div>
-      <h3>Comunidad</h3>
-      <p>
-        Conoce y comparte con personas que participan en nuestras
-        iniciativas.
-      </p>
-    </div>
-
-    <div class="beneficio">
-      <div>💡</div>
-      <h3>Experiencia</h3>
-      <p>
-        Participa en actividades que te permitan desarrollar
-        nuevas experiencias.
-      </p>
-    </div>
-
-    <div class="beneficio">
-      <div>📚</div>
-      <h3>Aprendizaje</h3>
-      <p>
-        Recibe espacios de orientación y comunicación relacionados
-        con el voluntariado.
-      </p>
-    </div>
-
-    <div class="beneficio">
-      <div>📜</div>
-      <h3>Certificación</h3>
-      <p>
-        Participa en actividades que pueden contar con certificados
-        acreditados por SENAJU, según corresponda.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<section class="testimonio">
-
-  <div class="testimonio-image">
-    <img
-      src="/imagenes/AQUI-FOTO-TESTIMONIO.jpg"
-      alt="Voluntariado Ubuntu"
-    >
-  </div>
-
-  <div class="testimonio-text">
-    <span>VOCES DE NUESTROS VOLUNTARIOS</span>
-
-    <blockquote>
-      “El voluntariado se convirtió en un estilo de vida y cambió
-      mi manera de ver la realidad.”
-    </blockquote>
-
-    <strong>Cielo Guevara</strong>
-    <small>Ubuntu SJM</small>
-  </div>
-
-</section>
-
-
-<section class="cierre">
-
-  <h2>¿Listo para participar?</h2>
-
-  <p>
-    Conoce los requisitos y registra tus datos para formar parte
-    de Ubuntu.
-  </p>
-
-  <a href="/voluntariado/registro">
-    Quiero ser voluntario →
-  </a>
-
 </section>

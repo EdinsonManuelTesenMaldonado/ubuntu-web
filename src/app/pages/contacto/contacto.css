@@ -1,427 +1,331 @@
+
 :host {
   display: block;
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
   color: #181818;
 }
 
-
-/* =========================
-   HERO
-========================= */
-
-.contact-hero {
-  min-height: 360px;
-
-  background: #D60000;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  text-align: center;
-
-  padding: 70px 30px;
+.contacto-hero {
+  padding: 80px 7%;
+  background: #d60000;
+  color: #fff;
 }
 
-.contact-hero-content {
-  max-width: 850px;
-  color: white;
-}
-
-.contact-hero p {
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: 14px;
-  font-weight: 700;
-
-  letter-spacing: 2px;
-
-  margin: 0 0 18px;
-}
-
-.contact-hero h1 {
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: clamp(42px, 6vw, 70px);
-
-  line-height: 1.05;
-
-  font-weight: 800;
-
-  margin: 0 0 22px;
-}
-
-.contact-hero span {
-  font-size: 19px;
-  line-height: 1.6;
-}
-
-
-/* =========================
-   CONTACTO PRINCIPAL
-========================= */
-
-.contact-section {
-  max-width: 1300px;
-
+.contacto-hero-contenido {
+  max-width: 1050px;
   margin: auto;
-
-  padding: 100px 40px;
-
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 80px;
-
-  align-items: center;
 }
 
-.contact-image {
-  height: 500px;
-
-  overflow: hidden;
-}
-
-.contact-image img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-}
-
-.contact-content {
-  max-width: 570px;
-}
-
-.section-label {
-  color: #D60000;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: 13px;
-
+.contacto-etiqueta,
+.contacto-subtitulo {
+  font-size: 12px;
   font-weight: 800;
-
   letter-spacing: 2px;
-
-  margin: 0 0 15px;
 }
 
-.contact-content h2,
-.collaboration-content h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
+.contacto-etiqueta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 15px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 30px;
+}
 
-  font-size: clamp(32px, 4vw, 48px);
-
+.contacto-hero h1 {
+  max-width: 850px;
+  margin: 24px 0 18px;
+  font-size: clamp(36px, 5vw, 58px);
   line-height: 1.15;
-
-  font-weight: 800;
-
-  margin: 0 0 25px;
+  font-weight: 900;
 }
 
-.contact-content > p:not(.section-label) {
-  color: #555;
-
-  font-size: 17px;
-
-  line-height: 1.8;
-
-  margin-bottom: 30px;
+.contacto-hero h1 span {
+  color: #ffc83d;
 }
 
-
-/* =========================
-   DATOS DE CONTACTO
-========================= */
-
-.contact-data {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 18px;
-}
-
-.contact-data-item {
-  display: flex;
-
-  align-items: center;
-
-  gap: 18px;
-
-  padding: 20px;
-
-  background: #f5f5f5;
-
-  border-left: 4px solid #D60000;
-}
-
-.contact-icon {
-  width: 48px;
-  height: 48px;
-
-  flex-shrink: 0;
-
-  background: #D60000;
-
-  color: white;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  font-size: 21px;
-}
-
-.data-label {
-  display: block;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: 11px;
-
-  font-weight: 800;
-
-  letter-spacing: 1.5px;
-
-  color: #777;
-
-  margin-bottom: 5px;
-}
-
-.contact-data-item a {
-  color: #181818;
-
-  text-decoration: none;
-
+.contacto-hero p {
+  max-width: 680px;
+  margin-bottom: 28px;
+  color: #fff0f0;
   font-size: 15px;
-
-  font-weight: 600;
-
-  word-break: break-word;
+  line-height: 1.9;
 }
 
-.contact-data-item a:hover {
-  color: #D60000;
-}
-
-
-/* =========================
-   COLABORACIÓN
-========================= */
-
-.contact-collaboration {
-  max-width: 1300px;
-
-  margin: auto;
-
-  padding: 100px 40px;
-
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 80px;
-
+.contacto-btn-amarillo {
+  display: inline-flex;
   align-items: center;
-}
-
-.collaboration-content {
-  max-width: 570px;
-}
-
-.collaboration-content p:not(.section-label) {
-  color: #555;
-
-  font-size: 17px;
-
-  line-height: 1.8;
-
-  margin-bottom: 20px;
-}
-
-.collaboration-image {
-  height: 480px;
-
-  overflow: hidden;
-}
-
-.collaboration-image img {
-  width: 100%;
-  height: 100%;
-
-  display: block;
-
-  object-fit: cover;
-}
-
-
-/* =========================
-   BOTÓN
-========================= */
-
-.btn-primary {
-  display: inline-block;
-
-  margin-top: 10px;
-
-  padding: 15px 28px;
-
-  background: #D60000;
-
-  color: white;
-
+  gap: 12px;
+  padding: 14px 22px;
+  border-radius: 7px;
+  background: #ffc83d;
+  color: #181818;
+  font-size: 14px;
+  font-weight: 800;
   text-decoration: none;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-weight: 700;
-
-  transition: 0.2s ease;
 }
 
-.btn-primary:hover {
-  background: #181818;
+.contacto-seccion {
+  padding: 70px 7%;
+  background: #fff7eb;
 }
 
-
-/* =========================
-   CTA VOLUNTARIADO
-========================= */
-
-.contact-question {
-  background: #D60000;
-
-  color: white;
-
-  text-align: center;
-
-  padding: 100px 30px;
-}
-
-.question-content {
-  max-width: 850px;
-
+.contacto-contenedor {
+  max-width: 1150px;
   margin: auto;
 }
 
-.contact-question p {
-  font-family: 'Montserrat', Arial, sans-serif;
+.contacto-intro {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
 
+.contacto-subtitulo {
+  color: #d60000;
+}
+
+.contacto-intro h2 {
+  margin: 12px 0;
+  font-size: clamp(27px, 4vw, 39px);
+  font-weight: 900;
+}
+
+.contacto-intro p {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 35px;
+  align-items: start;
+}
+
+.contacto-informacion {
+  padding: 32px;
+  border-radius: 12px;
+  background: #181818;
+  color: #fff;
+}
+
+.contacto-informacion > h3,
+.contacto-formulario > h3 {
+  margin: 0 0 12px;
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.contacto-descripcion,
+.contacto-form-descripcion {
+  margin-bottom: 28px;
   font-size: 13px;
-
-  font-weight: 800;
-
-  letter-spacing: 2px;
-
-  margin: 0 0 15px;
+  line-height: 1.8;
 }
 
-.contact-question h2 {
-  font-family: 'Montserrat', Arial, sans-serif;
-
-  font-size: clamp(32px, 4vw, 50px);
-
-  line-height: 1.15;
-
-  font-weight: 800;
-
-  margin: 0 0 20px;
+.contacto-descripcion {
+  color: #ddd;
 }
 
-.contact-question span {
-  font-size: 17px;
+.contacto-dato {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin: 25px 0;
+}
 
+.contacto-dato-icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 43px;
+  height: 43px;
+  border-radius: 8px;
+  background: #ffc83d;
+  color: #181818;
+  font-size: 18px;
+}
+
+.contacto-dato h4 {
+  margin: 2px 0 7px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.contacto-dato p {
+  margin: 0;
+  color: #ddd;
+  font-size: 12px;
   line-height: 1.7;
 }
 
+.contacto-registro {
+  margin-top: 35px;
+  padding: 22px;
+  border-radius: 9px;
+  background: #292929;
+}
 
-/* =========================
-   BOTÓN BLANCO
-========================= */
+.contacto-registro > i {
+  color: #ffc83d;
+  font-size: 23px;
+}
 
-.btn-white {
-  display: inline-block;
+.contacto-registro h4 {
+  margin: 14px 0 8px;
+  font-size: 16px;
+  font-weight: 900;
+}
 
-  background: white;
+.contacto-registro p {
+  color: #ddd;
+  font-size: 12px;
+  line-height: 1.8;
+}
 
-  color: #D60000;
-
-  padding: 15px 30px;
-
-  text-decoration: none;
-
-  font-family: 'Montserrat', Arial, sans-serif;
-
+.contacto-registro a {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  margin-top: 8px;
+  color: #ffc83d;
+  font-size: 13px;
   font-weight: 800;
-
-  transition: 0.2s ease;
+  text-decoration: none;
 }
 
-.btn-white:hover {
-  background: #181818;
-
-  color: white;
+.contacto-formulario {
+  padding: 35px;
+  border: 1px solid #eadfd1;
+  border-radius: 12px;
+  background: #fff;
 }
 
+.contacto-form-descripcion {
+  color: #777;
+}
 
-/* =========================
-   RESPONSIVE
-========================= */
+.contacto-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 20px;
+}
 
-@media (max-width: 950px) {
+.contacto-campo label {
+  font-size: 13px;
+  font-weight: 800;
+}
 
-  .contact-section,
-  .contact-collaboration {
+.contacto-campo input,
+.contacto-campo select,
+.contacto-campo textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border: 1px solid #dedede;
+  border-radius: 7px;
+  outline: none;
+  background: #fff;
+  color: #181818;
+  font-family: inherit;
+  font-size: 13px;
+}
+
+.contacto-campo input:focus,
+.contacto-campo select:focus,
+.contacto-campo textarea:focus {
+  border-color: #d60000;
+  box-shadow: 0 0 0 3px rgba(214, 0, 0, 0.08);
+}
+
+.contacto-campo textarea {
+  resize: vertical;
+}
+
+.contacto-consentimiento {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 15px 0 22px;
+  color: #555;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.contacto-consentimiento input {
+  flex-shrink: 0;
+  margin-top: 4px;
+  accent-color: #d60000;
+}
+
+.contacto-btn-enviar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 7px;
+  background: #d60000;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.contacto-btn-enviar:hover {
+  background: #a90000;
+}
+
+.contacto-mensaje {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 14px;
+  border-radius: 7px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.contacto-exito {
+  background: #e8f6e9;
+  color: #21652a;
+}
+
+.contacto-error {
+  background: #fff0f0;
+  color: #a90000;
+}
+
+.contacto-nota {
+  margin: 15px 0 0;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media (max-width: 850px) {
+  .contacto-grid {
     grid-template-columns: 1fr;
-
-    gap: 45px;
-  }
-
-  .contact-content,
-  .collaboration-content {
-    max-width: 100%;
-  }
-
-  .contact-image,
-  .collaboration-image {
-    height: 430px;
   }
 }
-
 
 @media (max-width: 600px) {
-
-  .contact-hero {
-    min-height: 300px;
-
-    padding: 55px 20px;
+  .contacto-hero,
+  .contacto-seccion {
+    padding: 50px 5%;
   }
 
-  .contact-section,
-  .contact-collaboration {
-    padding: 70px 20px;
-  }
-
-  .contact-question {
-    padding: 70px 20px;
-  }
-
-  .contact-image,
-  .collaboration-image {
-    height: 350px;
-  }
-
-  .contact-data-item {
-    padding: 16px;
-  }
-
-  .contact-data-item a {
-    font-size: 14px;
+  .contacto-informacion,
+  .contacto-formulario {
+    padding: 23px;
   }
 }

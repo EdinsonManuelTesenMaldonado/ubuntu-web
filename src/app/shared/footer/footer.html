@@ -1,1 +1,116 @@
-<p>footer works!</p>
+
+<footer class="footer">
+  <div class="footer-main">
+
+    <div class="footer-brand">
+      <a routerLink="/inicio" class="brand-logo">
+        <img src="/imagenes/manitos-ubuntu.png" alt="Logo Ubuntu">
+
+        <span class="brand-name">
+          <strong>Ubuntu</strong>
+          <span>Jóvenes Voluntarios Perú</span>
+        </span>
+      </a>
+
+      <p class="brand-description">
+        Somos una comunidad que reúne personas, conocimientos y capacidades
+        a través del voluntariado.
+      </p>
+
+      <h3>Síguenos</h3>
+
+      <div class="social-links">
+        <a href="https://web.facebook.com/profile.php?id=61554147492454"
+           target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+
+        <a href="https://www.instagram.com/ubuntujvperu/"
+           target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ubuntujvperu/"
+           target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="https://www.tiktok.com/@ubuntu_peru_oficial"
+           target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <i class="fa-brands fa-tiktok"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h3>Quiénes somos</h3>
+      <a routerLink="/nosotros">Conócenos</a>
+      <a routerLink="/nosotros/historia">Nuestra historia</a>
+      <a routerLink="/nosotros/mision-vision">Misión y visión</a>
+      <a routerLink="/nosotros/valores">Nuestros valores</a>
+      <a routerLink="/nosotros/equipo">Nuestro equipo</a>
+      <a routerLink="/nosotros/sedes-equipos">Sedes y equipos</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Nuestro trabajo</h3>
+      <a routerLink="/trabajo">Líneas de acción</a>
+      <a routerLink="/trabajo/proyectos">Proyectos</a>
+      <a routerLink="/trabajo/actividades">Actividades</a>
+      <a routerLink="/trabajo/impacto">Nuestro impacto</a>
+      <a routerLink="/trabajo/galeria">Galería</a>
+      <a routerLink="/actualidad">Actualidad</a>
+    </div>
+
+    <div class="footer-column">
+      <h3>Voluntariado</h3>
+      <a routerLink="/voluntariado">Conoce el voluntariado</a>
+      <a routerLink="/voluntariado/porque-voluntario">¿Por qué participar?</a>
+      <a routerLink="/voluntariado/profesional">Voluntariado profesional</a>
+      <a routerLink="/voluntariado/requisitos">Requisitos</a>
+      <a routerLink="/voluntariado/preguntas-frecuentes">Preguntas frecuentes</a>
+
+      <a routerLink="/voluntariado/registro" class="footer-highlight">
+        <i class="fa-solid fa-heart"></i>
+        Quiero ser voluntario
+      </a>
+    </div>
+
+    <div class="footer-column footer-contact">
+      <h3>Contáctanos</h3>
+
+      <a href="mailto:administracion.sistemas@ubuntujvperu.org">
+        <i class="fa-regular fa-envelope"></i>
+        <span>Administración y sistemas</span>
+      </a>
+
+      <a href="mailto:relacionespublicas@ubuntujvperu.org">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Relaciones públicas</span>
+      </a>
+
+      <a routerLink="/contacto">
+        <i class="fa-solid fa-arrow-right"></i>
+        <span>Más información</span>
+      </a>
+
+      <div class="footer-symbol">
+        <img src="/imagenes/manitos-ubuntu.png" alt="">
+        <span>Yo soy porque todos somos</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      © {{ anio }} Ubuntu Jóvenes Voluntarios Perú.
+      Todos los derechos reservados.
+    </p>
+
+    <a routerLink="/inicio" class="back-top">
+      Volver al inicio
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+  </div>
+</footer>

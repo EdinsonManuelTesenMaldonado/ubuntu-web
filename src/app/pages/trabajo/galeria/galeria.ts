@@ -1,141 +1,132 @@
-import { Component } from '@angular/core';
 
-interface Foto {
-  id: number;
+import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+
+interface FotoGaleria {
+  numero: string;
+  titulo: string;
   categoria: string;
   imagen: string;
+  descripcion: string;
+}
+
+interface VideoGaleria {
+  numero: string;
   titulo: string;
+  categoria: string;
+  descripcion: string;
+  url: string;
+  miniatura: string;
 }
 
 @Component({
   selector: 'app-galeria',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './galeria.html',
   styleUrl: './galeria.css'
 })
-export class Galeria {
+export class GaleriaComponent {
+  tipoActivo: 'todos' | 'fotos' | 'videos' = 'todos';
 
-  filtroActual = 'TODAS';
+  fotoSeleccionada: FotoGaleria | null = null;
+  videoSeleccionado: VideoGaleria | null = null;
 
-  fotoSeleccionada: Foto | null = null;
-
-  fotos: Foto[] = [
+  // AGREGA NUEVAS FOTOGRAFÍAS AQUÍ
+  // Guarda las imágenes en public/imagenes/
+  fotos: FotoGaleria[] = [
     {
-      id: 1,
-      categoria: 'SOCIAL',
-      imagen: '/imagenes/AQUI-FOTO-GALERIA-1.jpg',
-      titulo: 'Acción social'
+      numero: '01',
+      titulo: 'Momentos que inspiran',
+      categoria: 'Voluntariado',
+      imagen: '/imagenes/PSX_20241001_083915.jpg',
+      descripcion: 'Experiencias que dan sentido al voluntariado.'
     },
     {
-      id: 2,
-      categoria: 'SOCIAL',
-      imagen: '/imagenes/AQUI-FOTO-GALERIA-2.jpg',
-      titulo: 'Trabajo con la comunidad'
+      numero: '02',
+      titulo: 'Compartir para crecer',
+      categoria: 'Comunidad',
+      imagen: '/imagenes/ss.png',
+      descripcion: 'La colaboración nos acerca a los demás.'
     },
     {
-      id: 3,
-      categoria: 'AMBIENTAL',
-      imagen: '/imagenes/AQUI-FOTO-GALERIA-3.jpg',
-      titulo: 'Acción ambiental'
-    },
-    {
-      id: 4,
-      categoria: 'AMBIENTAL',
-      imagen: '/imagenes/AQUI-FOTO-GALERIA-4.jpg',
-      titulo: 'Cuidado del ambiente'
-    },
-    {
-      id: 5,
-      categoria: 'ANIMALISTA',
-      imagen: '/imagenes/AQUI-FOTO-GALERIA-5.jpg',
-      titulo: 'Acción animalista'
-    },
-    {
-      id: 6,
-      categoria: 'ANIMALISTA',
-      imagen: '/imagenes/AQUI-FOTO-GALERIA-6.jpg',
-      titulo: 'Protección animal'
-    },
-    {
-      id: 7,
-      categoria: 'CULTURAL',
-      imagen: '/imagenes/AQUI-FOTO-GALERIA-7.jpg',
-      titulo: 'Actividad cultural'
-    },
-    {
-      id: 8,
-      categoria: 'CULTURAL',
-      imagen: '/imagenes/AQUI-FOTO-GALERIA-8.jpg',
-      titulo: 'Taller cultural'
-    },
-    {
-      id: 9,
-      categoria: 'SOCIAL',
-      imagen: '/imagenes/AQUI-FOTO-GALERIA-9.jpg',
-      titulo: 'Voluntariado Ubuntu'
+      numero: '03',
+      titulo: 'Experiencias Ubuntu',
+      categoria: 'Experiencias',
+      imagen: '/imagenes/WhatsApp Image 2026-06-26 at 11.46.38 AM.jpeg',
+      descripcion: 'Aprendizajes y momentos compartidos.'
     }
   ];
 
-  get fotosFiltradas(): Foto[] {
-    if (this.filtroActual === 'TODAS') {
-      return this.fotos;
+  // AGREGA NUEVOS VIDEOS AQUÍ
+  // Usa enlaces de YouTube. No necesitas guardar el video en Angular.
+  videos: VideoGaleria[] = [
+    {
+      numero: 'V01',
+      titulo: 'Conoce las experiencias de Ubuntu',
+      categoria: 'Voluntariado',
+      descripcion: 'Descubre el espíritu de la participación voluntaria.',
+      url: 'https://www.youtube.com/watch?v=VIDEO_ID',
+      miniatura: '/imagenes/PSX_20241001_083915.jpg'
     }
+  ];
 
-    return this.fotos.filter(
-      foto => foto.categoria === this.filtroActual
-    );
+  get totalContenido(): number {
+    return this.fotos.length + this.videos.length;
   }
 
-  cambiarFiltro(filtro: string): void {
-    this.filtroActual = filtro;
+  get fotosVisibles(): FotoGaleria[] {
+    return this.tipoActivo === 'videos' ? [] : this.fotos;
   }
 
-  abrirFoto(foto: Foto): void {
+  get videosVisibles(): VideoGaleria[] {
+    return this.tipoActivo === 'fotos' ? [] : this.videos;
+  }
+
+  cambiarTipo(tipo: 'todos' | 'fotos' | 'videos'): void {
+    this.tipoActivo = tipo;
+  }
+
+  abrirFoto(foto: FotoGaleria): void {
     this.fotoSeleccionada = foto;
+    this.videoSeleccionado = null;
   }
 
-  cerrarFoto(): void {
+  abrirVideo(video: VideoGaleria): void {
+    this.videoSeleccionado = video;
     this.fotoSeleccionada = null;
   }
 
-  fotoAnterior(): void {
-
-    if (!this.fotoSeleccionada) {
-      return;
-    }
-
-    const fotos = this.fotosFiltradas;
-
-    const posicionActual = fotos.findIndex(
-      foto => foto.id === this.fotoSeleccionada?.id
-    );
-
-    const nuevaPosicion =
-      posicionActual === 0
-        ? fotos.length - 1
-        : posicionActual - 1;
-
-    this.fotoSeleccionada = fotos[nuevaPosicion];
+  cerrarVisor(): void {
+    this.fotoSeleccionada = null;
+    this.videoSeleccionado = null;
   }
 
-  fotoSiguiente(): void {
+  obtenerUrlYoutube(url: string): string {
+    let id = '';
 
-    if (!this.fotoSeleccionada) {
-      return;
+    try {
+      const direccion = new URL(url);
+
+      if (direccion.hostname.includes('youtu.be')) {
+        id = direccion.pathname.slice(1);
+      } else if (direccion.hostname.includes('youtube.com')) {
+        if (direccion.pathname === '/watch') {
+          id = direccion.searchParams.get('v') ?? '';
+        } else if (direccion.pathname.startsWith('/shorts/')) {
+          id = direccion.pathname.split('/')[2] ?? '';
+        } else if (direccion.pathname.startsWith('/embed/')) {
+          id = direccion.pathname.split('/')[2] ?? '';
+        }
+      }
+    } catch {
+      return '';
     }
 
-    const fotos = this.fotosFiltradas;
+    if (!/^[a-zA-Z0-9_-]{11}$/.test(id)) {
+      return '';
+    }
 
-    const posicionActual = fotos.findIndex(
-      foto => foto.id === this.fotoSeleccionada?.id
-    );
-
-    const nuevaPosicion =
-      posicionActual === fotos.length - 1
-        ? 0
-        : posicionActual + 1;
-
-    this.fotoSeleccionada = fotos[nuevaPosicion];
+    return `https://www.youtube-nocookie.com/embed/${id}`;
   }
 }

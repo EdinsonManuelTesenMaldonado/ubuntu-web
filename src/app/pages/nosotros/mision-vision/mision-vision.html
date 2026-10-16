@@ -1,113 +1,511 @@
-<section class="page-header">
-  <div>
-    <span>QUIÉNES SOMOS</span>
-    <h1>Misión y visión</h1>
-    <p>
-      El propósito que orienta nuestro trabajo y la mirada hacia el futuro.
-    </p>
-  </div>
-</section>
+<div class="mision-page">
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="mv-hero">
+
+    <div class="hero-hand hero-hand-one">
+
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt=""
+      >
+
+    </div>
+
+    <div class="hero-hand hero-hand-two">
+
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt=""
+      >
+
+    </div>
+
+    <div class="mv-hero-content">
+
+      <span class="hero-kicker">
+        MISIÓN · VISIÓN · FILOSOFÍA
+      </span>
+
+      <h1>
+        Lo que somos.<br>
+        Lo que hacemos.<br>
+        <strong>Hacia dónde vamos.</strong>
+      </h1>
+
+      <p>
+        Tres ideas que ayudan a entender la identidad
+        de Ubuntu Jóvenes Voluntarios Perú.
+      </p>
+
+    </div>
+
+    <div class="hero-symbol">
+
+      <span>02</span>
+
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt="Símbolo Ubuntu"
+      >
+
+    </div>
+
+  </section>
 
 
-<section class="intro-section">
-  <div class="intro-image">
-    <img
-      src="/imagenes/AQUI-FOTO-MISION.jpg"
-      alt="Voluntarios de Ubuntu"
+  <!-- =====================================================
+       INTRO
+  ====================================================== -->
+
+  <section class="mv-intro">
+
+    <div class="intro-label">
+
+      <span>
+        NUESTRA DIRECCIÓN
+      </span>
+
+      <strong>
+        02
+      </strong>
+
+    </div>
+
+    <div class="intro-content">
+
+      <h2>
+        Una organización<br>
+        con una idea <strong>clara.</strong>
+      </h2>
+
+      <p>
+        Ubuntu desarrolla proyectos y campañas mientras
+        construye una cultura basada en su filosofía y en
+        la participación de su comunidad.
+      </p>
+
+    </div>
+
+    <div class="intro-hand">
+
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt=""
+      >
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       SELECTOR MISIÓN / VISIÓN
+  ====================================================== -->
+
+  <section class="pilares-section">
+
+    <div class="pilares-header">
+
+      <div>
+
+        <span class="section-kicker">
+          DOS PILARES
+        </span>
+
+        <h2>
+          El presente<br>
+          y el <strong>futuro.</strong>
+        </h2>
+
+      </div>
+
+      <p>
+        Explora la misión y la visión de Ubuntu.
+      </p>
+
+    </div>
+
+
+    <!-- BOTONES -->
+
+    <div class="pilares-tabs">
+
+      @for (pilar of pilares; track pilar.numero; let i = $index) {
+
+        <button
+          type="button"
+          class="pilar-tab"
+          [class.active]="pilarActivo === i"
+          [style.--pilar-color]="pilar.color"
+          (click)="seleccionarPilar(i)"
+        >
+
+          <span class="tab-number">
+            {{ pilar.numero }}
+          </span>
+
+          <span>
+            {{ pilar.tipo }}
+          </span>
+
+          <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+      }
+
+    </div>
+
+
+    <!-- PILAR ACTIVO -->
+
+    <div
+      class="pilar-main"
+      [style.--active-color]="pilarActual.color"
     >
-  </div>
 
-  <div class="intro-text">
-    <span class="etiqueta">NUESTRO PROPÓSITO</span>
-    <h2>Trabajar juntos desde la acción</h2>
+      <div class="pilar-icon">
 
-    <p>
-      Ubuntu desarrolla proyectos innovadores y sostenibles orientados
-      a fortalecer capacidades y acompañar a personas y comunidades.
-    </p>
+        <i [class]="pilarActual.icono"></i>
 
-    <p>
-      Su trabajo parte de la participación de jóvenes voluntarios,
-      profesionales, internos y otros actores que aportan sus
-      conocimientos y capacidades.
-    </p>
-  </div>
-</section>
+      </div>
+
+      <div class="pilar-number">
+        {{ pilarActual.numero }}
+      </div>
 
 
-<section class="mission-section">
+      <div class="pilar-text">
 
-  <div class="mission-card">
-    <div class="card-number">01</div>
+        <span>
+          {{ pilarActual.tipo }}
+        </span>
 
-    <span>LO QUE NOS MUEVE</span>
+        <h3>
+          {{ pilarActual.titulo }}
+        </h3>
 
-    <h2>Misión</h2>
+        <p>
+          {{ pilarActual.texto }}
+        </p>
 
-    <p>
-      Desarrollar proyectos sociales innovadores y sostenibles que
-      fortalezcan capacidades y contribuyan a una sociedad más
-      inclusiva y solidaria.
-    </p>
-  </div>
-
-
-  <div class="mission-card red-card">
-    <div class="card-number">02</div>
-
-    <span>HACIA DÓNDE VAMOS</span>
-
-    <h2>Visión</h2>
-
-    <p>
-      Continuar creciendo como una organización de jóvenes voluntarios
-      con presencia en diferentes territorios del Perú, fortaleciendo
-      iniciativas y alianzas que permitan ampliar nuestro trabajo.
-    </p>
-  </div>
-
-</section>
+      </div>
 
 
-<section class="filosofia">
+      <div class="pilar-controls">
 
-  <div class="filosofia-text">
-    <span class="etiqueta">FILOSOFÍA UBUNTU</span>
+        <button
+          type="button"
+          (click)="anteriorPilar()"
+          aria-label="Anterior"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
 
-    <h2>“Yo soy porque todos somos”</h2>
+        <span>
+          {{ pilarActivo + 1 }} / {{ pilares.length }}
+        </span>
 
-    <p>
-      Ubuntu representa una forma de entender a las personas desde
-      la conexión con los demás. Su filosofía se relaciona con la idea
-      de ser persona a través de otras personas.
-    </p>
-  </div>
+        <button
+          type="button"
+          (click)="siguientePilar()"
+          aria-label="Siguiente"
+        >
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
 
-  <div class="filosofia-image">
-    <img
-      src="/imagenes/AQUI-FOTO-FILOSOFIA.jpg"
-      alt="Comunidad y voluntariado Ubuntu"
-    >
-  </div>
+      </div>
 
-</section>
+    </div>
+
+  </section>
 
 
-<section class="cierre">
+  <!-- =====================================================
+       MISIÓN DESTACADA
+  ====================================================== -->
 
-  <div>
-    <span>CONOCE NUESTRA IDENTIDAD</span>
+  <section class="mision-highlight">
 
-    <h2>Lo que hacemos refleja lo que somos</h2>
+    <div class="highlight-photo">
 
-    <p>
-      Conoce los valores que acompañan el trabajo de Ubuntu y la forma
-      en que buscamos relacionarnos con las personas y comunidades.
-    </p>
+      <img
+        src="/imagenes/IMG_20211017_092641_907.jpg"
+        alt="Voluntarios de Ubuntu"
+      >
 
-    <a href="/nosotros/valores">
-      Conoce nuestros valores →
-    </a>
-  </div>
+      <div class="photo-stamp">
+        MISIÓN
+      </div>
 
-</section>
+    </div>
+
+
+    <div class="highlight-content">
+
+      <span>
+        01 · MISIÓN
+      </span>
+
+      <h2>
+        Actuar donde<br>
+        <strong>se necesita.</strong>
+      </h2>
+
+      <p>
+        La misión de Ubuntu se centra en desarrollar
+        proyectos innovadores y sostenibles, además de
+        campañas de concientización que contribuyan a
+        apoyar comunidades vulnerables de todo el país.
+      </p>
+
+      <div class="highlight-line"></div>
+
+      <div class="highlight-mini">
+
+        <i class="fa-solid fa-hands-holding-heart"></i>
+
+        <span>
+          Proyectos · sostenibilidad · concientización
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       VISIÓN
+  ====================================================== -->
+
+  <section class="vision-section">
+
+    <div class="vision-decoration">
+
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt=""
+      >
+
+    </div>
+
+    <div class="vision-content">
+
+      <span>
+        02 · VISIÓN
+      </span>
+
+      <h2>
+        Mirar más<br>
+        <strong>allá.</strong>
+      </h2>
+
+      <p>
+        Ubuntu busca llegar a todos los departamentos del
+        país, promoviendo su filosofía y cultura para seguir
+        construyendo una sociedad basada en la igualdad,
+        el respeto y una mejor calidad de vida.
+      </p>
+
+      <div class="vision-points">
+
+        <div>
+          <i class="fa-solid fa-equality"></i>
+          <span>Igualdad</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-handshake"></i>
+          <span>Respeto</span>
+        </div>
+
+        <div>
+          <i class="fa-solid fa-heart"></i>
+          <span>Mejor calidad de vida</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       FILOSOFÍA UBUNTU
+  ====================================================== -->
+
+  <section class="filosofia-section">
+
+    <div class="filosofia-left">
+
+      <span>
+        LA IDEA QUE NOS UNE
+      </span>
+
+      <div class="filosofia-hand">
+
+        <img
+          src="/imagenes/manitos-ubuntu.png"
+          alt="Ubuntu"
+        >
+
+      </div>
+
+    </div>
+
+
+    <div class="filosofia-right">
+
+      <h2>
+        “Yo soy porque<br>
+        <strong>todos somos.”</strong>
+      </h2>
+
+      <p>
+        Ubuntu tiene como filosofía “Yo soy porque todos
+        somos”, una idea relacionada con la unión de la
+        comunidad.
+      </p>
+
+      <div class="filosofia-quote">
+
+        <i class="fa-solid fa-quote-left"></i>
+
+        <div>
+
+          <strong>
+            Ser persona a través<br>
+            de otras personas.
+          </strong>
+
+          <span>
+            Filosofía Ubuntu
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       CONEXIÓN CON LA COMUNIDAD
+  ====================================================== -->
+
+  <section class="comunidad-section">
+
+    <div class="community-card community-red">
+
+      <i class="fa-solid fa-people-group"></i>
+
+      <span>
+        COMUNIDAD
+      </span>
+
+      <h3>
+        Somos parte<br>
+        de algo mayor.
+      </h3>
+
+    </div>
+
+
+    <div class="community-card community-yellow">
+
+      <i class="fa-solid fa-heart"></i>
+
+      <span>
+        FILOSOFÍA
+      </span>
+
+      <h3>
+        Yo soy porque<br>
+        todos somos.
+      </h3>
+
+    </div>
+
+
+    <div class="community-card community-blue">
+
+      <i class="fa-solid fa-arrow-up-right-dots"></i>
+
+      <span>
+        CAMINO
+      </span>
+
+      <h3>
+        Seguimos<br>
+        avanzando.
+      </h3>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       CIERRE
+  ====================================================== -->
+
+  <section class="mv-cierre">
+
+    <div class="cierre-hand">
+
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt=""
+      >
+
+    </div>
+
+    <div class="cierre-content">
+
+      <span>
+        #YOSOYPORQUETODOSSOMOS
+      </span>
+
+      <h2>
+        Una visión<br>
+        compartida.
+      </h2>
+
+      <p>
+        Conoce las personas que hacen posible que estas ideas
+        se conviertan en acciones.
+      </p>
+
+      <div class="cierre-buttons">
+
+        <a
+          routerLink="/nosotros/equipo"
+          class="btn-white"
+        >
+          CONOCE NUESTRO EQUIPO
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <a
+          routerLink="/nosotros"
+          class="btn-outline"
+        >
+          VOLVER A QUIÉNES SOMOS
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

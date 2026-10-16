@@ -1,0 +1,236 @@
+
+<main class="lineas-page">
+
+  <!-- PORTADA ROJA -->
+  <section class="lineas-hero">
+    <div class="hero-decor hero-decor-uno"></div>
+    <div class="hero-decor hero-decor-dos"></div>
+
+    <div class="hero-contenido">
+      <span class="etiqueta-hero">
+        UBUNTU JÓVENES VOLUNTARIOS PERÚ
+      </span>
+
+      <h1>
+        Cuatro caminos,
+        <span>un mismo propósito.</span>
+      </h1>
+
+      <p>
+        Cada acción puede generar un cambio. Conoce las áreas en las
+        que nuestra comunidad busca aportar, compartir y construir
+        un entorno más solidario.
+      </p>
+
+      <a href="#areas" class="btn-hero">
+        Explorar líneas de acción
+        <i class="fa-solid fa-arrow-down"></i>
+      </a>
+
+      <div class="hero-datos">
+        <span>Solidaridad</span>
+        <span>Sostenibilidad</span>
+        <span>Protección</span>
+        <span>Cultura</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="visual-anillo anillo-externo"></div>
+      <div class="visual-anillo anillo-interno"></div>
+
+      <div class="visual-central">
+        <img
+          src="/imagenes/manitos-ubuntu.png"
+          alt="Símbolo de Ubuntu"
+        >
+
+        <span>NUESTRA COMUNIDAD</span>
+        <h2>Distintas formas de ayudar.</h2>
+        <p>Un propósito compartido.</p>
+      </div>
+
+      <div class="visual-etiqueta etiqueta-arriba">
+        <i class="fa-solid fa-heart"></i>
+        Solidaridad
+      </div>
+
+      <div class="visual-etiqueta etiqueta-abajo">
+        <i class="fa-solid fa-seedling"></i>
+        Compromiso
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRODUCCIÓN CREMA -->
+  <section class="lineas-intro" id="areas">
+    <div class="intro-texto">
+      <span class="subtitulo">NUESTRAS ÁREAS DE TRABAJO</span>
+
+      <h2>
+        Diferentes iniciativas.
+        <span>Una misma comunidad.</span>
+      </h2>
+    </div>
+
+    <div class="intro-descripcion">
+      <p>
+        Trabajamos desde distintos ámbitos para promover la participación,
+        la solidaridad y el compromiso. Cada línea representa una oportunidad
+        para aportar desde nuestras habilidades e intereses.
+      </p>
+
+      <span class="intro-detalle">
+        Explora cada área y descubre sus objetivos.
+      </span>
+    </div>
+  </section>
+
+  
+
+
+  <!-- DETALLE, FOTOGRAFÍA Y VIDEO POR ÁREA -->
+  <section class="lineas-detalle">
+    <div class="detalle-encabezado">
+      <span class="subtitulo">DEL PROPÓSITO A LA ACCIÓN</span>
+      <h2>Conoce cómo podemos aportar.</h2>
+      <p>
+        Descubre los objetivos y las iniciativas de cada línea de acción.
+        Aquí podrás incorporar fotografías y videos de las actividades.
+      </p>
+    </div>
+
+    @for (linea of lineas; track linea.id; let i = $index) {
+      <article
+        class="detalle-linea"
+        [id]="linea.id"
+        [ngClass]="linea.color"
+      >
+        <div class="detalle-visual">
+
+<div class="visual-identidad">
+  <span class="visual-numero">{{ linea.numero }}</span>
+
+  <span class="visual-icono-area" [ngClass]="linea.color">
+    <i [class]="linea.icono"></i>
+  </span>
+</div>
+
+          <img
+            class="linea-fotografia"
+            [src]="linea.imagen"
+            [alt]="'Fotografía de la línea ' + linea.titulo"
+            loading="lazy"
+          >
+
+          <span class="visual-categoria">{{ linea.categoria }}</span>
+          <h3>{{ linea.titulo }}</h3>
+        </div>
+
+        <div class="detalle-contenido">
+          <span class="subtitulo">
+            LÍNEA DE ACCIÓN {{ linea.numero }}
+          </span>
+
+          <h2>{{ linea.titulo }}: actuar para transformar.</h2>
+
+          <p class="detalle-descripcion">
+            {{ linea.descripcion }}
+          </p>
+
+          <div class="objetivo">
+            <span class="objetivo-icono">
+              <i class="fa-solid fa-bullseye"></i>
+            </span>
+
+            <div>
+              <h3>Nuestro propósito</h3>
+              <p>{{ linea.objetivo }}</p>
+            </div>
+          </div>
+
+          <h3 class="actividades-titulo">
+            ¿Qué podemos impulsar?
+          </h3>
+
+          <ul class="actividades-lista">
+            @for (actividad of linea.actividades; track actividad) {
+              <li>
+                <i class="fa-solid fa-check"></i>
+                <span>{{ actividad }}</span>
+              </li>
+            }
+          </ul>
+
+          <div class="detalle-acciones">
+            <a
+              routerLink="/voluntariado/registro"
+              class="btn-linea"
+            >
+              Quiero participar
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            @if (i < lineas.length - 1) {
+              <a
+                [href]="'#' + lineas[i + 1].id"
+                class="enlace-siguiente"
+              >
+                Siguiente área
+                <i class="fa-solid fa-arrow-down"></i>
+              </a>
+            }
+          </div>
+        </div>
+      </article>
+
+      <!-- VIDEO DE ESTA LÍNEA -->
+      <section
+        class="linea-video"
+        [attr.aria-label]="'Video de la línea ' + linea.titulo"
+      >
+        <div class="video-informacion">
+          <span class="subtitulo">EXPERIENCIAS EN VIDEO</span>
+          <h3>{{ linea.titulo }} en acción</h3>
+          <p>
+            Conoce las actividades y experiencias de esta línea de trabajo.
+          </p>
+        </div>
+
+        <video
+          controls
+          preload="metadata"
+          [poster]="linea.imagen"
+        >
+          <source [src]="linea.video" type="video/mp4">
+          Tu navegador no puede reproducir este video.
+        </video>
+      </section>
+    }
+  </section>
+
+  <!-- INVITACIÓN FINAL -->
+  <section class="lineas-invitacion">
+    <div class="invitacion-marca">
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt="Símbolo de Ubuntu"
+      >
+    </div>
+
+    <div class="invitacion-texto">
+      <span class="subtitulo">TU PARTICIPACIÓN IMPORTA</span>
+      <h2>El cambio también puede comenzar contigo.</h2>
+      <p>
+        Comparte tus ideas, tus habilidades y tus ganas de ayudar.
+        Encuentra una forma de aportar y forma parte de nuestra comunidad.
+      </p>
+    </div>
+
+    <a routerLink="/voluntariado/registro" class="btn-invitacion">
+      Únete a Ubuntu
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </section>
+
+</main>

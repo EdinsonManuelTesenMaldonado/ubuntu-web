@@ -1,129 +1,275 @@
 <section class="page-header">
-  <div>
-    <span>QUIÉNES SOMOS</span>
-    <h1>Nuestros valores</h1>
-    <p>
-      Principios que acompañan nuestra forma de trabajar y relacionarnos
-      con las personas y comunidades.
-    </p>
-  </div>
-</section>
+  <div class="header-decoration header-decoration-one"></div>
+  <div class="header-decoration header-decoration-two"></div>
 
+  <div class="header-content">
+    <div class="breadcrumb">
+      <a routerLink="/inicio">Inicio</a>
+      <span>/</span>
+      <a routerLink="/nosotros">Quiénes somos</a>
+    </div>
+
+    <span class="eyebrow">
+      <i class="fa-solid fa-heart"></i>
+      NUESTRA IDENTIDAD
+    </span>
+
+    <h1>Los valores que nos <span>unen</span></h1>
+
+    <p>
+      Más que palabras, son principios que nos inspiran a colaborar,
+      participar y construir comunidad.
+    </p>
+
+    <a routerLink="/nosotros/equipo" class="header-button">
+      Conoce a nuestro equipo
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <img
+    class="header-hands"
+    src="/imagenes/manitos-ubuntu.png"
+    alt="Símbolo de Ubuntu con un corazón"
+  />
+</section>
 
 <section class="intro">
   <div class="intro-text">
-    <span class="etiqueta">NUESTRA IDENTIDAD</span>
-    <h2>Valores que se viven en cada acción</h2>
+    <span class="section-label">LO QUE NOS REPRESENTA</span>
+
+    <h2>Personas diferentes, unidas por una misma filosofía.</h2>
+
     <p>
-      El voluntariado de Ubuntu se construye desde la participación,
-      la colaboración y el compromiso de las personas que forman parte
-      de la organización.
+      Ubuntu reúne a jóvenes, estudiantes, profesionales y voluntarios
+      que aportan sus capacidades en distintas iniciativas.
+      La colaboración, la empatía, el respeto y el compromiso colectivo
+      forman parte de esta manera de trabajar.
     </p>
+
+    <div class="intro-note">
+      <span class="note-icon">
+        <i class="fa-solid fa-hands-holding-circle"></i>
+      </span>
+
+      <div>
+        <strong>El valor de hacer las cosas juntos</strong>
+
+        <p>
+          Cada persona aporta algo distinto. Lo importante es lo que
+          construimos cuando unimos nuestros esfuerzos.
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="intro-image">
     <img
-      src="/imagenes/PSX_20241001_083725.jpg"
-      alt="Voluntarios de Ubuntu"
-    >
+      src="/imagenes/PSX_20241001_083825.jpg"
+      alt="Voluntarios de Ubuntu participando en una actividad"
+      loading="lazy"
+    />
+
+    <div class="image-sticker">
+      <img src="/imagenes/manitos-ubuntu.png" alt="" />
+      <span>Yo soy porque todos somos</span>
+    </div>
   </div>
 </section>
 
-
 <section class="valores-section">
+  <div class="section-heading">
+    <span class="section-label">NUESTROS PRINCIPIOS</span>
 
-  <div class="valores-header">
-    <span>LO QUE NOS REPRESENTA</span>
-    <h2>Nuestros valores</h2>
+    <h2>Cuatro valores para <span>poner en acción</span></h2>
+
+    <p>
+      Selecciona una tarjeta para conocer la idea que hay detrás de cada valor.
+    </p>
   </div>
 
   <div class="valores-grid">
+    <button
+      *ngFor="let valor of valores; let i = index"
+      type="button"
+      class="valor-card"
+      [class.active]="valorActivo === i"
+      [style.--valor-color]="valor.color"
+      [style.--valor-fondo]="valor.fondo"
+      (click)="seleccionarValor(i)"
+      [attr.aria-pressed]="valorActivo === i"
+    >
+      <span class="valor-number">
+        {{ valor.numero }}
+      </span>
 
-    <article class="valor-card">
-      <div class="valor-image">
-        <img
-          src="/imagenes/Captura de pantalla 2026-09-24 094622.png"
-          alt="Compromiso Ubuntu"
-        >
-      </div>
+      <span class="valor-icon">
+        <i [class]="valor.icono"></i>
+      </span>
 
-      <div class="valor-content">
-        <span>01</span>
-        <h3>Compromiso</h3>
-        <p>
-          Participamos activamente en las iniciativas y asumimos
-          responsabilidad en las acciones que desarrollamos.
-        </p>
-      </div>
-    </article>
+      <span class="valor-title">
+        {{ valor.nombre }}
+      </span>
 
+      <span class="valor-description">
+        {{ valor.descripcion }}
+      </span>
 
-    <article class="valor-card">
-      <div class="valor-image">
-        <img
-          src="/imagenes/Captura de pantalla 2026-09-24 094512.png"
-          alt="Solidaridad Ubuntu"
-        >
-      </div>
+      <span class="valor-action">
+        {{ valorActivo === i ? 'Valor seleccionado' : 'Descubrir valor' }}
+        <i class="fa-solid fa-arrow-right"></i>
+      </span>
 
-      <div class="valor-content">
-        <span>02</span>
-        <h3>Solidaridad</h3>
-        <p>
-          Acompañamos a personas y comunidades desde la empatía,
-          colaboración y disposición para ayudar.
-        </p>
-      </div>
-    </article>
+      <img
+        class="card-hands"
+        src="/imagenes/manitos-ubuntu.png"
+        alt=""
+      />
+    </button>
+  </div>
 
+  <div
+    class="valor-detail"
+    [style.--detalle-color]="valorActual.color"
+    [style.--detalle-fondo]="valorActual.fondo"
+  >
+    <div class="detail-icon">
+      <i [class]="valorActual.icono"></i>
+    </div>
 
-    <article class="valor-card">
-      <div class="valor-image">
-        <img
-          src="/imagenes/Captura de pantalla 2026-09-24 094547.png"
-          alt="Inclusión Ubuntu"
-        >
-      </div>
+    <div class="detail-content">
+      <span>VALOR {{ valorActual.numero }}</span>
 
-      <div class="valor-content">
-        <span>03</span>
-        <h3>Inclusión</h3>
-        <p>
-          Promovemos espacios donde diferentes personas puedan
-          participar y aportar desde sus capacidades.
-        </p>
-      </div>
-    </article>
+      <h3>{{ valorActual.nombre }}</h3>
 
+      <p>{{ valorActual.frase }}</p>
+    </div>
 
-    <article class="valor-card">
-      <div class="valor-image">
-        <img
-          src="/imagenes/Captura de pantalla 2026-09-24 094523.png"
-          alt="Trabajo en equipo Ubuntu"
-        >
-      </div>
+    <div class="detail-navigation">
+      <button
+        type="button"
+        (click)="anterior()"
+        aria-label="Valor anterior"
+      >
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
 
-      <div class="valor-content">
-        <span>04</span>
-        <h3>Trabajo en equipo</h3>
-        <p>
-          Sumamos conocimientos, experiencias y capacidades para
-          desarrollar nuestras iniciativas.
-        </p>
-      </div>
-    </article>
+      <span>{{ valorActivo + 1 }} / {{ valores.length }}</span>
 
+      <button
+        type="button"
+        (click)="siguiente()"
+        aria-label="Siguiente valor"
+      >
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
   </div>
 </section>
 
+<section class="filosofia">
+  <div class="filosofia-pattern"></div>
 
-<section class="quote">
-  <div>
+  <div class="filosofia-symbol">
+    <img
+      src="/imagenes/manitos-ubuntu.png"
+      alt="Símbolo de Ubuntu con un corazón"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="filosofia-content">
+    <span>LA FILOSOFÍA QUE NOS INSPIRA</span>
+
     <h2>“Yo soy porque todos somos”</h2>
+
     <p>
-      Una filosofía que representa la importancia de las personas
-      y de la construcción colectiva.
+      Ubuntu nos recuerda que las personas estamos conectadas y que
+      la colaboración, el respeto y la empatía nos permiten avanzar juntos.
     </p>
+  </div>
+
+  <div class="filosofia-heart">
+    <i class="fa-solid fa-heart"></i>
+  </div>
+</section>
+
+<section class="acciones">
+  <div class="section-heading">
+    <span class="section-label">DE LAS IDEAS A LAS ACCIONES</span>
+
+    <h2>¿Cómo se reflejan nuestros valores?</h2>
+  </div>
+
+  <div class="acciones-grid">
+    <article class="accion-item accion-red">
+      <span class="accion-icon">
+        <i class="fa-solid fa-people-carry-box"></i>
+      </span>
+
+      <h3>Colaboración</h3>
+
+      <p>
+        Compartimos capacidades y trabajamos con otras personas para
+        desarrollar iniciativas.
+      </p>
+    </article>
+
+    <article class="accion-item accion-yellow">
+      <span class="accion-icon">
+        <i class="fa-solid fa-ear-listen"></i>
+      </span>
+
+      <h3>Empatía</h3>
+
+      <p>
+        Escuchamos y procuramos comprender las experiencias y necesidades
+        de las personas.
+      </p>
+    </article>
+
+    <article class="accion-item accion-blue">
+      <span class="accion-icon">
+        <i class="fa-solid fa-people-group"></i>
+      </span>
+
+      <h3>Participación</h3>
+
+      <p>
+        Cada integrante puede aportar ideas, conocimientos y tiempo
+        de acuerdo con sus posibilidades.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="valores-cta">
+  <img
+    class="cta-hands"
+    src="/imagenes/manitos-ubuntu.png"
+    alt=""
+    loading="lazy"
+  />
+
+  <div class="cta-content">
+    <span>¿TE IDENTIFICAS CON ESTA FILOSOFÍA?</span>
+
+    <h2>Hay muchas formas de aportar.</h2>
+
+    <p>
+      Conoce las opciones de voluntariado y descubre cómo puedes participar
+      en las iniciativas de Ubuntu.
+    </p>
+
+    <div class="cta-buttons">
+      <a routerLink="/voluntariado" class="cta-primary">
+        Quiero ser voluntario
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <a routerLink="/nosotros/equipo" class="cta-secondary">
+        Conocer al equipo
+      </a>
+    </div>
   </div>
 </section>

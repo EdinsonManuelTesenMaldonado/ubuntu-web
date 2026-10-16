@@ -1,10 +1,6 @@
+
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
-interface Pregunta {
-  pregunta: string;
-  respuesta: string;
-}
 
 @Component({
   selector: 'app-preguntas-frecuentes',
@@ -14,74 +10,95 @@ interface Pregunta {
   styleUrl: './preguntas-frecuentes.css'
 })
 export class PreguntasFrecuentes {
+  categoriaActiva = 'Todas';
+  preguntaAbierta: number | null = 0;
 
-  preguntaAbierta: number | null = null;
-
-  preguntas: Pregunta[] = [
-
-    {
-      pregunta: '¿Qué requisitos necesito para ser voluntario?',
-      respuesta:
-        'El principal requisito es contar con el espíritu de cambio y el deseo de ayudar. Ubuntu está dirigido a jóvenes, estudiantes, internos, pasantes y profesionales que quieran contribuir con sus conocimientos, talentos y capacidades.'
-    },
-
-    {
-      pregunta: '¿Quiénes pueden participar en Ubuntu?',
-      respuesta:
-        'El programa de voluntariado está abierto a jóvenes, estudiantes, internos, pasantes y profesionales interesados en participar en las iniciativas de Ubuntu.'
-    },
-
-    {
-      pregunta: '¿Puedo participar si soy estudiante?',
-      respuesta:
-        'Sí. Los estudiantes forman parte de los perfiles que pueden participar en el programa de voluntariado y contribuir en las diferentes iniciativas de Ubuntu.'
-    },
-
-    {
-      pregunta: '¿Pueden participar profesionales?',
-      respuesta:
-        'Sí. Los profesionales pueden aportar sus conocimientos, experiencia y capacidades de acuerdo con las iniciativas y actividades en las que participen.'
-    },
-
-    {
-      pregunta: '¿En qué actividades puedo participar?',
-      respuesta:
-        'Ubuntu desarrolla iniciativas en cuatro líneas de acción: social, ambiental, animalista y cultural. La participación puede darse en diferentes actividades y proyectos relacionados con estas líneas.'
-    },
-
-    {
-      pregunta: '¿Necesito tener experiencia como voluntario?',
-      respuesta:
-        'No se establece como requisito principal contar con experiencia previa. Ubuntu destaca el espíritu de cambio, el deseo de ayudar y la disposición para contribuir con el propio talento y capacidades.'
-    },
-
-    {
-      pregunta: '¿Recibo algún certificado por mi participación?',
-      respuesta:
-        'La participación puede ser reconocida mediante certificados y constancias, según corresponda y de acuerdo con las condiciones del programa. El material institucional también menciona certificaciones acreditadas por SENAJU según corresponda.'
-    },
-
-    {
-      pregunta: '¿Cómo puedo registrarme como voluntario?',
-      respuesta:
-        'Puedes ingresar al formulario de registro de voluntariado de Ubuntu, completar tus datos y enviar tu solicitud para expresar tu interés en participar.'
-    }
-
+  categorias = [
+    'Todas',
+    'Voluntariado',
+    'Requisitos',
+    'Registro',
+    'Participación'
   ];
 
-
-  togglePregunta(index: number): void {
-
-    if (this.preguntaAbierta === index) {
-
-      this.preguntaAbierta = null;
-
-    } else {
-
-      this.preguntaAbierta = index;
-
+  preguntas = [
+    {
+      pregunta: '¿Qué es Ubuntu Jóvenes Voluntarios Perú?',
+      respuesta: 'Es una iniciativa de voluntariado que busca promover la participación de jóvenes en actividades solidarias y proyectos de impacto social.',
+      categoria: 'Voluntariado'
+    },
+    {
+      pregunta: '¿Por qué debería participar como voluntario?',
+      respuesta: 'Puedes contribuir con tu comunidad, compartir tus conocimientos, desarrollar habilidades y conocer personas que comparten tu interés por ayudar.',
+      categoria: 'Voluntariado'
+    },
+    {
+      pregunta: '¿Necesito tener experiencia previa?',
+      respuesta: 'No necesariamente. La experiencia requerida puede depender de la actividad o del proyecto. Lo importante es tener disposición para aprender y colaborar.',
+      categoria: 'Requisitos'
+    },
+    {
+      pregunta: '¿Qué requisitos debo cumplir?',
+      respuesta: 'Generalmente, se valora el compromiso, la responsabilidad, el respeto, el trabajo en equipo y la disponibilidad para participar. Los requisitos específicos deben confirmarse con la organización.',
+      categoria: 'Requisitos'
+    },
+    {
+      pregunta: '¿Cómo puedo inscribirme?',
+      respuesta: 'Puedes comenzar completando el formulario de registro disponible en la página de voluntariado. Después, revisa los canales de contacto para consultar los siguientes pasos.',
+      categoria: 'Registro'
+    },
+    {
+      pregunta: '¿Qué información debo colocar en el formulario?',
+      respuesta: 'Completa tus datos de contacto y la información solicitada sobre tu perfil, intereses y disponibilidad. Verifica que tu correo y teléfono sean correctos.',
+      categoria: 'Registro'
+    },
+    {
+      pregunta: '¿Cómo sabré si recibieron mi inscripción?',
+      respuesta: 'Después de enviar el formulario, revisa el mensaje que aparezca en la página. Si tienes dudas sobre el estado de tu inscripción, comunícate con la organización.',
+      categoria: 'Registro'
+    },
+    {
+      pregunta: '¿Cuánto tiempo debo dedicar al voluntariado?',
+      respuesta: 'La disponibilidad puede variar según la actividad y el proyecto. Antes de comprometerte, consulta el horario y la dedicación que se necesitan.',
+      categoria: 'Participación'
+    },
+    {
+      pregunta: '¿Puedo participar en actividades diferentes?',
+      respuesta: 'Dependerá de las oportunidades disponibles, tu perfil y las necesidades de cada proyecto. Puedes consultar las actividades vigentes con la organización.',
+      categoria: 'Participación'
+    },
+    {
+      pregunta: '¿Puedo aportar mis conocimientos profesionales?',
+      respuesta: 'Puedes comunicar tus conocimientos, estudios y habilidades en el formulario. La organización podrá evaluar si se ajustan a las necesidades de sus actividades.',
+      categoria: 'Participación'
+    },
+    {
+      pregunta: '¿Dónde se realizan las actividades?',
+      respuesta: 'La ubicación depende de cada actividad o proyecto. Consulta previamente el lugar, la modalidad y las indicaciones correspondientes.',
+      categoria: 'Participación'
+    },
+    {
+      pregunta: '¿Con quién puedo comunicarme si tengo más dudas?',
+      respuesta: 'Puedes visitar la sección Contacto de esta página para consultar los canales disponibles de comunicación.',
+      categoria: 'Voluntariado'
     }
+  ];
 
+  get preguntasFiltradas() {
+    return this.preguntas
+      .map((pregunta, indice) => ({ ...pregunta, indice }))
+      .filter(pregunta =>
+        this.categoriaActiva === 'Todas' ||
+        pregunta.categoria === this.categoriaActiva
+      );
   }
 
+  cambiarCategoria(categoria: string): void {
+    this.categoriaActiva = categoria;
+  }
+
+  alternarPregunta(indice: number): void {
+    this.preguntaAbierta =
+      this.preguntaAbierta === indice ? null : indice;
+  }
 }

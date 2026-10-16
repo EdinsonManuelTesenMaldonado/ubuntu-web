@@ -1,15 +1,6 @@
+
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
-interface Noticia {
-  id: number;
-  categoria: string;
-  titulo: string;
-  descripcion: string;
-  contenido: string;
-  fecha: string;
-  imagen: string;
-}
 
 @Component({
   selector: 'app-actualidad',
@@ -19,83 +10,36 @@ interface Noticia {
   styleUrl: './actualidad.css'
 })
 export class Actualidad {
-
-  filtroActual = 'TODAS';
-
-  noticiaSeleccionada: Noticia | null = null;
-
-  noticias: Noticia[] = [
-
+  noticias = [
     {
-      id: 1,
+      categoria: 'VOLUNTARIADO',
+      fecha: 'Novedad',
+      titulo: 'Súmate a nuestra comunidad de voluntarios',
+      descripcion:
+        'Conoce las oportunidades para compartir tu tiempo, tus habilidades y tus ganas de contribuir con la comunidad.',
+      imagen: '/imagenes/PSX_20241001_083915.jpg',
+      icono: 'fa-solid fa-hands-holding-circle',
+      enlace: '/voluntariado/registro'
+    },
+    {
       categoria: 'ACTIVIDADES',
-      titulo: 'Actividades de Ubuntu',
+      fecha: 'Actividades',
+      titulo: 'Participa en nuestras actividades solidarias',
       descripcion:
-        'Conoce las actividades y acciones que realizamos junto a nuestra comunidad.',
-      contenido:
-        'En este espacio compartiremos información sobre las actividades desarrolladas por Ubuntu, incluyendo talleres, campañas, acciones comunitarias y otras iniciativas.',
-      fecha: 'Próximamente',
-      imagen: '/imagenes/AQUI-FOTO-NOVEDAD-1.jpg'
+        'Descubre las diferentes formas de colaborar y formar parte de iniciativas que buscan generar un impacto positivo.',
+      imagen: '/imagenes/PSX_20241001_083915.jpg',
+      icono: 'fa-solid fa-people-group',
+      enlace: '/trabajo/actividades'
     },
-
     {
-      id: 2,
-      categoria: 'EVENTOS',
-      titulo: 'Próximos eventos',
-      descripcion:
-        'Entérate de los próximos eventos y espacios de participación organizados por Ubuntu.',
-      contenido:
-        'Aquí podrás conocer los próximos eventos, encuentros y espacios de participación en los que podrás formar parte de las iniciativas de Ubuntu.',
-      fecha: 'Próximamente',
-      imagen: '/imagenes/AQUI-FOTO-NOVEDAD-2.jpg'
-    },
-
-    {
-      id: 3,
       categoria: 'COMUNIDAD',
-      titulo: 'Historias de nuestra comunidad',
+      fecha: 'Convocatorias',
+      titulo: 'Tu talento también puede ayudar',
       descripcion:
-        'Conoce experiencias y momentos que forman parte del trabajo de Ubuntu.',
-      contenido:
-        'Compartiremos historias, experiencias y momentos relacionados con los voluntarios, estudiantes, profesionales y comunidades que forman parte de Ubuntu.',
-      fecha: 'Próximamente',
-      imagen: '/imagenes/AQUI-FOTO-NOVEDAD-3.jpg'
+        'Comparte tus conocimientos, habilidades e ideas para contribuir al desarrollo de nuevos proyectos sociales.',
+      imagen: '/imagenes/PSX_20241001_083915.jpg',
+      icono: 'fa-solid fa-heart',
+      enlace: '/voluntariado/profesional'
     }
-
   ];
-
-
-  get noticiasFiltradas(): Noticia[] {
-
-    if (this.filtroActual === 'TODAS') {
-      return this.noticias;
-    }
-
-    return this.noticias.filter(
-      noticia => noticia.categoria === this.filtroActual
-    );
-
-  }
-
-
-  cambiarFiltro(filtro: string): void {
-
-    this.filtroActual = filtro;
-
-  }
-
-
-  abrirNoticia(noticia: Noticia): void {
-
-    this.noticiaSeleccionada = noticia;
-
-  }
-
-
-  cerrarNoticia(): void {
-
-    this.noticiaSeleccionada = null;
-
-  }
-
 }

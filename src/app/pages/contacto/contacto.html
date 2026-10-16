@@ -1,143 +1,189 @@
-<section class="contact-hero">
-  <div class="contact-hero-content">
-    <p>UBUNTU JÓVENES VOLUNTARIOS PERÚ</p>
 
-    <h1>Contáctanos</h1>
-
-    <span>
-      Estamos disponibles para escucharte, orientarte y conocer tus ideas.
+<section class="contacto-hero">
+  <div class="contacto-hero-contenido">
+    <span class="contacto-etiqueta">
+      <i class="fa-regular fa-envelope"></i>
+      HABLEMOS
     </span>
+
+    <h1>Estamos aquí para <span>escucharte</span></h1>
+
+    <p>
+      ¿Tienes alguna consulta sobre nuestras actividades o el
+      voluntariado? Queremos ayudarte a encontrar la información
+      que necesitas.
+    </p>
+
+    <a routerLink="/voluntariado/registro" class="contacto-btn-amarillo">
+      Quiero ser voluntario
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
   </div>
 </section>
 
-
-<section class="contact-section">
-
-  <div class="contact-image">
-    <img
-      src="/imagenes/AQUI-FOTO-CONTACTO.jpg"
-      alt="Equipo de Ubuntu"
-    >
-  </div>
-
-
-  <div class="contact-content">
-
-    <p class="section-label">HABLEMOS</p>
-
-    <h2>¿Tienes alguna consulta?</h2>
-
-    <p>
-      Si quieres conocer más sobre Ubuntu, nuestras actividades,
-      proyectos, voluntariado o posibles alianzas, puedes comunicarte
-      con nosotros.
-    </p>
-
-    <div class="contact-data">
-
-      <div class="contact-data-item">
-
-        <div class="contact-icon">
-          <i class="fas fa-envelope"></i>
-        </div>
-
-        <div>
-          <span class="data-label">CORREO ELECTRÓNICO</span>
-
-          <a href="mailto:administracion.sistemas@ubuntujvperu.org">
-            administracion.sistemas@ubuntujvperu.org
-          </a>
-        </div>
-
-      </div>
-
-
-      <div class="contact-data-item">
-
-        <div class="contact-icon">
-          <i class="fab fa-whatsapp"></i>
-        </div>
-
-        <div>
-          <span class="data-label">WHATSAPP</span>
-
-          <a
-            href="https://wa.me/51913107220"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Escríbenos directamente
-          </a>
-        </div>
-
-      </div>
-
+<section class="contacto-seccion">
+  <div class="contacto-contenedor">
+    <div class="contacto-intro">
+      <span class="contacto-subtitulo">CONTÁCTANOS</span>
+      <h2>¿Cómo podemos ayudarte?</h2>
+      <p>
+        Completa el formulario con tu consulta. También puedes
+        revisar los canales oficiales de la organización.
+      </p>
     </div>
 
+    <div class="contacto-grid">
+      <div class="contacto-informacion">
+        <h3>Conversemos</h3>
+
+        <p class="contacto-descripcion">
+          Nos interesa conocer tus preguntas, ideas e interés
+          por participar en nuestras iniciativas.
+        </p>
+
+        <div class="contacto-dato">
+          <div class="contacto-dato-icono">
+            <i class="fa-regular fa-envelope"></i>
+          </div>
+          <div>
+            <h4>Correo electrónico</h4>
+            <p>Confirma aquí el correo oficial de Ubuntu.</p>
+          </div>
+        </div>
+
+        <div class="contacto-dato">
+          <div class="contacto-dato-icono">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <div>
+            <h4>Teléfono</h4>
+            <p>Consulta el número oficial de contacto.</p>
+          </div>
+        </div>
+
+        <div class="contacto-dato">
+          <div class="contacto-dato-icono">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div>
+            <h4>Ubicación</h4>
+            <p>Consulta los canales oficiales para conocer nuestras sedes.</p>
+          </div>
+        </div>
+
+        <div class="contacto-registro">
+          <i class="fa-solid fa-heart"></i>
+          <h4>¿Quieres formar parte de Ubuntu?</h4>
+          <p>
+            Regístrate como voluntario y comparte tus intereses
+            y habilidades.
+          </p>
+          <a routerLink="/voluntariado/registro">
+            Ir al registro
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="contacto-formulario">
+        <h3>Envíanos tu consulta</h3>
+        <p class="contacto-form-descripcion">
+          Los campos marcados son obligatorios.
+        </p>
+
+        @if (enviado) {
+          <div class="contacto-mensaje contacto-exito" role="status">
+            <i class="fa-solid fa-circle-check"></i>
+            <span>
+              El formulario se validó correctamente. Para que tu
+              consulta llegue al equipo de Ubuntu, falta conectarlo
+              con el servicio de envío.
+            </span>
+          </div>
+        }
+
+        @if (error) {
+          <div class="contacto-mensaje contacto-error" role="alert">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span>{{ error }}</span>
+          </div>
+        }
+
+        <form (ngSubmit)="enviarConsulta()">
+          <div class="contacto-campo">
+            <label for="nombres">Nombres completos *</label>
+            <input
+              id="nombres"
+              type="text"
+              name="nombres"
+              [(ngModel)]="consulta.nombres"
+              placeholder="Escribe tus nombres"
+              autocomplete="name"
+              required>
+          </div>
+
+          <div class="contacto-campo">
+            <label for="correo">Correo electrónico *</label>
+            <input
+              id="correo"
+              type="email"
+              name="correo"
+              [(ngModel)]="consulta.correo"
+              placeholder="ejemplo@correo.com"
+              autocomplete="email"
+              required>
+          </div>
+
+          <div class="contacto-campo">
+            <label for="asunto">Asunto *</label>
+            <select
+              id="asunto"
+              name="asunto"
+              [(ngModel)]="consulta.asunto"
+              required>
+              <option value="" disabled>Selecciona un asunto</option>
+              <option value="Voluntariado">Voluntariado</option>
+              <option value="Actividades">Actividades</option>
+              <option value="Proyectos">Proyectos</option>
+              <option value="Alianzas">Alianzas y colaboraciones</option>
+              <option value="Otro">Otro asunto</option>
+            </select>
+          </div>
+
+          <div class="contacto-campo">
+            <label for="mensaje">Tu consulta *</label>
+            <textarea
+              id="mensaje"
+              name="mensaje"
+              [(ngModel)]="consulta.mensaje"
+              placeholder="Cuéntanos cómo podemos ayudarte..."
+              rows="5"
+              required></textarea>
+          </div>
+
+          <label class="contacto-consentimiento">
+            <input
+              type="checkbox"
+              name="aceptaContacto"
+              [(ngModel)]="consulta.aceptaContacto"
+              required>
+            <span>
+              Autorizo el uso de mis datos para gestionar y responder
+              esta consulta.
+            </span>
+          </label>
+
+          <button type="submit" class="contacto-btn-enviar">
+            Validar consulta
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
+
+        <p class="contacto-nota">
+          Este formulario es una demostración y todavía no envía
+          la consulta a la organización.
+        </p>
+      </div>
+    </div>
   </div>
-
-</section>
-
-
-<section class="contact-collaboration">
-
-  <div class="collaboration-content">
-
-    <p class="section-label">TRABAJEMOS JUNTOS</p>
-
-    <h2>¿Quieres colaborar con Ubuntu?</h2>
-
-    <p>
-      Ubuntu trabaja junto a instituciones, empresas y grupos que desean
-      contribuir a sus iniciativas y proyectos.
-    </p>
-
-    <p>
-      Si representas una organización y quieres conocer más sobre nuestras
-      actividades o explorar una posible colaboración, puedes comunicarte
-      con nosotros.
-    </p>
-
-    <a
-      href="mailto:administracion.sistemas@ubuntujvperu.org"
-      class="btn-primary"
-    >
-      Enviar un correo
-    </a>
-
-  </div>
-
-  <div class="collaboration-image">
-    <img
-      src="/imagenes/AQUI-FOTO-ALIANZAS.jpg"
-      alt="Colaboración y trabajo en equipo"
-    >
-  </div>
-
-</section>
-
-
-<section class="contact-question">
-
-  <div class="question-content">
-
-    <p>¿QUIERES FORMAR PARTE DE UBUNTU?</p>
-
-    <h2>Si buscas ser voluntario, tenemos un espacio para ti.</h2>
-
-    <span>
-      Conoce el programa de voluntariado y completa tu registro.
-    </span>
-
-    <br><br>
-
-    <a
-      routerLink="/voluntariado/registro"
-      class="btn-white"
-    >
-      Quiero ser voluntario
-    </a>
-
-  </div>
-
 </section>

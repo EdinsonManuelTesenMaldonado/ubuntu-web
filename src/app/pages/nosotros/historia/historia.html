@@ -1,153 +1,453 @@
-<section class="page-header">
-  <div class="header-content">
-    <span>QUIÉNES SOMOS</span>
-    <h1>Nuestra historia</h1>
-    <p>
-      Un camino que comenzó con jóvenes universitarios y que continúa
-      creciendo junto a las comunidades.
-    </p>
-  </div>
-</section>
+<div class="historia-page">
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="historia-hero">
+
+    <div class="hero-hand hero-hand-left">
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt=""
+      >
+    </div>
+
+    <div class="hero-hand hero-hand-right">
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt=""
+      >
+    </div>
+
+    <div class="hero-content">
+
+      <span class="hero-label">
+        NUESTRA HISTORIA
+      </span>
+
+      <h1>
+        Una historia<br>
+        que comenzó<br>
+        con un <strong>sí.</strong>
+      </h1>
+
+      <p>
+        Un pequeño grupo de jóvenes universitarios decidió
+        dar el primer paso. Desde entonces, Ubuntu comenzó
+        a construir su propia historia.
+      </p>
+
+      <div class="hero-date">
+
+        <strong>2016</strong>
+
+        <span>
+          EL INICIO
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
 
 
-<section class="historia-intro">
+  <!-- =====================================================
+       INTRODUCCIÓN
+  ====================================================== -->
 
-  <div class="historia-text">
-    <span class="etiqueta">DESDE 2016</span>
+  <section class="historia-intro">
 
-    <h2>Un pequeño comienzo que se convirtió en Ubuntu</h2>
+    <div class="intro-number">
+      01
+    </div>
 
-    <p>
-      Ubuntu Jóvenes Voluntarios Perú inició su labor el
-      <strong>30 de septiembre de 2016</strong>, gracias a un pequeño
-      equipo de jóvenes universitarios.
-    </p>
+    <div class="intro-content">
 
-    <p>
-      Su primer voluntariado se realizó en
-      <strong>Pachacútec, Ventanilla, Perú</strong>.
-      Desde entonces, Ubuntu comenzó a desarrollar iniciativas orientadas
-      a acompañar y apoyar a personas y comunidades.
-    </p>
-  </div>
+      <span class="section-kicker">
+        TODO COMENZÓ AQUÍ
+      </span>
 
-  <div class="historia-image">
-    <img
-      src="/imagenes/IMG_20211017_092641_907.jpg"
-      alt="Actividad de voluntariado Ubuntu"
+      <h2>
+        De una idea<br>
+        a una <strong>comunidad.</strong>
+      </h2>
+
+      <p>
+        Ubuntu Jóvenes Voluntarios Perú inicia su valiosa labor
+        el 30 de setiembre del 2016, por un pequeño equipo de
+        jóvenes universitarios que decidió comenzar su primer
+        voluntariado en Pachacútec – Ventanilla.
+      </p>
+
+      <p>
+        Ese primer paso marcó el comienzo de una organización
+        liderada por jóvenes voluntarios en Perú.
+      </p>
+
+    </div>
+
+    <div class="intro-sticker">
+
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt="Ubuntu"
+      >
+
+      <span>
+        YO SOY<br>
+        PORQUE<br>
+        TODOS SOMOS
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       TIMELINE INTERACTIVO
+  ====================================================== -->
+
+  <section class="timeline-section">
+
+    <div class="timeline-header">
+
+      <div>
+
+        <span class="section-kicker">
+          NUESTRA LÍNEA DE TIEMPO
+        </span>
+
+        <h2>
+          Cuatro momentos.<br>
+          <strong>Una historia.</strong>
+        </h2>
+
+      </div>
+
+      <p>
+        Selecciona cada etapa para conocer cómo fue tomando
+        forma la historia de Ubuntu.
+      </p>
+
+    </div>
+
+
+    <!-- SELECTORES -->
+
+    <div class="timeline-navigation">
+
+      @for (etapa of etapas; track etapa.numero; let i = $index) {
+
+        <button
+          type="button"
+          class="timeline-step"
+          [class.active]="etapaActiva === i"
+          [style.--step-color]="etapa.color"
+          (click)="seleccionarEtapa(i)"
+        >
+
+          <span class="step-number">
+            {{ etapa.numero }}
+          </span>
+
+          <span class="step-title">
+            {{ etapa.titulo }}
+          </span>
+
+        </button>
+
+      }
+
+    </div>
+
+
+    <!-- CONTENIDO -->
+
+    <div
+      class="timeline-content"
+      [style.--active-color]="etapaActual.color"
     >
-  </div>
 
-</section>
+      <div class="timeline-photo">
 
+        <img
+          [src]="etapaActual.imagen"
+          [alt]="etapaActual.titulo"
+        >
 
-<section class="camino">
+        <div class="photo-number">
+          {{ etapaActual.numero }}
+        </div>
 
-  <div class="camino-header">
-    <span class="etiqueta">NUESTRO CAMINO</span>
-    <h2>De un grupo de jóvenes a una organización nacional</h2>
-    <p>
-      Con el paso del tiempo, Ubuntu amplió sus actividades y su presencia
-      en diferentes lugares del Perú.
-    </p>
-  </div>
+        <div class="photo-date">
+          {{ etapaActual.fecha }}
+        </div>
 
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <div class="timeline-number">01</div>
-      <div>
-        <h3>2016 — El inicio</h3>
-        <p>
-          Primer voluntariado en Pachacútec, Ventanilla,
-          realizado por un pequeño grupo de jóvenes universitarios.
-        </p>
       </div>
+
+
+      <div class="timeline-info">
+
+        <span class="timeline-counter">
+          ETAPA {{ etapaActual.numero }}
+        </span>
+
+        <h3>
+          {{ etapaActual.titulo }}
+        </h3>
+
+        <p class="timeline-main-text">
+          {{ etapaActual.descripcion }}
+        </p>
+
+        <div class="timeline-detail">
+
+          <i class="fa-solid fa-hand-holding-heart"></i>
+
+          <p>
+            {{ etapaActual.detalle }}
+          </p>
+
+        </div>
+
+
+        <div class="timeline-controls">
+
+          <button
+            type="button"
+            class="arrow-button"
+            (click)="anterior()"
+            aria-label="Etapa anterior"
+          >
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+
+          <span>
+            {{ etapaActiva + 1 }} / {{ etapas.length }}
+          </span>
+
+          <button
+            type="button"
+            class="arrow-button"
+            (click)="siguiente()"
+            aria-label="Siguiente etapa"
+          >
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-number">02</div>
-      <div>
-        <h3>Más voluntarios</h3>
-        <p>
-          Ubuntu fue incorporando nuevos voluntarios, internos,
-          profesionales y personas comprometidas con sus iniciativas.
-        </p>
+  </section>
+
+
+  <!-- =====================================================
+       PRIMER VOLUNTARIADO
+  ====================================================== -->
+
+  <section class="primer-paso">
+
+    <div class="primer-paso-image">
+
+      <img
+        src="/imagenes/IMG_20211017_092641_907.jpg"
+        alt="Voluntariado de Ubuntu"
+      >
+
+      <div class="image-label">
+        PACHACÚTEC · VENTANILLA
       </div>
+
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-number">03</div>
-      <div>
-        <h3>Más proyectos</h3>
+
+    <div class="primer-paso-content">
+
+      <span class="section-kicker">
+        EL PRIMER VOLUNTARIADO
+      </span>
+
+      <h2>
+        Todo gran camino<br>
+        empieza con un<br>
+        <strong>primer paso.</strong>
+      </h2>
+
+      <p>
+        El primer voluntariado de Ubuntu se realizó en
+        Pachacútec – Ventanilla. Fue el punto de partida
+        de una organización que posteriormente continuaría
+        desarrollando iniciativas junto a diferentes
+        comunidades.
+      </p>
+
+      <div class="quote-card">
+
+        <i class="fa-solid fa-quote-left"></i>
+
         <p>
-          Se desarrollaron proyectos sociales, ambientales,
-          animalistas y culturales.
+          Estar presentes donde se debe estar.
         </p>
+
       </div>
+
     </div>
 
-    <div class="timeline-item">
-      <div class="timeline-number">04</div>
-      <div>
-        <h3>Presencia en el Perú</h3>
-        <p>
-          Ubuntu extendió su trabajo a diferentes departamentos
-          y territorios del país.
-        </p>
-      </div>
+  </section>
+
+
+  <!-- =====================================================
+       CRECIMIENTO
+  ====================================================== -->
+
+  <section class="crecimiento">
+
+    <div class="crecimiento-decoration">
+
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt=""
+      >
+
     </div>
 
-  </div>
+    <div class="crecimiento-content">
 
-</section>
+      <span>
+        CON EL PASO DEL TIEMPO
+      </span>
+
+      <h2>
+        La historia<br>
+        se escribe <strong>juntos.</strong>
+      </h2>
+
+      <p>
+        Ubuntu fue creciendo con la participación de jóvenes
+        voluntarios, profesionales, pasantes, expertos en
+        desarrollo y pobladores.
+      </p>
+
+      <div class="growth-items">
+
+        <div class="growth-item">
+          <span>+</span>
+          <strong>700</strong>
+          <p>voluntarios</p>
+        </div>
+
+        <div class="growth-item">
+          <span>+</span>
+          <strong>300</strong>
+          <p>internos y pasantes</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
 
 
-<section class="historia-actual">
+  <!-- =====================================================
+       FILOSOFÍA
+  ====================================================== -->
 
-  <div class="actual-image">
-    <img
-      src="/imagenes/PSX_20241001_083825.jpg"
-      alt="Voluntariado Ubuntu"
-    >
-  </div>
+  <section class="historia-filosofia">
 
-  <div class="actual-text">
+    <div class="filosofia-hand">
 
-    <span class="etiqueta">UBUNTU HOY</span>
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt=""
+      >
 
-    <h2>Una organización liderada por jóvenes</h2>
+    </div>
 
-    <p>
-      Actualmente, Ubuntu Jóvenes Voluntarios Perú es liderado por un
-      equipo interdisciplinario y multicultural conformado por
-      profesionales, internos, voluntarios, expertos en desarrollo
-      y residentes.
-    </p>
+    <div class="filosofia-content">
 
-    <p>
-      Su trabajo se organiza mediante cuatro líneas de acción:
-      social, ambiental, animalista y cultural.
-    </p>
+      <span>
+        Y HAY ALGO QUE NO CAMBIA
+      </span>
 
-  </div>
+      <h2>
+        “Yo soy porque<br>
+        <strong>todos somos.</strong>”
+      </h2>
 
-</section>
+      <p>
+        La filosofía Ubuntu continúa siendo parte de la
+        identidad de la organización.
+      </p>
+
+      <div class="filosofia-line"></div>
+
+      <p class="small-text">
+        Ser persona a través de otras personas.
+      </p>
+
+    </div>
+
+  </section>
 
 
-<section class="historia-cierre">
+  <!-- =====================================================
+       CIERRE
+  ====================================================== -->
 
-  <div>
-    <h2>Una historia que continúa escribiéndose</h2>
+  <section class="historia-cierre">
 
-    <p>
-      Cada voluntario, proyecto y comunidad forma parte del camino
-      que Ubuntu continúa construyendo desde 2016.
-    </p>
+    <div class="cierre-content">
 
-    <a href="/voluntariado/registro">
-      Sé parte de Ubuntu →
-    </a>
-  </div>
+      <span>
+        DESDE 2016
+      </span>
 
-</section>
+      <h2>
+        La historia<br>
+        <strong>continúa.</strong>
+      </h2>
+
+      <p>
+        Y ahora tú también puedes formar parte de ella.
+      </p>
+
+      <div class="cierre-buttons">
+
+        <a
+          routerLink="/voluntariado/registro"
+          class="btn-primary"
+        >
+          QUIERO SER VOLUNTARIO
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <a
+          routerLink="/nosotros"
+          class="btn-outline"
+        >
+          VOLVER A QUIÉNES SOMOS
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="cierre-hand">
+
+      <img
+        src="/imagenes/manitos-ubuntu.png"
+        alt="Ubuntu"
+      >
+
+    </div>
+
+  </section>
+
+</div>

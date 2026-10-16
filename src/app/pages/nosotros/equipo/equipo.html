@@ -1,27 +1,67 @@
+
 <section class="page-header">
-  <div>
-    <span>QUIÉNES SOMOS</span>
-    <h1>Nuestro equipo</h1>
+  <div class="header-decoration header-decoration-one"></div>
+  <div class="header-decoration header-decoration-two"></div>
+
+  <div class="header-content">
+    <div class="breadcrumb">
+      <a routerLink="/inicio">Inicio</a>
+      <span>/</span>
+      <a routerLink="/nosotros">Quiénes somos</a>
+    </div>
+
+    <span class="eyebrow">
+      <i class="fa-solid fa-people-group"></i>
+      QUIÉNES SOMOS
+    </span>
+
+    <h1>Detrás de cada acción, hay <span>personas</span></h1>
+
     <p>
-      Una comunidad interdisciplinaria y multicultural que aporta
-      conocimientos, experiencia y compromiso.
+      Una comunidad interdisciplinaria y multicultural que reúne
+      conocimientos, experiencias y capacidades para desarrollar
+      iniciativas junto con otras personas.
     </p>
+
+    <a routerLink="/voluntariado" class="header-button">
+      Súmate a Ubuntu
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+
+  <img
+    class="header-hands"
+    src="/imagenes/manitos-ubuntu.png"
+    alt="Símbolo de Ubuntu con un corazón"
+  />
+
+  <div class="header-sticker">
+    <i class="fa-solid fa-heart"></i>
+    <span>Personas que colaboran</span>
   </div>
 </section>
-
 
 <section class="intro">
   <div class="intro-image">
     <img
       src="/imagenes/AQUI-FOTO-EQUIPO-GENERAL.jpg"
       alt="Equipo de Ubuntu"
-    >
+      loading="lazy"
+    />
+
+    <div class="photo-caption">
+      <img src="/imagenes/manitos-ubuntu.png" alt="" />
+      <div>
+        <strong>Somos Ubuntu</strong>
+        <span>Distintas capacidades, una comunidad</span>
+      </div>
+    </div>
   </div>
 
   <div class="intro-text">
-    <span class="etiqueta">PERSONAS QUE CONSTRUYEN UBUNTU</span>
+    <span class="section-label">PERSONAS QUE CONSTRUYEN UBUNTU</span>
 
-    <h2>Una comunidad diversa</h2>
+    <h2>Una comunidad diversa, unida por la colaboración.</h2>
 
     <p>
       Ubuntu está liderado por un equipo interdisciplinario y multicultural
@@ -32,107 +72,137 @@
       Profesionales, internos, voluntarios, expertos en desarrollo y
       residentes participan en la organización de sus iniciativas.
     </p>
+
+    <div class="intro-highlight">
+      <span class="highlight-icon">
+        <i class="fa-solid fa-handshake-angle"></i>
+      </span>
+
+      <div>
+        <strong>Todos podemos aportar algo</strong>
+        <p>
+          La diversidad de experiencias permite sumar perspectivas,
+          compartir conocimientos y colaborar en distintas iniciativas.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
-
 <section class="integrantes">
-
   <div class="section-title">
-    <span>QUIÉNES PARTICIPAN</span>
-    <h2>Un equipo con diferentes perspectivas</h2>
+    <span class="section-label">QUIÉNES PARTICIPAN</span>
+
+    <h2>Un equipo con <span>diferentes perspectivas</span></h2>
+
+    <p>
+      Conoce los perfiles que forman parte de esta comunidad.
+      Selecciona una tarjeta para descubrir más.
+    </p>
   </div>
 
   <div class="integrantes-grid">
+    <article
+      *ngFor="let integrante of integrantes; let i = index"
+      class="integrante"
+      [class.integrante-activo]="integranteActivo === i"
+      [style.--integrante-color]="integrante.color"
+      [style.--integrante-fondo]="integrante.fondo"
+    >
+      <button
+        type="button"
+        class="integrante-trigger"
+        (click)="seleccionarIntegrante(i)"
+        [attr.aria-expanded]="integranteActivo === i"
+      >
+        <div class="integrante-image">
+          <img
+            [src]="integrante.imagen"
+            [alt]="integrante.nombre"
+            loading="lazy"
+          />
 
-    <article class="integrante">
-      <div class="integrante-image">
-        <img
-          src="/imagenes/AQUI-FOTO-PROFESIONALES.jpg"
-          alt="Profesionales de Ubuntu"
-        >
+          <span class="integrante-numero">
+            {{ integrante.numero }}
+          </span>
+
+          <span class="integrante-icono">
+            <i [class]="integrante.icono"></i>
+          </span>
+        </div>
+
+        <div class="integrante-content">
+          <span class="integrante-etiqueta">
+            PERFIL UBUNTU
+          </span>
+
+          <h3>{{ integrante.nombre }}</h3>
+
+          <p>{{ integrante.descripcion }}</p>
+
+          <span class="integrante-link">
+            {{ integranteActivo === i ? 'Ver menos' : 'Conocer más' }}
+
+            <i
+              class="fa-solid"
+              [class.fa-arrow-up]="integranteActivo === i"
+              [class.fa-arrow-right]="integranteActivo !== i"
+            ></i>
+          </span>
+        </div>
+      </button>
+
+      <div
+        class="integrante-detalle"
+        *ngIf="integranteActivo === i"
+      >
+        <p>{{ integrante.detalle }}</p>
       </div>
 
-      <div class="integrante-content">
-        <h3>Profesionales</h3>
-        <p>
-          Aportan sus conocimientos y experiencia al desarrollo
-          de las iniciativas.
-        </p>
-      </div>
+      <img
+        class="integrante-hands"
+        src="/imagenes/manitos-ubuntu.png"
+        alt=""
+      />
     </article>
-
-
-    <article class="integrante">
-      <div class="integrante-image">
-        <img
-          src="/imagenes/AQUI-FOTO-VOLUNTARIOS.jpg"
-          alt="Voluntarios de Ubuntu"
-        >
-      </div>
-
-      <div class="integrante-content">
-        <h3>Voluntarios</h3>
-        <p>
-          Jóvenes que participan activamente en las actividades
-          y proyectos de Ubuntu.
-        </p>
-      </div>
-    </article>
-
-
-    <article class="integrante">
-      <div class="integrante-image">
-        <img
-          src="/imagenes/AQUI-FOTO-INTERNOS.jpg"
-          alt="Internos de Ubuntu"
-        >
-      </div>
-
-      <div class="integrante-content">
-        <h3>Internos y pasantes</h3>
-        <p>
-          Participan aportando sus conocimientos y desarrollando
-          experiencias dentro de la organización.
-        </p>
-      </div>
-    </article>
-
-
-    <article class="integrante">
-      <div class="integrante-image">
-        <img
-          src="/imagenes/AQUI-FOTO-COMUNIDAD.jpg"
-          alt="Comunidad Ubuntu"
-        >
-      </div>
-
-      <div class="integrante-content">
-        <h3>Residentes y comunidades</h3>
-        <p>
-          Las personas y comunidades forman parte importante
-          de los procesos desarrollados en territorio.
-        </p>
-      </div>
-    </article>
-
   </div>
 </section>
 
+<section class="franja-colaboracion">
+  <div class="franja-icon">
+    <i class="fa-solid fa-people-arrows-left-right"></i>
+  </div>
+
+  <div class="franja-text">
+    <span>UNA COMUNIDAD, MUCHAS CAPACIDADES</span>
+    <h2>Lo que nos une es la posibilidad de colaborar.</h2>
+  </div>
+
+  <img
+    src="/imagenes/manitos-ubuntu.png"
+    alt=""
+    class="franja-hands"
+  />
+</section>
 
 <section class="trabajo">
-
   <div class="trabajo-image">
     <img
       src="/imagenes/AQUI-FOTO-TRABAJO-EQUIPO.jpg"
-      alt="Trabajo en equipo Ubuntu"
-    >
+      alt="Personas colaborando en una actividad de Ubuntu"
+      loading="lazy"
+    />
+
+    <div class="trabajo-badge">
+      <i class="fa-solid fa-heart"></i>
+      <span>Colaborar nos acerca</span>
+    </div>
   </div>
 
   <div class="trabajo-text">
-    <span>TRABAJAR JUNTOS</span>
+    <span class="section-label">TRABAJAR JUNTOS</span>
 
-    <h2>La colaboración es parte de nuestro camino</h2>
+    <h2>Las alianzas también forman parte de nuestro camino.</h2>
 
     <p>
       Ubuntu busca generar alianzas y espacios de colaboración con
@@ -140,22 +210,68 @@
       sus iniciativas.
     </p>
 
-    <a href="/trabajo">
-      Conoce nuestro trabajo →
+    <p>
+      La cooperación permite compartir experiencias, sumar capacidades
+      y desarrollar acciones con objetivos comunes.
+    </p>
+
+    <a routerLink="/trabajo" class="text-link">
+      Conoce nuestro trabajo
+      <i class="fa-solid fa-arrow-right"></i>
     </a>
   </div>
-
 </section>
 
+<section class="filosofia">
+  <div class="filosofia-symbol">
+    <img
+      src="/imagenes/manitos-ubuntu.png"
+      alt="Símbolo de Ubuntu con un corazón"
+      loading="lazy"
+    />
+  </div>
+
+  <div class="filosofia-content">
+    <span>LA FILOSOFÍA QUE NOS INSPIRA</span>
+
+    <h2>“Yo soy porque todos somos”</h2>
+
+    <p>
+      Las personas somos parte de una comunidad. Escuchar, colaborar
+      y reconocer lo que cada integrante puede aportar nos permite
+      construir juntos.
+    </p>
+  </div>
+
+  <i class="fa-solid fa-heart filosofia-heart"></i>
+</section>
 
 <section class="cierre">
-  <h2>¿Quieres formar parte del equipo?</h2>
+  <div class="cierre-content">
+    <span>¡TÚ TAMBIÉN PUEDES PARTICIPAR!</span>
 
-  <p>
-    Conoce nuestro programa de voluntariado y las formas de participar.
-  </p>
+    <h2>Tu talento también tiene un lugar en Ubuntu.</h2>
 
-  <a href="/voluntariado">
-    Conoce el voluntariado →
-  </a>
+    <p>
+      Si tienes ganas de ayudar y aportar tus capacidades, conoce
+      el programa de voluntariado y descubre cómo puedes participar.
+    </p>
+
+    <div class="cierre-buttons">
+      <a routerLink="/voluntariado" class="cierre-primary">
+        Conoce el voluntariado
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <a routerLink="/nosotros/valores" class="cierre-secondary">
+        Conoce nuestros valores
+      </a>
+    </div>
+  </div>
+
+  <img
+    class="cierre-hands"
+    src="/imagenes/manitos-ubuntu.png"
+    alt=""
+  />
 </section>

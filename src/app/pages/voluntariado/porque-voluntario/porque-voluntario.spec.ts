@@ -1,19 +1,19 @@
+
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { PorqueSerVoluntarioComponent } from './porque-ser-voluntario';
 
-import { PorqueVoluntario } from './porque-voluntario';
-
-describe('PorqueVoluntario', () => {
-  let component: PorqueVoluntario;
-  let fixture: ComponentFixture<PorqueVoluntario>;
+describe('PorqueSerVoluntarioComponent', () => {
+  let component: PorqueSerVoluntarioComponent;
+  let fixture: ComponentFixture<PorqueSerVoluntarioComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PorqueVoluntario],
+      imports: [PorqueSerVoluntarioComponent]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PorqueVoluntario);
+    fixture = TestBed.createComponent(PorqueSerVoluntarioComponent);
     component = fixture.componentInstance;
-    await fixture.whenStable();
+    fixture.detectChanges();
   });
 
   it('should create', () => {

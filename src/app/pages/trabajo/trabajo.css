@@ -1,298 +1,674 @@
-.page-header {
-  background: #e30613;
-  color: white;
-  padding: 90px 40px;
-  text-align: center;
-}
 
-.page-header > div {
-  max-width: 850px;
-  margin: auto;
-}
+/* ==================================================
+   IDENTIDAD VISUAL — UBUNTU
+================================================== */
 
-.page-header span,
-.destacados-header span,
-.cierre span {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.page-header h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 50px;
-  margin: 18px 0;
-}
-
-.page-header p {
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-
-/* INTRO */
-
-.intro {
-  max-width: 1200px;
-  margin: auto;
-  padding: 100px 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-
-.intro-image {
-  height: 450px;
-}
-
-.intro-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+:host {
   display: block;
+  --ubuntu-red: #d60000;
+  --ubuntu-red-dark: #a90000;
+  --ubuntu-black: #181818;
+  --ubuntu-text: #252525;
+  --ubuntu-gray: #626262;
+  --ubuntu-cream: #fff7eb;
+  --ubuntu-light: #f7f7f7;
+  --ubuntu-white: #ffffff;
 }
 
-.etiqueta {
-  color: #e30613;
-  font-family: 'Montserrat', sans-serif;
+* {
+  box-sizing: border-box;
+}
+
+.trabajo-page {
+  width: 100%;
+  color: var(--ubuntu-text);
+  overflow: hidden;
+  font-family: "Open Sans", Arial, sans-serif;
+}
+
+.trabajo-page section {
+  width: 100%;
+}
+
+.trabajo-page h1,
+.trabajo-page h2,
+.trabajo-page h3 {
+  font-family: "Montserrat", Arial, sans-serif;
+}
+
+.subtitulo {
+  display: inline-block;
+  color: var(--ubuntu-red);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+/* ==================================================
+   SECCIÓN 1: HERO / ENCABEZADO PRINCIPAL
+================================================== */
+
+.trabajo-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 510px;
+  padding: 85px 8%;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 55px;
+  overflow: hidden;
+  color: var(--ubuntu-white);
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(255, 200, 61, 0.18),
+      transparent 30%
+    ),
+    var(--ubuntu-red);
+}
+
+.trabajo-hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 430px;
+  height: 430px;
+  right: -100px;
+  top: -230px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: 50%;
+}
+
+.trabajo-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 230px;
+  height: 230px;
+  right: 8%;
+  bottom: -175px;
+  background: rgba(255, 193, 7, 0.09);
+  border-radius: 50%;
+}
+
+.hero-content {
+  max-width: 680px;
+}
+
+.hero-etiqueta {
+  display: inline-block;
+  padding: 10px 14px;
+  color: var(--ubuntu-white);
+  background: var(--ubuntu-red-dark);
+  border-left: 4px solid #ffc83d;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.hero-content h1 {
+  margin: 24px 0 22px;
+  color: var(--ubuntu-white);
+  font-size: clamp(40px, 5vw, 66px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -1.8px;
+}
+
+.hero-content h1 span {
+  display: block;
+  margin-top: 8px;
+  color: #ffca45;
+}
+
+.hero-content > p {
+  max-width: 580px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.btn-principal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 15px 23px;
+  color: var(--ubuntu-black);
+  background: #ffc83d;
+  border: 1px solid #ffc83d;
+  border-radius: 3px;
+  text-decoration: none;
   font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-weight: 800;
+  transition: background 0.25s ease,
+              color 0.25s ease,
+              transform 0.25s ease;
 }
 
-.intro-text h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 38px;
-  line-height: 1.2;
-  margin: 15px 0 25px;
+.btn-principal:hover {
+  color: var(--ubuntu-red);
+  background: var(--ubuntu-white);
+  border-color: var(--ubuntu-white);
+  transform: translateY(-3px);
 }
 
-.intro-text p {
-  color: #555;
-  font-size: 17px;
+.btn-principal i {
+  transition: transform 0.25s ease;
+}
+
+.btn-principal:hover i {
+  transform: translateX(4px);
+}
+
+/* Decoración del Hero */
+
+.hero-decoracion {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circulo {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.circulo-grande {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.025)
+  );
+}
+
+.circulo-pequeno {
+  width: 255px;
+  height: 255px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.hero-mensaje {
+  position: relative;
+  z-index: 1;
+  width: 280px;
+  padding: 35px 24px;
+  text-align: center;
+  color: var(--ubuntu-text);
+  background: var(--ubuntu-white);
+  border-top: 4px solid var(--ubuntu-red);
+  border-radius: 5px;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.25);
+}
+
+.hero-mensaje > i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  height: 62px;
+  margin-bottom: 18px;
+  color: var(--ubuntu-red);
+  background: #fff0f0;
+  border-radius: 50%;
+  font-size: 26px;
+}
+
+.hero-mensaje h2 {
+  margin: 5px 0;
+  color: var(--ubuntu-black);
+  font-size: 21px;
+  font-weight: 800;
+}
+
+.hero-mensaje h2:nth-of-type(2) {
+  color: var(--ubuntu-red);
+}
+
+.hero-mensaje p {
+  margin: 15px 0 0;
+  color: var(--ubuntu-gray);
+  font-size: 12px;
   line-height: 1.8;
 }
 
+/* ==================================================
+   SECCIÓN 2: INTRODUCCIÓN
+================================================== */
 
-/* LÍNEAS */
-
-.lineas {
-  background: #f7f7f7;
-  padding: 100px 40px;
-}
-
-.lineas-header {
-  text-align: center;
-  max-width: 750px;
-  margin: auto;
-}
-
-.lineas-header span {
-  color: #e30613;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 2px;
-}
-
-.lineas-header h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 38px;
-  margin: 15px 0 50px;
-}
-
-.lineas-grid {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
-}
-
-.linea {
-  background: white;
-}
-
-.linea-image {
-  height: 260px;
-  overflow: hidden;
-}
-
-.linea-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform .4s ease;
-}
-
-.linea:hover img {
-  transform: scale(1.05);
-}
-
-.linea-content {
-  padding: 25px;
-}
-
-.linea-content > span {
-  color: #e30613;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-}
-
-.linea-content h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 23px;
-  margin: 10px 0;
-}
-
-.linea-content p {
-  color: #555;
-  line-height: 1.6;
-}
-
-
-/* DESTACADOS */
-
-.destacados {
-  padding: 100px 40px;
-}
-
-.destacados-header {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.destacados-header span {
-  color: #e30613;
-}
-
-.destacados-header h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 38px;
-  margin: 15px 0 45px;
-}
-
-.destacados-grid {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.destacado {
-  text-decoration: none;
-  color: #181818;
-  border: 1px solid #ddd;
-  padding: 35px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: .3s;
-}
-
-.destacado:hover {
-  border-color: #e30613;
-  transform: translateY(-4px);
-}
-
-.destacado span {
-  color: #e30613;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-}
-
-.destacado h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 24px;
-  margin: 10px 0;
-}
-
-.destacado p {
-  color: #666;
+.introduccion {
+  position: relative;
+  max-width: none;
   margin: 0;
-  line-height: 1.6;
-}
-
-.destacado strong {
-  color: #e30613;
-  font-size: 28px;
-}
-
-
-/* CIERRE */
-
-.cierre {
-  background: #e30613;
-  color: white;
+  padding: 85px 24px 75px;
   text-align: center;
-  padding: 90px 40px;
+  background: var(--ubuntu-cream);
 }
 
-.cierre h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 38px;
-  margin: 0 0 20px;
+.introduccion::after {
+  content: "";
+  display: block;
+  width: 55px;
+  height: 4px;
+  margin: 28px auto 0;
+  background: var(--ubuntu-red);
+  border-radius: 5px;
 }
 
-.cierre p {
-  max-width: 650px;
-  margin: 0 auto 30px;
-  line-height: 1.7;
+.introduccion h2 {
+  max-width: 800px;
+  margin: 17px auto;
+  color: var(--ubuntu-black);
+  font-size: clamp(29px, 3.4vw, 42px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
 }
 
-.cierre a {
-  display: inline-block;
-  background: white;
-  color: #e30613;
-  padding: 15px 28px;
+.introduccion p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--ubuntu-gray);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* ==================================================
+   SECCIÓN 3: TARJETAS — ÁREAS DE TRABAJO
+================================================== */
+
+.areas-trabajo {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 45px 30px 95px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  background: var(--ubuntu-cream);
+}
+
+.trabajo-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 295px;
+  padding: 28px;
+  color: var(--ubuntu-text);
+  background: var(--ubuntu-white);
+  border: 1px solid #eee6dc;
+  border-top: 4px solid var(--ubuntu-red);
+  border-radius: 7px;
   text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(35, 25, 15, 0.045);
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
 }
 
+.trabajo-card:nth-child(2) {
+  border-top-color: #f2b82e;
+}
 
-/* RESPONSIVE */
+.trabajo-card:nth-child(3) {
+  border-top-color: #e74c8b;
+}
+
+.trabajo-card:nth-child(4) {
+  border-top-color: #333333;
+}
+
+.trabajo-card:nth-child(5) {
+  border-top-color: #7b61a8;
+}
+
+.trabajo-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 18px 38px rgba(35, 25, 15, 0.11);
+}
+
+.card-superior {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.card-numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 35px;
+  min-height: 30px;
+  padding: 5px 8px;
+  color: var(--ubuntu-red);
+  background: #fff0f0;
+  border-radius: 4px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.trabajo-card:nth-child(2) .card-numero {
+  color: #986a00;
+  background: #fff5d9;
+}
+
+.trabajo-card:nth-child(3) .card-numero {
+  color: #c52c70;
+  background: #fff0f6;
+}
+
+.trabajo-card:nth-child(4) .card-numero {
+  color: #333333;
+  background: #eeeeee;
+}
+
+.trabajo-card:nth-child(5) .card-numero {
+  color: #6c4c9b;
+  background: #f2edfa;
+}
+
+.card-icono {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  color: var(--ubuntu-red);
+  background: #fff0f0;
+  border-radius: 6px;
+  font-size: 21px;
+  transition: transform 0.3s ease;
+}
+
+.trabajo-card:nth-child(2) .card-icono {
+  color: #986a00;
+  background: #fff5d9;
+}
+
+.trabajo-card:nth-child(3) .card-icono {
+  color: #c52c70;
+  background: #fff0f6;
+}
+
+.trabajo-card:nth-child(4) .card-icono {
+  color: #333333;
+  background: #eeeeee;
+}
+
+.trabajo-card:nth-child(5) .card-icono {
+  color: #6c4c9b;
+  background: #f2edfa;
+}
+
+.trabajo-card:hover .card-icono {
+  transform: scale(1.07);
+}
+
+.card-contenido {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.card-contenido h3 {
+  margin: 0 0 13px;
+  color: var(--ubuntu-black);
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.card-contenido p {
+  margin: 0;
+  color: var(--ubuntu-gray);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.card-enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 25px;
+  color: var(--ubuntu-red);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.card-enlace i {
+  transition: transform 0.25s ease;
+}
+
+.trabajo-card:hover .card-enlace i {
+  transform: translateX(5px);
+}
+
+/* ==================================================
+   SECCIÓN 4: INVITACIÓN AL VOLUNTARIADO
+================================================== */
+
+.invitacion {
+  position: relative;
+  isolation: isolate;
+  padding: 70px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  overflow: hidden;
+  color: var(--ubuntu-white);
+  background:
+    radial-gradient(
+      circle at 90% 0%,
+      rgba(214, 0, 0, 0.2),
+      transparent 28%
+    ),
+    var(--ubuntu-black);
+}
+
+.invitacion::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 240px;
+  height: 240px;
+  right: -100px;
+  bottom: -150px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+}
+
+.invitacion > div {
+  max-width: 720px;
+}
+
+.invitacion .subtitulo {
+  color: #ffc83d;
+}
+
+.invitacion h2 {
+  margin: 15px 0;
+  color: var(--ubuntu-white);
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.invitacion p {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.btn-invitacion {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 0;
+  padding: 16px 24px;
+  color: var(--ubuntu-black);
+  background: #ffc83d;
+  border: 1px solid #ffc83d;
+  border-radius: 3px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+  transition: transform 0.25s ease,
+              background 0.25s ease;
+}
+
+.btn-invitacion:hover {
+  background: var(--ubuntu-white);
+  transform: translateY(-3px);
+}
+
+/* ==================================================
+   RESPONSIVE: TABLETS
+================================================== */
 
 @media (max-width: 900px) {
-
-  .intro {
+  .trabajo-hero {
     grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 65px 7%;
   }
 
-  .lineas-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hero-content {
+    max-width: 750px;
+  }
+
+  .hero-decoracion {
+    min-height: 310px;
+  }
+
+  .introduccion {
+    padding: 70px 25px 60px;
+  }
+
+  .areas-trabajo {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 40px 25px 70px;
+  }
+
+  .invitacion {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 25px;
+    padding: 60px 7%;
   }
 }
 
-@media (max-width: 650px) {
+/* ==================================================
+   RESPONSIVE: CELULARES
+================================================== */
 
-  .intro,
-  .lineas,
-  .destacados {
-    padding: 65px 25px;
+@media (max-width: 560px) {
+  .trabajo-hero {
+    min-height: auto;
+    padding: 48px 22px 30px;
+    gap: 10px;
   }
 
-  .page-header h1 {
-    font-size: 38px;
+  .hero-etiqueta {
+    max-width: 100%;
+    font-size: 9px;
+    letter-spacing: 1.1px;
+    line-height: 1.7;
   }
 
-  .intro-image {
-    height: 320px;
+  .hero-content h1 {
+    margin: 22px 0 18px;
+    font-size: 39px;
+    letter-spacing: -1px;
   }
 
-  .lineas-grid,
-  .destacados-grid {
+  .hero-content > p {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .btn-principal {
+    padding: 14px 18px;
+    font-size: 12px;
+  }
+
+  .hero-decoracion {
+    min-height: 270px;
+  }
+
+  .circulo-grande {
+    width: 245px;
+    height: 245px;
+  }
+
+  .circulo-pequeno {
+    width: 210px;
+    height: 210px;
+  }
+
+  .hero-mensaje {
+    width: min(250px, 90%);
+    padding: 25px 18px;
+  }
+
+  .hero-mensaje h2 {
+    font-size: 19px;
+  }
+
+  .introduccion {
+    padding: 58px 22px 48px;
+  }
+
+  .introduccion h2 {
+    font-size: 29px;
+  }
+
+  .introduccion p {
+    font-size: 14px;
+  }
+
+  .areas-trabajo {
     grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 30px 20px 55px;
   }
 
-  .lineas-header h2,
-  .destacados-header h2,
-  .intro-text h2,
-  .cierre h2 {
-    font-size: 30px;
+  .trabajo-card {
+    min-height: 250px;
+    padding: 24px;
+  }
+
+  .card-superior {
+    margin-bottom: 22px;
+  }
+
+  .card-contenido h3 {
+    font-size: 19px;
+  }
+
+  .invitacion {
+    padding: 48px 23px;
+  }
+
+  .invitacion h2 {
+    font-size: 29px;
+  }
+
+  .invitacion p {
+    font-size: 13px;
   }
 }

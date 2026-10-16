@@ -1,3 +1,4 @@
+
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
@@ -6,28 +7,23 @@ export const routes: Routes = [
     redirectTo: 'inicio',
     pathMatch: 'full'
   },
-
-  // INICIO
   {
     path: 'inicio',
     loadComponent: () =>
       import('./pages/inicio/inicio').then(m => m.Inicio)
   },
-// ACTUALIDAD
-{
-  path: 'actualidad',
-  loadComponent: () =>
-    import('./pages/actualidad/actualidad')
-      .then(m => m.Actualidad)
-},
-// CONTACTO
-{
-  path: 'contacto',
-  loadComponent: () =>
-    import('./pages/contacto/contacto')
-      .then(m => m.Contacto)
-},
-  // QUIÉNES SOMOS
+  {
+    path: 'actualidad',
+    loadComponent: () =>
+      import('./pages/actualidad/actualidad').then(m => m.Actualidad)
+  },
+  {
+    path: 'contacto',
+    loadComponent: () =>
+      import('./pages/contacto/contacto').then(m => m.Contacto)
+  },
+
+  // NOSOTROS
   {
     path: 'nosotros',
     loadComponent: () =>
@@ -36,7 +32,8 @@ export const routes: Routes = [
   {
     path: 'nosotros/historia',
     loadComponent: () =>
-      import('./pages/nosotros/historia/historia').then(m => m.Historia)
+      import('./pages/nosotros/historia/historia')
+        .then(m => m.Historia)
   },
   {
     path: 'nosotros/mision-vision',
@@ -47,15 +44,23 @@ export const routes: Routes = [
   {
     path: 'nosotros/valores',
     loadComponent: () =>
-      import('./pages/nosotros/valores/valores').then(m => m.Valores)
+      import('./pages/nosotros/valores/valores')
+        .then(m => m.Valores)
   },
   {
     path: 'nosotros/equipo',
     loadComponent: () =>
-      import('./pages/nosotros/equipo/equipo').then(m => m.Equipo)
+      import('./pages/nosotros/equipo/equipo')
+        .then(m => m.Equipo)
   },
-{ path: 'nosotros/sedes-equipos', loadComponent: () => import('./pages/nosotros/sedes-equipos/sedes-equipos').then(m => m.SedesEquipos) },
-  // NUESTRO TRABAJO
+  {
+    path: 'nosotros/sedes-equipos',
+    loadComponent: () =>
+      import('./pages/nosotros/sedes-equipos/sedes-equipos')
+        .then(m => m.SedesEquipos)
+  },
+
+  // TRABAJO Y ACTIVIDADES
   {
     path: 'trabajo',
     loadComponent: () =>
@@ -64,23 +69,32 @@ export const routes: Routes = [
   {
     path: 'trabajo/proyectos',
     loadComponent: () =>
-      import('./pages/trabajo/proyectos/proyectos').then(m => m.Proyectos)
+      import('./pages/trabajo/proyectos/proyectos')
+        .then(m => m.Proyectos)
   },
   {
     path: 'trabajo/actividades',
     loadComponent: () =>
       import('./pages/trabajo/actividades/actividades')
-        .then(m => m.Actividades)
+        .then(m => m.ActividadesComponent)
   },
   {
     path: 'trabajo/impacto',
     loadComponent: () =>
-      import('./pages/trabajo/impacto/impacto').then(m => m.Impacto)
+      import('./pages/trabajo/impacto/impacto')
+        .then(m => m.ImpactoComponent)
   },
   {
     path: 'trabajo/galeria',
     loadComponent: () =>
-      import('./pages/trabajo/galeria/galeria').then(m => m.Galeria)
+      import('./pages/trabajo/galeria/galeria')
+        .then(m => m.GaleriaComponent)
+  },
+  {
+    path: 'trabajo/lineas-accion',
+    loadComponent: () =>
+      import('./pages/trabajo/lineas-accion/lineas-accion')
+        .then(m => m.LineasAccion)
   },
 
   // VOLUNTARIADO
@@ -88,13 +102,13 @@ export const routes: Routes = [
     path: 'voluntariado',
     loadComponent: () =>
       import('./pages/voluntariado/voluntariado')
-        .then(m => m.Voluntariado)
+        .then(m => m.VoluntariadoComponent)
   },
   {
     path: 'voluntariado/porque-voluntario',
     loadComponent: () =>
       import('./pages/voluntariado/porque-voluntario/porque-voluntario')
-        .then(m => m.PorqueVoluntario)
+        .then(m => m.PorqueSerVoluntarioComponent)
   },
   {
     path: 'voluntariado/profesional',
@@ -106,7 +120,7 @@ export const routes: Routes = [
     path: 'voluntariado/requisitos',
     loadComponent: () =>
       import('./pages/voluntariado/requisitos/requisitos')
-        .then(m => m.Requisitos)
+        .then(m => m.RequisitosComponent)
   },
   {
     path: 'voluntariado/preguntas-frecuentes',
@@ -118,16 +132,12 @@ export const routes: Routes = [
     path: 'voluntariado/registro',
     loadComponent: () =>
       import('./pages/voluntariado/registro/registro')
-        .then(m => m.Registro)
+        .then(m => m.RegistroComponent)
   },
 
-// LÍNEAS DE ACCIÓN
-{
-  path: 'lineas-accion',
-  loadComponent: () =>
-    import('./pages/lineas-accion/lineas-accion')
-      .then(m => m.LineasAccion)
-}
-
-  
+  // RUTA NO ENCONTRADA
+  {
+    path: '**',
+    redirectTo: 'inicio'
+  }
 ];
