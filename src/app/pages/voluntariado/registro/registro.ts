@@ -1,5 +1,4 @@
-
-import { Component } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
@@ -32,7 +31,9 @@ export class RegistroComponent {
   error = '';
   enviando = false;
 
-  private apiUrl = 'http://localhost:8080/api/voluntarios';
+  private apiUrl = 'https://formspree.io/f/xgaaavvy';
+
+  constructor(private cdr: ChangeDetectorRef) {}
 
   siguientePaso(): void {
     this.error = '';
@@ -103,15 +104,11 @@ export class RegistroComponent {
       const respuesta = await fetch(this.apiUrl, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify(this.voluntario)
       });
-
-      const texto = await respuesta.text();
-
-      console.log('STATUS DEL SERVIDOR:', respuesta.status);
-      console.log('RESPUESTA:', texto);
 
       if (!respuesta.ok) {
         throw new Error(
@@ -140,9 +137,10 @@ export class RegistroComponent {
     } catch (error) {
       console.error('ERROR AL ENVIAR REGISTRO:', error);
       this.error =
-        'No se pudo enviar el registro. Verifica que el servidor esté funcionando.';
+        'No se pudo enviar el registro. Verifica tu conexión e inténtalo nuevamente.';
     } finally {
       this.enviando = false;
+      this.cdr.detectChanges(); // Forzamos a Angular a actualizar la pantalla al instante
     }
   }
 }
